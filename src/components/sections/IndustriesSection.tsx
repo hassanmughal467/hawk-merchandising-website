@@ -21,7 +21,7 @@ export function IndustriesSection() {
             variants={fadeUp}
             className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Industries we serve
+            Industries served
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-base leading-relaxed text-zinc-400">
             From single-head shops to national programs—same production discipline on every file.
@@ -33,7 +33,7 @@ export function IndustriesSection() {
           whileInView={reduce ? undefined : "visible"}
           viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
-          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {industriesServed.map((industry) => (
             <motion.div

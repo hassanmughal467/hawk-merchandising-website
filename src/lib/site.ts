@@ -26,6 +26,12 @@ export const site = {
   whatsappE164: "19292991866",
   addressUs: "Torry Pine Lane, Durham, NC 27713, USA",
   addressUk: "22 Wenlock Rd, London N1 7GU, UK",
+  businessHours: "Monday–Friday, 8:00 AM – 6:00 PM ET",
+  responseTime: "Same business day for most requests",
+  clientPortal: {
+    url: "https://portal.hawkmerchandising.com",
+    label: "Client Login",
+  },
 } as const;
 
 export const services = [

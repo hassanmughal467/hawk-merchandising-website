@@ -89,6 +89,16 @@ export function Footer() {
                   Upload
                 </Link>
               </li>
+              <li>
+                <a
+                  href={site.clientPortal.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-zinc-300 transition hover:text-white"
+                >
+                  {site.clientPortal.label}
+                </a>
+              </li>
               {navLegal.map((l) => (
                 <li key={l.href}>
                   <Link

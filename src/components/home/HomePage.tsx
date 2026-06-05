@@ -1,16 +1,16 @@
 import { CTASection } from "@/components/sections/CTASection";
-import { ClientLogosSection } from "@/components/sections/ClientLogosSection";
+import { ClientSuccessSection } from "@/components/sections/ClientSuccessSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { FastTurnaroundSection } from "@/components/sections/FastTurnaroundSection";
 import { GoogleReviewsSection } from "@/components/sections/GoogleReviewsSection";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { HomepageQuoteSection } from "@/components/sections/HomepageQuoteSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { OfferSection } from "@/components/sections/OfferSection";
-import { PortfolioSection } from "@/components/sections/PortfolioSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
-import { TrustSection } from "@/components/sections/TrustSection";
-import { VideosPreviewSection } from "@/components/sections/VideosPreviewSection";
+import { PortalPromoSection } from "@/components/sections/PortalPromoSection";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { TrustBar } from "@/components/sections/TrustBar";
 import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
+import { getFAQPreview } from "@/lib/content/faq";
 import type { ReviewsData } from "@/lib/content/reviews";
 
 type HomePageProps = {
@@ -18,20 +18,27 @@ type HomePageProps = {
 };
 
 export function HomePage({ reviewsData }: HomePageProps) {
+  const faqPreview = getFAQPreview(5);
+
   return (
     <>
       <HeroSection />
-      <TrustSection />
-      <GoogleReviewsSection data={reviewsData} />
+      <TrustBar />
+      <StatsSection />
       <WhyChooseSection />
-      <FastTurnaroundSection />
-      <ServicesSection />
       <IndustriesSection />
-      <OfferSection />
-      <PortfolioSection />
-      <VideosPreviewSection />
-      <ClientLogosSection />
-      <TestimonialsSection />
+      <FastTurnaroundSection />
+      <GoogleReviewsSection data={reviewsData} />
+      <ClientSuccessSection />
+      <FAQSection
+        items={faqPreview}
+        title="Common questions"
+        showViewAll
+        variant="light"
+        id="faq-preview"
+      />
+      <PortalPromoSection />
+      <HomepageQuoteSection />
       <CTASection />
     </>
   );

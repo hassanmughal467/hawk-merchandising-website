@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
-import { navPrimary, navResources } from "@/lib/site";
+import { navPrimary, navResources, site } from "@/lib/site";
 import { Logo } from "@/components/brand/Logo";
 
 function isNavActive(pathname: string, href: string) {
@@ -112,6 +112,14 @@ export function Navbar() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
+          <a
+            href={site.clientPortal.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="focus-ring hidden rounded-full border border-white/15 px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-white/25 hover:bg-white/5 sm:inline-flex xl:px-4 xl:text-sm"
+          >
+            {site.clientPortal.label}
+          </a>
           <Link
             href="/upload"
             className="focus-ring hidden rounded-full bg-accent-gradient px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover sm:inline-flex"
@@ -195,6 +203,14 @@ export function Navbar() {
           >
             Upload your design
           </Link>
+          <a
+            href={site.clientPortal.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl border border-white/15 px-3 py-3 text-center text-sm font-semibold text-zinc-200"
+          >
+            {site.clientPortal.label}
+          </a>
         </div>
       </div>
     </header>

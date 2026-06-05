@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServiceLanding } from "@/components/marketing/ServiceLanding";
+import { ServicePageShell } from "@/components/marketing/ServicePageShell";
 import { getServicePage } from "@/lib/content/service-pages";
 
 const content = getServicePage("logo-redraw");
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function LogoRedrawPage() {
-  return <ServiceLanding content={content} />;
+  return <ServicePageShell content={content} />;
 }

@@ -1,3 +1,5 @@
+import type { FAQItem } from "@/lib/content/faq";
+
 export type ServiceFeature = {
   title: string;
   body: string;
@@ -10,11 +12,14 @@ export type ServicePageContent = {
   eyebrow: string;
   title: string;
   subtitle: string;
+  overview: string;
   features: ServiceFeature[];
+  benefits?: ServiceFeature[];
   deliverables?: string[];
   processSteps?: { step: string; title: string; desc: string }[];
   relatedLinks?: { href: string; label: string }[];
   portfolioCategory?: "embroidery-digitizing" | "vector-conversion" | "custom-patches";
+  faqItems?: FAQItem[];
 };
 
 export const servicePages: Record<string, ServicePageContent> = {
@@ -30,6 +35,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Hand-digitized embroidery files for serious production",
     subtitle:
       "Hawk Merchandising converts your artwork into stitch-ready files tuned for your garment, fabric, and machine—not generic auto-fill presets.",
+    overview:
+      "From left-chest logos to full jacket backs and cap programs, our digitizers engineer underlay, density, and sequencing for the fabric and frame you actually run. Upload your artwork with garment and placement notes—we deliver production files with revision support until your sample is approved.",
     features: [
       {
         title: "Logo & left-chest digitizing",
@@ -76,6 +83,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Vector art that survives printing—not just zooming in",
     subtitle:
       "Editable vector artwork for screen print, heat transfer, signage, and production digitizing workflows.",
+    overview:
+      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—screen print separations, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
     features: [
       {
         title: "Raster to vector",
@@ -101,6 +110,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       "PSD (as needed)",
       "CorelDRAW (CDR)",
     ],
+    processSteps: [
+      { step: "01", title: "Upload & brief", desc: "Source artwork, intended use, and output formats." },
+      { step: "02", title: "Vectorize & QA", desc: "Manual redraw with clean paths and color separation." },
+      { step: "03", title: "Deliver & revise", desc: "Editable files plus proofs until approved." },
+    ],
     relatedLinks: [
       { href: "/portfolio?category=vector-conversion", label: "Before / after vector work" },
       { href: "/logo-redraw", label: "Logo redraw services" },
@@ -119,6 +133,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Patch programs engineered for manufacturing",
     subtitle:
       "Patch artwork with borders, sew allowances, and color systems aligned to how your factory actually builds.",
+    overview:
+      "Whether you need embroidered, woven, PVC, or chenille patches, we prepare artwork with borders, color breaks, and sizing your factory expects. Include target dimensions, border style, and backing type in your brief—we engineer files for accurate vendor quotes and clean samples.",
     features: [
       {
         title: "Embroidered patches",
@@ -136,6 +152,11 @@ export const servicePages: Record<string, ServicePageContent> = {
         title: "Heat-seal & merrow borders",
         body: "Border styles and backing options documented so your vendor quotes and samples stay accurate.",
       },
+    ],
+    processSteps: [
+      { step: "01", title: "Brief & sizing", desc: "Patch type, dimensions, border, and backing requirements." },
+      { step: "02", title: "Artwork & QA", desc: "Color breaks and borders engineered for your vendor." },
+      { step: "03", title: "Deliver & revise", desc: "Production files until sample approval." },
     ],
     relatedLinks: [
       { href: "/woven-patches", label: "Woven patches" },
@@ -156,6 +177,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Woven patches for detail embroidery cannot match",
     subtitle:
       "When thread count limits your logo, woven construction delivers crisp type, gradients, and small elements at patch scale.",
+    overview:
+      "Woven patches excel where embroidery thread cannot hold fine type, gradients, or micro detail. We prepare weave-ready artwork with realistic color breaks and sizing for uniform programs, team marks, and retail patches—delivered with revision support until your vendor sample is approved.",
     features: [
       {
         title: "Fine text & micro detail",
@@ -169,6 +192,11 @@ export const servicePages: Record<string, ServicePageContent> = {
         title: "Uniform & team programs",
         body: "Consistent sizing and color systems across name badges, shoulder marks, and chest patches.",
       },
+    ],
+    processSteps: [
+      { step: "01", title: "Brief & sizing", desc: "Target size, weave limits, and color requirements." },
+      { step: "02", title: "Artwork prep", desc: "Color breaks tuned for woven production." },
+      { step: "03", title: "Deliver & revise", desc: "Vendor-ready files with revision support." },
     ],
     relatedLinks: [
       { href: "/custom-patches", label: "All patch types" },
@@ -188,6 +216,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "PVC patches with production-aware artwork",
     subtitle:
       "Molded patch programs need precise color breaks and layer separation—we deliver vector masters your PVC factory can run.",
+    overview:
+      "PVC and rubber-style patches require precise layer separation and color breaks for molding. We deliver vector masters with dimension, outline weights, and Pantone-matched colors within your vendor's production limits—plus revision support until sampling succeeds.",
     features: [
       {
         title: "Color break planning",
@@ -203,6 +233,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
     ],
     deliverables: ["AI / EPS vector", "PDF proof", "Pantone or thread-matched colors", "Size spec sheet"],
+    processSteps: [
+      { step: "01", title: "Brief & layers", desc: "Size, mold limits, and color system requirements." },
+      { step: "02", title: "Vector prep", desc: "Layer separation and color break engineering." },
+      { step: "03", title: "Deliver & revise", desc: "Vendor-ready masters until sample approval." },
+    ],
     relatedLinks: [
       { href: "/vector-art-conversion", label: "Vector art conversion" },
       { href: "/portfolio/videos", label: "Patch production videos" },
@@ -221,6 +256,8 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Logo redraws that unify every vendor",
     subtitle:
       "One accurate master logo for embroidery, screen print, patches, and promo—so your brand looks the same everywhere.",
+    overview:
+      "Blurry scans, outdated marks, and low-resolution logos become one crisp master for every vendor you work with. Our redraws consider stitch behavior, patch borders, and print separations—not just how the mark looks at 400% zoom.",
     features: [
       {
         title: "Low-resolution rescue",
@@ -240,6 +277,11 @@ export const servicePages: Record<string, ServicePageContent> = {
       },
     ],
     deliverables: ["AI / EPS master", "PDF proof", "PNG exports", "Optional digitizing handoff"],
+    processSteps: [
+      { step: "01", title: "Source review", desc: "Assess artwork quality and intended outputs." },
+      { step: "02", title: "Redraw & QA", desc: "Manual vector rebuild with brand-accurate paths." },
+      { step: "03", title: "Deliver & revise", desc: "Master files plus optional digitizing handoff." },
+    ],
     relatedLinks: [
       { href: "/vector-art-conversion", label: "Vector conversion" },
       { href: "/embroidery-digitizing", label: "Embroidery digitizing" },

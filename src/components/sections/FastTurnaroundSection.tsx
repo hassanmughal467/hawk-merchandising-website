@@ -23,7 +23,7 @@ export function FastTurnaroundSection() {
               variants={fadeUp}
               className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl"
             >
-              {fastTurnaround.headline}
+              How we work
             </motion.h2>
             <motion.div variants={fadeUp} className="mt-8 space-y-4">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">

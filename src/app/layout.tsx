@@ -3,7 +3,11 @@ import { DM_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ExitIntentModal } from "@/components/layout/ExitIntentModal";
+import { StickyQuoteBar } from "@/components/layout/StickyQuoteBar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { buildLocalBusinessSchema, buildOrganizationSchema } from "@/lib/seo/organization-schema";
 import { site } from "@/lib/site";
 
 const display = Outfit({
@@ -68,10 +72,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased bg-background text-foreground">
+        <JsonLdScript data={[buildOrganizationSchema(), buildLocalBusinessSchema()]} />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StickyQuoteBar />
         <WhatsAppFloat />
+        <ExitIntentModal />
       </body>
     </html>
   );

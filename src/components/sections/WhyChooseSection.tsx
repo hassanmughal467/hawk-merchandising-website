@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { whyChooseHawk } from "@/lib/content/trust";
+import { whyBusinessesChooseHawk } from "@/lib/content/trust";
 import { fadeUp, stagger } from "@/lib/motion";
 
 export function WhyChooseSection() {
@@ -21,7 +21,7 @@ export function WhyChooseSection() {
             variants={fadeUp}
             className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            Why choose Hawk Merchandising
+            Why businesses choose Hawk
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-base leading-relaxed text-zinc-600">
             We compete on trust—consistent quality, clear communication, and files your floor can run today.
@@ -35,7 +35,7 @@ export function WhyChooseSection() {
           variants={stagger}
           className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {whyChooseHawk.map((item) => (
+          {whyBusinessesChooseHawk.map((item) => (
             <motion.div
               key={item.title}
               variants={fadeUp}

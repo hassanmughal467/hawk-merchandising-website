@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { site } from "@/lib/site";
 import { fadeUp } from "@/lib/motion";
 
 export function CTASection() {
@@ -16,23 +17,39 @@ export function CTASection() {
           whileInView={reduce ? undefined : "visible"}
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
-          className="flex flex-col items-start justify-between gap-8 rounded-3xl border border-white/10 bg-brand-section-gradient p-8 shadow-lg shadow-accent-secondary/20 backdrop-blur sm:flex-row sm:items-center sm:p-10"
+          className="flex flex-col items-start justify-between gap-8 rounded-3xl border border-white/10 bg-brand-section-gradient p-8 shadow-lg shadow-accent-secondary/20 backdrop-blur sm:p-10 lg:flex-row lg:items-center"
         >
           <div className="max-w-xl">
-            <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-white sm:text-3xl">
               Upload your design and get started today
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
-              Tell us your garment, placement, and deadline—we’ll return a quote and a plan that fits
-              your production schedule.
+            <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
+              Tell us your garment, placement, and deadline—we'll return a quote and a plan that fits
+              your production schedule. Same-day rush available.
             </p>
           </div>
-          <Link
-            href="/upload"
-            className="focus-ring inline-flex w-full shrink-0 items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90 sm:w-auto"
-          >
-            Start upload
-          </Link>
+          <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <Link
+              href="/upload?intent=sample"
+              className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90"
+            >
+              Get free quote
+            </Link>
+            <Link
+              href="/upload"
+              className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-white/20"
+            >
+              Upload artwork
+            </Link>
+            <a
+              href={site.clientPortal.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-white/20"
+            >
+              Client login
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

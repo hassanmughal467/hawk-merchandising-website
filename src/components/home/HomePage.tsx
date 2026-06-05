@@ -11,13 +11,18 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { TrustSection } from "@/components/sections/TrustSection";
 import { VideosPreviewSection } from "@/components/sections/VideosPreviewSection";
 import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
+import type { ReviewsData } from "@/lib/content/reviews";
 
-export function HomePage() {
+type HomePageProps = {
+  reviewsData: ReviewsData;
+};
+
+export function HomePage({ reviewsData }: HomePageProps) {
   return (
     <>
       <HeroSection />
       <TrustSection />
-      <GoogleReviewsSection />
+      <GoogleReviewsSection data={reviewsData} />
       <WhyChooseSection />
       <FastTurnaroundSection />
       <ServicesSection />

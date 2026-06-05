@@ -30,43 +30,50 @@ export const site = {
 
 export const services = [
   {
-    title: "Logo Digitizing",
+    title: "Embroidery Digitizing",
     description:
-      "Crisp left-chest and brand marks tuned for production—clean trims, stable stitch counts, and files ready for your machines.",
-    href: "/digitizing#logo",
+      "Hand-tuned DST and machine files for logos, caps, jacket backs, and specialty fabrics—built for your floor.",
+    href: "/embroidery-digitizing",
   },
   {
-    title: "Cap Digitizing",
+    title: "Vector Art Conversion",
     description:
-      "Structured for curved panels—balanced density, minimal puckering, and cap-friendly underlay strategies.",
-    href: "/digitizing#cap",
+      "Raster to vector with print-ready EPS, AI, PDF, and CDR—clean separations and embroidery-friendly paths.",
+    href: "/vector-art-conversion",
   },
   {
-    title: "Jacket Back Digitizing",
+    title: "Logo Redraw",
     description:
-      "Large-format embroidery with bold coverage, smooth blends, and detail that holds at scale.",
-    href: "/digitizing#jacket-back",
-  },
-  {
-    title: "Vector Conversion",
-    description:
-      "Print-ready EPS, AI, PDF, and CDR with clean nodes, consistent strokes, and separations when you need them.",
-    href: "/vector",
+      "Rebuild blurry or outdated marks into one crisp master for embroidery, print, patches, and promo.",
+    href: "/logo-redraw",
   },
   {
     title: "Custom Patches",
     description:
-      "Merrowed or laser-cut patch artwork with production-aware borders and colorways for retail-quality results.",
-    href: "/patches",
+      "Embroidered, woven, PVC, and chenille patch artwork with borders and color breaks your factory expects.",
+    href: "/custom-patches",
+  },
+  {
+    title: "Woven Patches",
+    description:
+      "Fine detail and gradients when thread cannot hold the fidelity—woven artwork ready for sampling.",
+    href: "/woven-patches",
+  },
+  {
+    title: "PVC Patches",
+    description:
+      "Molded-style badges with production-aware color breaks and layer structure for PVC vendors.",
+    href: "/pvc-patches",
   },
 ] as const;
 
 export const serviceOptions = [
-  "Logo Digitizing",
-  "Cap Digitizing",
-  "Jacket Back Digitizing",
-  "Vector Conversion",
+  "Embroidery Digitizing",
+  "Vector Art Conversion",
+  "Logo Redraw",
   "Custom Patches",
+  "Woven Patches",
+  "PVC Patches",
   "Promotional Products",
   "Stock Design Inquiry",
   "Other / Not sure",
@@ -75,15 +82,25 @@ export const serviceOptions = [
 /** Primary navigation (always visible on desktop; full list on mobile) */
 export const navPrimary = [
   { href: "/", label: "Home" },
-  { href: "/digitizing", label: "Digitizing" },
-  { href: "/vector", label: "Vector" },
-  { href: "/patches", label: "Patches" },
+  { href: "/embroidery-digitizing", label: "Digitizing" },
+  { href: "/vector-art-conversion", label: "Vector" },
+  { href: "/custom-patches", label: "Patches" },
   { href: "/promotional-products", label: "Promotional" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/pricing", label: "Pricing" },
   { href: "/services", label: "All Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+] as const;
+
+/** SEO service pages (footer & sitemap) */
+export const seoServicePages = [
+  { href: "/embroidery-digitizing", label: "Embroidery Digitizing" },
+  { href: "/vector-art-conversion", label: "Vector Art Conversion" },
+  { href: "/logo-redraw", label: "Logo Redraw" },
+  { href: "/custom-patches", label: "Custom Patches" },
+  { href: "/woven-patches", label: "Woven Patches" },
+  { href: "/pvc-patches", label: "PVC Patches" },
 ] as const;
 
 /** Resources dropdown (reference-style: awards, downloads, tips, stock) */

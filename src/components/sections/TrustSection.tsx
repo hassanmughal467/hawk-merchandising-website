@@ -9,8 +9,6 @@ const stats = [
   { label: "Reach", value: "Global clients" },
 ];
 
-const logos = ["Atlas", "Northline", "Meridian", "Vertex", "Ironwood", "Harbor"];
-
 export function TrustSection() {
   const reduce = useReducedMotion();
 
@@ -49,28 +47,6 @@ export function TrustSection() {
                 </p>
                 <p className="mt-2 text-sm font-medium text-zinc-600">{s.label}</p>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={reduce ? false : "hidden"}
-          whileInView={reduce ? undefined : "visible"}
-          viewport={{ once: true, margin: "-80px" }}
-          variants={fadeUp}
-          className="mt-12"
-        >
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-            Brands &amp; partners
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {logos.map((name) => (
-              <div
-                key={name}
-                className="flex h-14 items-center justify-center rounded-xl border border-zinc-200 bg-white text-xs font-semibold tracking-wide text-zinc-400"
-              >
-                {name}
-              </div>
             ))}
           </div>
         </motion.div>

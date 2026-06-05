@@ -3,11 +3,15 @@ import { site } from "@/lib/site";
 
 const paths = [
   "/",
-  "/digitizing",
-  "/vector",
-  "/patches",
+  "/embroidery-digitizing",
+  "/vector-art-conversion",
+  "/logo-redraw",
+  "/custom-patches",
+  "/woven-patches",
+  "/pvc-patches",
   "/promotional-products",
   "/portfolio",
+  "/portfolio/videos",
   "/pricing",
   "/services",
   "/about",
@@ -27,6 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}${path}`,
     lastModified: new Date(),
     changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : 0.7,
+    priority: path === "/" ? 1 : path.startsWith("/embroidery") || path.startsWith("/vector") || path.startsWith("/custom") ? 0.9 : 0.7,
   }));
 }

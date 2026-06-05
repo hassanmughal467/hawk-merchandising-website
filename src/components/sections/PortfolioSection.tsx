@@ -36,7 +36,7 @@ export function PortfolioSection() {
         </motion.div>
 
         <div className="mt-12">
-          <PortfolioGrid />
+          <PortfolioGrid limit={6} />
         </div>
       </div>
     </section>

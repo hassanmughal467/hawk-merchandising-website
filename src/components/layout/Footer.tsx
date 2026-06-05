@@ -3,15 +3,15 @@ import {
   navLegal,
   navPrimary,
   navResources,
+  seoServicePages,
   site,
 } from "@/lib/site";
 import { Logo } from "@/components/brand/Logo";
 
 const footerServices = [
-  { href: "/digitizing", label: "Digitizing" },
-  { href: "/vector", label: "Vector Art" },
-  { href: "/patches", label: "Patches" },
+  ...seoServicePages,
   { href: "/promotional-products", label: "Promotional Products" },
+  { href: "/portfolio/videos", label: "Portfolio Videos" },
   { href: "/pricing", label: "Pricing" },
   { href: "/services", label: "All Services" },
 ];

@@ -7,7 +7,7 @@ import { services, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Logo digitizing, cap digitizing, jacket backs, vector conversion, and custom patches—built for production teams worldwide.",
+    "Embroidery digitizing, vector art conversion, logo redraw, woven and PVC patches—built for production teams worldwide.",
 };
 
 const detailSections = [

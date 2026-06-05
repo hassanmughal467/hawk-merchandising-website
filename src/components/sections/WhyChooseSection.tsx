@@ -1,11 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { TestimonialCard } from "@/components/ui/TestimonialCard";
-import { clientTestimonials } from "@/lib/content/testimonials";
+import { whyChooseHawk } from "@/lib/content/trust";
 import { fadeUp, stagger } from "@/lib/motion";
 
-export function TestimonialsSection() {
+export function WhyChooseSection() {
   const reduce = useReducedMotion();
 
   return (
@@ -22,10 +21,10 @@ export function TestimonialsSection() {
             variants={fadeUp}
             className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl"
           >
-            What clients say
+            Why choose Hawk Merchandising
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-base leading-relaxed text-zinc-600">
-            Real feedback from teams that live in production—where details matter most.
+            We compete on trust—consistent quality, clear communication, and files your floor can run today.
           </motion.p>
         </motion.div>
 
@@ -34,11 +33,16 @@ export function TestimonialsSection() {
           whileInView={reduce ? undefined : "visible"}
           viewport={{ once: true, margin: "-80px" }}
           variants={stagger}
-          className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {clientTestimonials.map((t) => (
-            <motion.div key={t.name} variants={fadeUp} className="h-full">
-              <TestimonialCard tone="light" quote={t.quote} name={t.name} title={t.title} />
+          {whyChooseHawk.map((item) => (
+            <motion.div
+              key={item.title}
+              variants={fadeUp}
+              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+            >
+              <h3 className="font-[family-name:var(--font-display)] text-lg font-semibold">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-600">{item.body}</p>
             </motion.div>
           ))}
         </motion.div>

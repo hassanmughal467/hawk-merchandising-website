@@ -67,7 +67,7 @@ export default function StockDesignsPage() {
                 Upload brief
               </Link>
               <Link
-                href="/digitizing"
+                href="/embroidery-digitizing"
                 className="focus-ring inline-flex justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white hover:bg-white/5"
               >
                 Digitizing services

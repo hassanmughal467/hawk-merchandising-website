@@ -29,8 +29,12 @@ export const site = {
   businessHours: "Monday–Friday, 8:00 AM – 6:00 PM ET",
   responseTime: "Same business day for most requests",
   clientPortal: {
-    url: "https://portal.hawkmerchandising.com",
-    label: "Client Login",
+    url: "https://admin.hawkmerchandising.com/",
+    label: "Login",
+  },
+  clientSignup: {
+    url: "https://admin.hawkmerchandising.com/auth/register",
+    label: "Signup",
   },
 } as const;
 

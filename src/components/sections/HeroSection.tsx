@@ -52,19 +52,21 @@ export function HeroSection() {
             >
               Get Free Quote
             </Link>
-            <Link
-              href="/upload"
+            <a
+              href={site.clientSignup.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
             >
-              Upload Artwork
-            </Link>
+              {site.clientSignup.label}
+            </a>
             <a
               href={site.clientPortal.url}
               target="_blank"
               rel="noopener noreferrer"
               className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-zinc-200 transition hover:border-white/25 hover:bg-white/10"
             >
-              Client Login
+              {site.clientPortal.label}
             </a>
           </div>
 

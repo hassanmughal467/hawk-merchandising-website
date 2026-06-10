@@ -82,12 +82,14 @@ export function Footer() {
                   </li>
                 ))}
               <li>
-                <Link
-                  href="/upload"
+                <a
+                  href={site.clientSignup.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm text-zinc-300 transition hover:text-white"
                 >
-                  Upload
-                </Link>
+                  {site.clientSignup.label}
+                </a>
               </li>
               <li>
                 <a

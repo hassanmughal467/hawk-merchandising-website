@@ -37,12 +37,12 @@ export function Navbar() {
         scrolled ? "border-white/10 bg-surface/90 backdrop-blur-xl" : "bg-surface/60 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:h-[4.25rem] sm:px-6 lg:px-8">
-        <Logo variant="icon" size="sm" className="h-9 w-auto sm:h-10" priority />
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-2 px-4 sm:h-[4.25rem] sm:gap-3 sm:px-6 lg:px-8">
+        <Logo variant="icon" size="sm" className="h-9 w-auto shrink-0 sm:h-10" priority />
 
         <nav
           aria-label="Main"
-          className="hidden min-w-0 flex-1 justify-center lg:flex"
+          className="hidden min-w-0 flex-1 overflow-hidden lg:flex lg:justify-center"
         >
           <div className="flex max-w-full items-center gap-0 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {navPrimary.map((link) => {
@@ -52,7 +52,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "focus-ring shrink-0 rounded-full px-2.5 py-2 text-xs font-medium text-zinc-300 transition hover:text-white xl:px-3 xl:text-sm",
+                    "focus-ring shrink-0 rounded-full px-2 py-2 text-[11px] font-medium text-zinc-300 transition hover:text-white lg:px-2 xl:px-3 xl:text-sm",
                     active && "bg-white/5 text-white",
                   )}
                 >
@@ -65,7 +65,7 @@ export function Navbar() {
               <button
                 type="button"
                 className={cn(
-                  "focus-ring flex items-center gap-1 rounded-full px-2.5 py-2 text-xs font-medium text-zinc-300 hover:text-white xl:px-3 xl:text-sm",
+                  "focus-ring flex items-center gap-1 rounded-full px-2 py-2 text-[11px] font-medium text-zinc-300 hover:text-white lg:px-2 xl:px-3 xl:text-sm",
                   resourcesActive && "text-white",
                 )}
                 aria-haspopup="menu"
@@ -111,7 +111,7 @@ export function Navbar() {
           </div>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="relative z-10 flex shrink-0 items-center gap-2 bg-surface/60 lg:bg-transparent">
           <a
             href={site.clientPortal.url}
             target="_blank"
@@ -120,12 +120,14 @@ export function Navbar() {
           >
             {site.clientPortal.label}
           </a>
-          <Link
-            href="/upload"
+          <a
+            href={site.clientSignup.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="focus-ring hidden rounded-full bg-accent-gradient px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover sm:inline-flex"
           >
-            Upload
-          </Link>
+            {site.clientSignup.label}
+          </a>
           <button
             type="button"
             className="focus-ring inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white lg:hidden"
@@ -197,12 +199,14 @@ export function Navbar() {
               </Link>
             );
           })}
-          <Link
-            href="/upload"
+          <a
+            href={site.clientSignup.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 rounded-xl bg-accent-gradient px-3 py-3 text-center text-sm font-semibold text-white"
           >
-            Upload your design
-          </Link>
+            {site.clientSignup.label}
+          </a>
           <a
             href={site.clientPortal.url}
             target="_blank"

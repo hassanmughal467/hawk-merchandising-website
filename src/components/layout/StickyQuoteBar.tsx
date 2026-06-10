@@ -31,19 +31,21 @@ export function StickyQuoteBar() {
         >
           Get Free Quote
         </Link>
-        <Link
-          href="/upload"
+        <a
+          href={site.clientSignup.url}
+          target="_blank"
+          rel="noopener noreferrer"
           className="focus-ring pointer-events-auto rounded-l-2xl border border-white/15 bg-surface/95 px-4 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-xl [writing-mode:vertical-rl]"
         >
-          Upload Artwork
-        </Link>
+          {site.clientSignup.label}
+        </a>
         <a
           href={site.clientPortal.url}
           target="_blank"
           rel="noopener noreferrer"
           className="focus-ring pointer-events-auto rounded-l-2xl border border-white/15 bg-surface/95 px-4 py-3 text-xs font-semibold text-zinc-300 shadow-lg backdrop-blur-xl [writing-mode:vertical-rl]"
         >
-          Client Login
+          {site.clientPortal.label}
         </a>
       </div>
 
@@ -62,12 +64,14 @@ export function StickyQuoteBar() {
           >
             Free Quote
           </Link>
-          <Link
-            href="/upload"
+          <a
+            href={site.clientSignup.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="focus-ring flex-1 rounded-full border border-white/15 bg-white/5 py-3 text-center text-sm font-semibold text-white"
           >
-            Upload
-          </Link>
+            {site.clientSignup.label}
+          </a>
         </div>
       </div>
     </>

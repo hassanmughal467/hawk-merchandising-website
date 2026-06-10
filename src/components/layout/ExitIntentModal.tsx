@@ -65,25 +65,26 @@ export function ExitIntentModal() {
           Upload your artwork or send a quick brief—24-hour standard turnaround, same-day rush available.
         </p>
 
+        <button
+          type="button"
+          onClick={dismiss}
+          className="focus-ring mt-4 w-full rounded-full border border-white/15 py-2.5 text-sm font-semibold text-zinc-300 hover:border-white/25 hover:text-white"
+        >
+          Continue browsing
+        </button>
+
         <div className="mt-6">
           <QuoteForm source="exit-intent" compact />
         </div>
 
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+        <div className="mt-4">
           <Link
             href="/upload?intent=sample"
             onClick={dismiss}
-            className="focus-ring flex-1 rounded-full bg-accent-gradient py-2.5 text-center text-sm font-semibold text-white"
+            className="focus-ring block w-full rounded-full bg-accent-gradient py-2.5 text-center text-sm font-semibold text-white"
           >
             Get free sample
           </Link>
-          <button
-            type="button"
-            onClick={dismiss}
-            className="focus-ring flex-1 rounded-full border border-white/15 py-2.5 text-sm font-semibold text-zinc-300"
-          >
-            Continue browsing
-          </button>
         </div>
       </div>
     </div>

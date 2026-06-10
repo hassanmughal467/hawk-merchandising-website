@@ -1,31 +1,38 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { QuoteForm } from "@/components/forms/QuoteForm";
 
 const STORAGE_KEY = "hawk-exit-intent-dismissed";
 
+function isDismissed(): boolean {
+  try {
+    return localStorage.getItem(STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 export function ExitIntentModal() {
   const [open, setOpen] = useState(false);
+  const dismissedRef = useRef(isDismissed());
 
   const dismiss = useCallback(() => {
+    dismissedRef.current = true;
     setOpen(false);
     try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
+      localStorage.setItem(STORAGE_KEY, "1");
     } catch {
       /* ignore */
     }
   }, []);
 
   useEffect(() => {
-    try {
-      if (sessionStorage.getItem(STORAGE_KEY)) return;
-    } catch {
-      /* ignore */
-    }
+    if (dismissedRef.current) return;
 
     const onMouseLeave = (e: MouseEvent) => {
+      if (dismissedRef.current || isDismissed()) return;
       if (e.clientY <= 0 && window.innerWidth >= 768) {
         setOpen(true);
       }

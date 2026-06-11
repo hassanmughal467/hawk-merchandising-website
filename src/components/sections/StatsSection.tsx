@@ -8,16 +8,19 @@ import { fadeUp, stagger } from "@/lib/motion";
 function AnimatedCounter({
   value,
   suffix,
+  displayText,
   active,
 }: {
   value: number;
   suffix: string;
+  displayText?: string;
   active: boolean;
 }) {
   const [display, setDisplay] = useState(0);
   const reduce = useReducedMotion();
 
   useEffect(() => {
+    if (displayText) return;
     if (!active) return;
     if (reduce) {
       setDisplay(value);
@@ -37,7 +40,11 @@ function AnimatedCounter({
 
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [active, reduce, value]);
+  }, [active, displayText, reduce, value]);
+
+  if (displayText) {
+    return <span>{displayText}</span>;
+  }
 
   return (
     <span>
@@ -69,7 +76,12 @@ export function StatsSection() {
               className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 text-center"
             >
               <p className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-accent">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} active={inView} />
+                <AnimatedCounter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  displayText={"displayText" in stat ? stat.displayText : undefined}
+                  active={inView}
+                />
               </p>
               <p className="mt-2 text-sm font-medium text-zinc-400">{stat.label}</p>
             </motion.div>

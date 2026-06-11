@@ -35,18 +35,18 @@ export const whyBusinessesChooseHawk = [
 export const whyChooseHawk = whyBusinessesChooseHawk.map(({ title, body }) => ({ title, body }));
 
 export const trustBarItems = [
-  { label: "24-hour standard turnaround" },
-  { label: "Production-ready file formats" },
-  { label: "Dedicated account support" },
-  { label: "Unlimited reasonable revisions" },
-  { label: "US & UK contact lines" },
+  { label: "Secure File Handling" },
+  { label: "Fast Turnaround" },
+  { label: "Professional Quality" },
+  { label: "Dedicated Support" },
+  { label: "Global Delivery" },
 ] as const;
 
 export const siteStatistics = [
-  { label: "Production files delivered", value: 5000, suffix: "+" },
-  { label: "Average turnaround", value: 24, suffix: " hrs" },
-  { label: "Countries served", value: 40, suffix: "+" },
-  { label: "Client retention rate", value: 92, suffix: "%" },
+  { label: "Production files delivered", value: 50000, suffix: "+" },
+  { label: "Client retention rate", value: 95, suffix: "%" },
+  { label: "Countries served", value: 25, suffix: "+" },
+  { label: "Average turnaround", value: 0, suffix: "", displayText: "12–24 hrs" },
 ] as const;
 
 export const industriesServed = [
@@ -55,24 +55,32 @@ export const industriesServed = [
     detail: "Caps, flats, jackets, and specialty fabrics for single-head and multi-head floors.",
   },
   {
+    name: "Apparel Brands",
+    detail: "Seasonal collections, merch drops, and scalable masters for embroidery-ready production.",
+  },
+  {
     name: "Uniform Manufacturers",
     detail: "Left-chest logos, name badges, and multi-garment programs with consistent brand output.",
-  },
-  {
-    name: "Workwear Suppliers",
-    detail: "High-visibility, durable placements, and heavy fabrics digitized for stable production runs.",
-  },
-  {
-    name: "Clothing Brands",
-    detail: "Seasonal collections, merch drops, and scalable masters for embroidery-ready production.",
   },
   {
     name: "Promotional Product Companies",
     detail: "Multi-SKU runs, distributor deadlines, and artwork that survives real decorator workflows.",
   },
   {
-    name: "Print Providers",
-    detail: "Vector separations, embroidery-ready masters, and patch artwork under one reliable partner.",
+    name: "Sports Teams",
+    detail: "Cap programs, jacket backs, and chenille marks with consistent sizing across team orders.",
+  },
+  {
+    name: "Schools & Universities",
+    detail: "Varsity patches, uniform logos, and spirit wear artwork for campus and alumni programs.",
+  },
+  {
+    name: "Corporate Merchandise",
+    detail: "Brand-consistent left-chest and full-back embroidery for employee and client gifting.",
+  },
+  {
+    name: "Government Contractors",
+    detail: "Secure file handling, spec-compliant artwork, and reliable turnaround for contract programs.",
   },
 ] as const;
 

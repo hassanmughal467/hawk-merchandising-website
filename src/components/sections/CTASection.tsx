@@ -21,11 +21,11 @@ export function CTASection() {
         >
           <div className="max-w-xl">
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              Upload your design and get started today
+              Upload Your Artwork &amp; Get a Free Quote Today
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
-              Tell us your garment, placement, and deadline—we'll return a quote and a plan that fits
-              your production schedule. Same-day rush available.
+              Tell us your garment, placement, and deadline — we&apos;ll return a quote and a plan
+              that fits your production schedule. Same-day rush available.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">

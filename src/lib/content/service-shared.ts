@@ -11,11 +11,16 @@ export const defaultTurnaround = {
 
 export const serviceFaqTopics: Record<string, string[]> = {
   "embroidery-digitizing": ["digitizing", "turnaround-times", "rush-orders", "file-formats"],
+  "cap-digitizing": ["digitizing", "turnaround-times", "rush-orders", "file-formats"],
+  "3d-puff-digitizing": ["digitizing", "turnaround-times", "rush-orders", "file-formats"],
+  "jacket-back-digitizing": ["digitizing", "turnaround-times", "rush-orders", "file-formats"],
   "vector-art-conversion": ["vector-artwork", "file-formats", "pricing", "turnaround-times"],
   "logo-redraw": ["vector-artwork", "file-formats", "pricing", "turnaround-times"],
   "custom-patches": ["custom-patches", "pricing", "turnaround-times", "file-formats"],
   "woven-patches": ["custom-patches", "turnaround-times", "pricing", "file-formats"],
   "pvc-patches": ["custom-patches", "vector-artwork", "turnaround-times", "file-formats"],
+  "chenille-patches": ["custom-patches", "turnaround-times", "pricing", "file-formats"],
+  "leather-patches": ["custom-patches", "vector-artwork", "turnaround-times", "file-formats"],
 };
 
 export function getServiceFAQItems(slug: string): FAQItem[] {

@@ -75,6 +75,36 @@ export const services = [
       "Molded-style badges with production-aware color breaks and layer structure for PVC vendors.",
     href: "/pvc-patches",
   },
+  {
+    title: "Cap Digitizing",
+    description:
+      "Curved-panel cap and hat digitizing with registration tuned for structured and unstructured profiles.",
+    href: "/cap-digitizing",
+  },
+  {
+    title: "3D Puff Digitizing",
+    description:
+      "Raised foam embroidery for caps, polos, and jackets with clean satin borders and production-ready files.",
+    href: "/3d-puff-digitizing",
+  },
+  {
+    title: "Jacket Back Digitizing",
+    description:
+      "Large-format jacket back embroidery with stable fills and sequencing for outerwear production.",
+    href: "/jacket-back-digitizing",
+  },
+  {
+    title: "Chenille Patches",
+    description:
+      "Varsity letter and team chenille patch artwork with chain-stitch borders and factory-ready files.",
+    href: "/chenille-patches",
+  },
+  {
+    title: "Leather Patches",
+    description:
+      "Premium deboss and emboss leather patch artwork for bags, hats, denim, and outerwear branding.",
+    href: "/leather-patches",
+  },
 ] as const;
 
 export const serviceOptions = [
@@ -106,11 +136,16 @@ export const navPrimary = [
 /** SEO service pages (footer & sitemap) */
 export const seoServicePages = [
   { href: "/embroidery-digitizing", label: "Embroidery Digitizing" },
+  { href: "/cap-digitizing", label: "Cap Digitizing" },
+  { href: "/3d-puff-digitizing", label: "3D Puff Digitizing" },
+  { href: "/jacket-back-digitizing", label: "Jacket Back Digitizing" },
   { href: "/vector-art-conversion", label: "Vector Art Conversion" },
   { href: "/logo-redraw", label: "Logo Redraw" },
   { href: "/custom-patches", label: "Custom Patches" },
   { href: "/woven-patches", label: "Woven Patches" },
   { href: "/pvc-patches", label: "PVC Patches" },
+  { href: "/chenille-patches", label: "Chenille Patches" },
+  { href: "/leather-patches", label: "Leather Patches" },
 ] as const;
 
 /** Resources dropdown (reference-style: awards, downloads, tips, stock) */

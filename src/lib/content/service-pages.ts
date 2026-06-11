@@ -288,6 +288,260 @@ export const servicePages: Record<string, ServicePageContent> = {
     ],
     portfolioCategory: "vector-conversion",
   },
+  "cap-digitizing": {
+    slug: "cap-digitizing",
+    path: "/cap-digitizing",
+    metadata: {
+      title: "Cap Digitizing Services",
+      description:
+        "Professional cap and hat embroidery digitizing for structured, unstructured, and trucker caps. Curved-panel sequencing with 24-hour turnaround.",
+    },
+    eyebrow: "Cap Digitizing",
+    title: "Cap digitizing built for curved panels",
+    subtitle:
+      "Structured, unstructured, and trucker caps digitized with registration and density tuned for real cap frames—not flat-garment presets.",
+    overview:
+      "Cap embroidery demands curved-panel sequencing, center-out underlay, and density control that flat-garment digitizing cannot replicate. We engineer every cap file for your frame type, panel count, and backing—delivering production-ready DST, PES, and major machine formats with revision support until your sample runs clean.",
+    features: [
+      {
+        title: "Structured & unstructured caps",
+        body: "Six-panel, five-panel, and unstructured profiles with sequencing matched to your frame.",
+      },
+      {
+        title: "Left panel & front center marks",
+        body: "Side marks, front center logos, and multi-placement cap programs with consistent sizing.",
+      },
+      {
+        title: "Registration & density control",
+        body: "Underlay and fill density tuned to prevent puckering, push-through, and thread breaks on caps.",
+      },
+      {
+        title: "High-volume cap programs",
+        body: "Unified underlay rules across 20+ logo cap programs for predictable multi-head production.",
+      },
+    ],
+    benefits: [
+      {
+        title: "Frame-specific sequencing",
+        body: "Files engineered for your cap frame—not resized from flat-garment masters.",
+      },
+      {
+        title: "Sample-first QA",
+        body: "Run-sheet review against your cap type, backing, and machine before delivery.",
+      },
+    ],
+    deliverables: ["DST", "PES", "EXP", "JEF", "VP3", "HUS", "XXX", "More on request"],
+    processSteps: [
+      { step: "01", title: "Upload & brief", desc: "Cap type, frame, placement, and thread colors." },
+      { step: "02", title: "Digitize & QA", desc: "Curved-panel sequencing with run-sheet review." },
+      { step: "03", title: "Deliver & revise", desc: "Production files until cap sample is approved." },
+    ],
+    relatedLinks: [
+      { href: "/3d-puff-digitizing", label: "3D puff digitizing" },
+      { href: "/embroidery-digitizing", label: "All digitizing services" },
+      { href: "/portfolio?category=embroidery-digitizing", label: "Cap portfolio" },
+    ],
+    portfolioCategory: "embroidery-digitizing",
+  },
+  "3d-puff-digitizing": {
+    slug: "3d-puff-digitizing",
+    path: "/3d-puff-digitizing",
+    metadata: {
+      title: "3D Puff Embroidery Digitizing",
+      description:
+        "Professional 3D puff and foam embroidery digitizing for caps, polos, and jackets. Raised dimension with clean satin borders and production-ready files.",
+    },
+    eyebrow: "3D Puff Digitizing",
+    title: "3D puff embroidery with clean raised dimension",
+    subtitle:
+      "Foam-backed embroidery engineered for caps, polos, and jackets—raised elements with satin borders that hold shape on the machine.",
+    overview:
+      "3D puff embroidery requires precise foam offsets, satin border sequencing, and density control that standard flat digitizing cannot achieve. We engineer puff files with correct underlay, foam stop points, and trim sequences for your garment and foam thickness—delivering production-ready files with revision support until your sample stitches correctly.",
+    features: [
+      {
+        title: "Cap 3D puff marks",
+        body: "Front center and side panel puff logos with foam offsets tuned to structured cap panels.",
+      },
+      {
+        title: "Polo & jacket puff elements",
+        body: "Raised chest logos and accent elements with clean satin borders on knit and woven fabrics.",
+      },
+      {
+        title: "Foam thickness coordination",
+        body: "Digitizing matched to 2mm, 3mm, and 4mm foam with correct stop and trim sequences.",
+      },
+      {
+        title: "Multi-color puff programs",
+        body: "Layered puff elements with color breaks that survive real production runs.",
+      },
+    ],
+    benefits: [
+      {
+        title: "Production-tested puff paths",
+        body: "Satin borders and underlay engineered to prevent foam show-through and border collapse.",
+      },
+      {
+        title: "Rush turnaround available",
+        body: "Same-day and 12-hour rush for cap puff jobs when your deadline cannot wait.",
+      },
+    ],
+    deliverables: ["DST", "PES", "EXP", "JEF", "VP3", "Run sheet with foam notes"],
+    processSteps: [
+      { step: "01", title: "Brief & foam spec", desc: "Garment, foam thickness, placement, and colors." },
+      { step: "02", title: "Puff digitize & QA", desc: "Foam offsets, satin borders, and run-sheet review." },
+      { step: "03", title: "Deliver & revise", desc: "Files plus edits until puff sample is approved." },
+    ],
+    relatedLinks: [
+      { href: "/cap-digitizing", label: "Cap digitizing" },
+      { href: "/embroidery-digitizing", label: "Embroidery digitizing" },
+      { href: "/portfolio/videos", label: "Watch puff production" },
+    ],
+    portfolioCategory: "embroidery-digitizing",
+  },
+  "jacket-back-digitizing": {
+    slug: "jacket-back-digitizing",
+    path: "/jacket-back-digitizing",
+    metadata: {
+      title: "Jacket Back Embroidery Digitizing",
+      description:
+        "Large-format jacket back embroidery digitizing for team jackets, corporate outerwear, and varsity programs. Stable fills with production-ready files.",
+    },
+    eyebrow: "Jacket Back Digitizing",
+    title: "Jacket back embroidery for large-format production",
+    subtitle:
+      "Full back marks, team names, and large-fill logos digitized with stable underlay and sequencing for outerwear fabrics.",
+    overview:
+      "Jacket back embroidery demands large-fill sequencing, stable underlay, and density control on nylon, polyester, and soft-shell fabrics. We engineer every back mark for your frame size, backing, and machine type—delivering production files with stitch counts optimized for multi-head runs and revision support until your sample is approved.",
+    features: [
+      {
+        title: "Full back team marks",
+        body: "Large logos, team names, and mascot artwork with center-out sequencing for stable registration.",
+      },
+      {
+        title: "Soft-shell & nylon outerwear",
+        body: "Underlay and density tuned for slippery and woven outerwear that puckers with generic fills.",
+      },
+      {
+        title: "Multi-head production runs",
+        body: "Stitch counts and sequencing optimized for 6-head and 12-head jacket back production.",
+      },
+      {
+        title: "Varsity & letterman programs",
+        body: "Arc text, stacked names, and large mascot fills engineered for consistent letterman jacket backs.",
+      },
+    ],
+    benefits: [
+      {
+        title: "Large-fill expertise",
+        body: "Gradients, fills, and detail areas sequenced to prevent registration drift on large frames.",
+      },
+      {
+        title: "Fabric-specific underlay",
+        body: "Underlay strategy matched to your jacket shell, lining, and backing combination.",
+      },
+    ],
+    deliverables: ["DST", "PES", "EXP", "JEF", "VP3", "Stitch count report"],
+    processSteps: [
+      { step: "01", title: "Upload & brief", desc: "Jacket type, back size, fabric, and frame dimensions." },
+      { step: "02", title: "Digitize & QA", desc: "Large-fill sequencing with run-sheet review." },
+      { step: "03", title: "Deliver & revise", desc: "Production files until jacket back sample is approved." },
+    ],
+    relatedLinks: [
+      { href: "/embroidery-digitizing", label: "Embroidery digitizing" },
+      { href: "/custom-patches", label: "Custom patches" },
+      { href: "/portfolio?category=embroidery-digitizing", label: "Jacket back portfolio" },
+    ],
+    portfolioCategory: "embroidery-digitizing",
+  },
+  "chenille-patches": {
+    slug: "chenille-patches",
+    path: "/chenille-patches",
+    metadata: {
+      title: "Chenille Patches",
+      description:
+        "Custom chenille patch artwork for varsity letters, team marks, and school programs. Factory-ready files with borders and color breaks.",
+    },
+    eyebrow: "Chenille Patches",
+    title: "Chenille patches for varsity and team programs",
+    subtitle:
+      "Fuzzy chenille texture with chain-stitch borders—artwork engineered for varsity letters, team marks, and school spirit programs.",
+    overview:
+      "Chenille patches deliver the classic varsity look with fuzzy texture and bold letterforms. We prepare chenille-ready artwork with correct letter sizing, chain-stitch border specs, and color breaks your factory expects—delivered with revision support until your vendor sample is approved.",
+    features: [
+      {
+        title: "Varsity letter programs",
+        body: "Single letters, stacked names, and full varsity marks with correct chenille proportions.",
+      },
+      {
+        title: "Team & school marks",
+        body: "Mascot chenille patches, spirit marks, and alumni programs with consistent sizing.",
+      },
+      {
+        title: "Chain-stitch borders",
+        body: "Border styles and backing options documented for accurate vendor quotes and samples.",
+      },
+      {
+        title: "Multi-color chenille",
+        body: "Two-tone and multi-color letter programs with realistic color break planning.",
+      },
+    ],
+    processSteps: [
+      { step: "01", title: "Brief & sizing", desc: "Letter size, chenille type, border, and backing." },
+      { step: "02", title: "Artwork prep", desc: "Color breaks and proportions tuned for chenille production." },
+      { step: "03", title: "Deliver & revise", desc: "Factory-ready files until sample approval." },
+    ],
+    relatedLinks: [
+      { href: "/custom-patches", label: "All patch types" },
+      { href: "/woven-patches", label: "Woven patches" },
+      { href: "/portfolio?category=custom-patches", label: "Chenille examples" },
+    ],
+    portfolioCategory: "custom-patches",
+  },
+  "leather-patches": {
+    slug: "leather-patches",
+    path: "/leather-patches",
+    metadata: {
+      title: "Leather Patches",
+      description:
+        "Custom leather patch artwork for deboss, emboss, and heat-seal programs. Premium branding for bags, hats, and outerwear.",
+    },
+    eyebrow: "Leather Patches",
+    title: "Leather patches for premium brand programs",
+    subtitle:
+      "Deboss, emboss, and heat-seal leather patch artwork engineered for bags, hats, denim, and outerwear branding.",
+    overview:
+      "Leather patches add premium tactile branding to bags, hats, denim, and outerwear. We prepare deboss and emboss-ready artwork with correct line weights, clear space, and sizing your leather vendor expects—delivered with revision support until your sample is approved.",
+    features: [
+      {
+        title: "Deboss & emboss artwork",
+        body: "Line weights and depth specs tuned for real leather stamping and heat-deboss production.",
+      },
+      {
+        title: "Hat & bag programs",
+        body: "Consistent patch sizing across headwear, totes, and backpack collections.",
+      },
+      {
+        title: "Denim & outerwear branding",
+        body: "Leather tab and patch artwork for jeans, jackets, and workwear brand programs.",
+      },
+      {
+        title: "Real vs faux leather specs",
+        body: "Artwork adapted to your vendor's leather type, thickness, and production method.",
+      },
+    ],
+    deliverables: ["AI / EPS vector", "PDF proof", "Size spec sheet", "Deboss depth notes"],
+    processSteps: [
+      { step: "01", title: "Brief & sizing", desc: "Patch size, leather type, deboss/emboss method." },
+      { step: "02", title: "Artwork prep", desc: "Line weights and sizing tuned for leather production." },
+      { step: "03", title: "Deliver & revise", desc: "Vendor-ready files until sample approval." },
+    ],
+    relatedLinks: [
+      { href: "/custom-patches", label: "All patch types" },
+      { href: "/vector-art-conversion", label: "Vector art conversion" },
+      { href: "/portfolio?category=custom-patches", label: "Leather patch examples" },
+    ],
+    portfolioCategory: "custom-patches",
+  },
 };
 
 export function getServicePage(slug: keyof typeof servicePages): ServicePageContent {

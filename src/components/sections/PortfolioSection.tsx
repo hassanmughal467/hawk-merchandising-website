@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { PortfolioGrid } from "@/components/ui/PortfolioGrid";
+import { HomePortfolioGrid } from "@/components/ui/HomePortfolioGrid";
 import { fadeUp } from "@/lib/motion";
 
 export function PortfolioSection() {
@@ -20,11 +20,11 @@ export function PortfolioSection() {
         >
           <div className="max-w-2xl">
             <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl">
-              Portfolio highlights
+              Recent Work
             </h2>
             <p className="mt-4 text-base leading-relaxed text-zinc-400">
-              A quick look at the kind of clarity, edge quality, and stitch discipline you can expect—
-              from caps to jacket backs.
+              A curated selection of embroidery digitizing, cap work, patches, vector art, and
+              promotional branding — the quality your clients expect.
             </p>
           </div>
           <Link
@@ -36,7 +36,7 @@ export function PortfolioSection() {
         </motion.div>
 
         <div className="mt-12">
-          <PortfolioGrid limit={6} />
+          <HomePortfolioGrid />
         </div>
       </div>
     </section>

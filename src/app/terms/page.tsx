@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/marketing/PageHero";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Terms & Conditions",
   description: `Terms and conditions for using ${site.name} digitizing and vector services.`,
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

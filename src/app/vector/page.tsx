@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButtons } from "@/components/marketing/CTAButtons";
 import { PageHero } from "@/components/marketing/PageHero";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Vector Art & Conversion",
   description:
     "Raster to vector conversion, logo redraws, and screen-print ready artwork. EPS, AI, PDF, CDR with clean separations.",
-};
+  path: "/vector",
+  noIndex: true,
+});
 
 const offerings = [
   {

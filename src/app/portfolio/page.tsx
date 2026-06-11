@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { PageHero } from "@/components/marketing/PageHero";
 import { PortfolioPageContent } from "@/components/portfolio/PortfolioPageContent";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Portfolio",
   description:
     "Embroidery digitizing, vector conversion, and custom patch work—organized by category with before/after and production examples.",
-};
+  path: "/portfolio",
+});
 
 export default function PortfolioPage() {
   return (

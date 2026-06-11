@@ -244,6 +244,61 @@ function PromoProduct() {
   );
 }
 
+function WorkwearMockup() {
+  return (
+    <div className="relative flex h-full w-full items-end justify-center bg-gradient-to-b from-zinc-200 to-zinc-300 pb-[8%]">
+      <svg viewBox="0 0 180 220" className="h-[90%] w-[70%]">
+        <path d="M55,35 L90,20 L125,35 L140,55 L135,210 L45,210 L40,55 Z" fill="#374151" />
+        <rect x="72" y="65" width="36" height="28" rx="2" fill="none" stroke="#09c6f9" strokeWidth="0.8" strokeDasharray="2,1" />
+        <text x="90" y="84" textAnchor="middle" fill="#09c6f9" fontSize="8" fontWeight="bold">LOGO</text>
+      </svg>
+    </div>
+  );
+}
+
+function ApronMockup() {
+  return (
+    <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-zinc-100 to-zinc-300">
+      <svg viewBox="0 0 140 180" className="h-[85%] w-[65%]">
+        <path d="M35,30 L105,30 L115,160 L25,160 Z" fill="#1f2937" />
+        <path d="M50,30 L50,15 L90,15 L90,30" fill="none" stroke="#374151" strokeWidth="2" />
+        <rect x="55" y="70" width="30" height="24" rx="2" fill="none" stroke="#09c6f9" strokeWidth="1" strokeDasharray="2,1" />
+        <text x="70" y="87" textAnchor="middle" fill="#09c6f9" fontSize="7" fontWeight="bold">CHEF</text>
+      </svg>
+    </div>
+  );
+}
+
+function ScreenshotLogo() {
+  return (
+    <div className="relative flex h-full w-full items-center justify-center bg-zinc-800 p-4">
+      <div className="w-full rounded border border-zinc-600 bg-zinc-900 p-3 shadow-lg">
+        <div className="mb-2 flex gap-1">
+          <span className="h-2 w-2 rounded-full bg-red-500" />
+          <span className="h-2 w-2 rounded-full bg-yellow-500" />
+          <span className="h-2 w-2 rounded-full bg-green-500" />
+        </div>
+        <div className="flex h-20 items-center justify-center rounded bg-white/10">
+          <span className="text-xs font-bold text-zinc-400 blur-[0.5px]">SCREENSHOT LOGO</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ComplexArtwork() {
+  return (
+    <div className="relative flex h-full w-full items-center justify-center bg-gradient-to-br from-amber-50 to-orange-100">
+      <svg viewBox="0 0 160 120" className="h-[75%] w-[75%]">
+        <circle cx="50" cy="45" r="22" fill="#dc2626" opacity="0.8" />
+        <circle cx="95" cy="55" r="18" fill="#2563eb" opacity="0.7" />
+        <path d="M30,90 Q80,60 130,85" fill="none" stroke="#16a34a" strokeWidth="3" />
+        <text x="80" y="105" textAnchor="middle" fill="#78350f" fontSize="8" fontWeight="bold">COMPLEX</text>
+      </svg>
+    </div>
+  );
+}
+
 const visualMap: Record<VisualType, () => ReactNode> = {
   "logo-original": LogoOriginal,
   "low-res-logo": LowResLogo,
@@ -259,6 +314,10 @@ const visualMap: Record<VisualType, () => ReactNode> = {
   "jacket-back": JacketBack,
   "embroidery-sample": EmbroiderySample,
   "promo-product": PromoProduct,
+  "workwear-mockup": WorkwearMockup,
+  "apron-mockup": ApronMockup,
+  "screenshot-logo": ScreenshotLogo,
+  "complex-artwork": ComplexArtwork,
 };
 
 export function PlaceholderVisual({ type, label, className, showLabel = true }: PlaceholderVisualProps) {

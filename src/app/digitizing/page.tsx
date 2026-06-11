@@ -1,14 +1,18 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButtons } from "@/components/marketing/CTAButtons";
 import { PageHero } from "@/components/marketing/PageHero";
+import { MachineSewOutServiceBlock } from "@/components/sections/MachineSewOutServiceBlock";
+import { TrustStrip } from "@/components/sections/TrustStrip";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Embroidery Digitizing",
   description:
-    "Custom embroidery digitizing for logos, caps, jacket backs, and more. Hand-tuned files, fast turnaround, major machine formats.",
-};
+    "Embroidery digitizing services with fast turnaround digitizing in 3–4 hours. Production ready embroidery files and machine sew-out services for logos, caps, and jacket backs.",
+  path: "/digitizing",
+  noIndex: true,
+});
 
 const specialties = [
   {
@@ -48,6 +52,9 @@ export default function DigitizingPage() {
         title="Hand-digitized embroidery files for serious production"
         subtitle={`${site.name} converts your artwork into stitch-ready files tuned for your garment, fabric, and machine—not generic auto-fill presets.`}
       />
+
+      <TrustStrip />
+
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
           <CTAButtons />
@@ -97,6 +104,8 @@ export default function DigitizingPage() {
           </ul>
         </div>
       </section>
+
+      <MachineSewOutServiceBlock />
 
       <section className="border-b border-white/10 bg-zinc-950">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">

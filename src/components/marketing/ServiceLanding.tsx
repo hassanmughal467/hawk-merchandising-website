@@ -5,11 +5,13 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { GuaranteeSection } from "@/components/sections/GuaranteeSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
+import { MachineSewOutServiceBlock } from "@/components/sections/MachineSewOutServiceBlock";
 import { RelatedServicesSection } from "@/components/sections/RelatedServicesSection";
+import { TrustStrip } from "@/components/sections/TrustStrip";
 import { TurnaroundSection } from "@/components/sections/TurnaroundSection";
 import type { FAQItem } from "@/lib/content/faq";
 import type { ServicePageContent } from "@/lib/content/service-pages";
-import { getRelatedServices, serviceBenefits } from "@/lib/content/service-shared";
+import { getRelatedServices, isDigitizingService, serviceBenefits } from "@/lib/content/service-shared";
 
 type ServiceLandingProps = {
   content: ServicePageContent;
@@ -25,6 +27,8 @@ export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
       <PageHero eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle}>
         <CTAButtons className="!mt-0" />
       </PageHero>
+
+      <TrustStrip />
 
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
@@ -117,6 +121,8 @@ export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
           </div>
         </section>
       ) : null}
+
+      {isDigitizingService(content.slug) ? <MachineSewOutServiceBlock /> : null}
 
       <TurnaroundSection />
       <FAQSection items={faqItems} title={`${content.eyebrow} FAQ`} />

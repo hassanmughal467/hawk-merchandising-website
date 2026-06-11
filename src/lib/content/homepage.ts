@@ -12,7 +12,11 @@ export type VisualType =
   | "leather-patch"
   | "jacket-back"
   | "embroidery-sample"
-  | "promo-product";
+  | "promo-product"
+  | "workwear-mockup"
+  | "apron-mockup"
+  | "screenshot-logo"
+  | "complex-artwork";
 
 export type HeroSlide = {
   id: string;
@@ -63,51 +67,105 @@ export const heroSlides: HeroSlide[] = [
   },
 ];
 
+export type ResultBadge =
+  | "Clean Stitch Path"
+  | "Production Ready"
+  | "Optimized Underlay"
+  | "High Detail Accuracy"
+  | "Fast Turnaround"
+  | "Machine Tested";
+
 export type BeforeAfterCard = {
   id: string;
   title: string;
+  subtitle: string;
+  service: string;
   before: { type: VisualType; label: string };
   after: { type: VisualType; label: string };
+  badges: ResultBadge[];
 };
 
 export const beforeAfterShowcase: BeforeAfterCard[] = [
   {
-    id: "logo-digitizing",
-    title: "Corporate Logo Digitizing",
-    before: { type: "logo-original", label: "Original JPG Logo" },
-    after: { type: "digitized-result", label: "Embroidered Result" },
+    id: "corporate-polo",
+    title: "Corporate Logo",
+    subtitle: "Left Chest Polo Embroidery",
+    service: "Logo Digitizing",
+    before: { type: "logo-original", label: "Original JPG" },
+    after: { type: "polo-mockup", label: "Embroidered Polo" },
+    badges: ["Clean Stitch Path", "Production Ready", "Optimized Underlay"],
   },
   {
-    id: "vector-conversion",
-    title: "Low-Resolution Logo Rescue",
-    before: { type: "low-res-logo", label: "Low Resolution Logo" },
-    after: { type: "vector-art", label: "Clean Vector Artwork" },
+    id: "sports-cap-puff",
+    title: "Sports Team Logo",
+    subtitle: "3D Puff Cap Embroidery",
+    service: "Cap Digitizing",
+    before: { type: "screenshot-logo", label: "Screenshot Logo" },
+    after: { type: "cap-puff", label: "3D Puff Cap" },
+    badges: ["High Detail Accuracy", "Machine Tested", "Fast Turnaround"],
   },
   {
-    id: "pvc-patch",
-    title: "Tactical Brand PVC Patch",
-    before: { type: "logo-original", label: "Artwork" },
+    id: "construction-workwear",
+    title: "Construction Company Logo",
+    subtitle: "Workwear Uniform Embroidery",
+    service: "Professional Embroidery Services",
+    before: { type: "low-res-logo", label: "Low-Resolution Logo" },
+    after: { type: "workwear-mockup", label: "Uniform Embroidery" },
+    badges: ["Optimized Underlay", "Production Ready", "Clean Stitch Path"],
+  },
+  {
+    id: "fashion-jacket",
+    title: "Fashion Brand Artwork",
+    subtitle: "Jacket Back Embroidery",
+    service: "Embroidery Digitizing Services",
+    before: { type: "complex-artwork", label: "Complex Artwork" },
+    after: { type: "jacket-back", label: "Jacket Back Result" },
+    badges: ["High Detail Accuracy", "Clean Stitch Path", "Machine Tested"],
+  },
+  {
+    id: "military-pvc",
+    title: "Military Style Design",
+    subtitle: "PVC Patch Production",
+    service: "Custom Patch Design",
+    before: { type: "logo-original", label: "PNG Artwork" },
     after: { type: "pvc-patch", label: "PVC Patch" },
+    badges: ["Production Ready", "High Detail Accuracy", "Fast Turnaround"],
   },
   {
-    id: "chenille-patch",
-    title: "University Chenille Patch",
-    before: { type: "logo-original", label: "Artwork" },
-    after: { type: "chenille-patch", label: "Chenille Patch" },
+    id: "school-woven",
+    title: "School Logo",
+    subtitle: "Woven Patch",
+    service: "Custom Patch Design",
+    before: { type: "logo-original", label: "Original Logo" },
+    after: { type: "woven-patch", label: "Woven Patch" },
+    badges: ["High Detail Accuracy", "Production Ready", "Clean Stitch Path"],
   },
   {
-    id: "cap-embroidery",
-    title: "Structured Cap Embroidery",
-    before: { type: "logo-original", label: "Artwork" },
+    id: "restaurant-apron",
+    title: "Restaurant Logo",
+    subtitle: "Apron Embroidery",
+    service: "Logo Digitizing",
+    before: { type: "screenshot-logo", label: "Screenshot Logo" },
+    after: { type: "apron-mockup", label: "Apron Embroidery" },
+    badges: ["Optimized Underlay", "Machine Tested", "Fast Turnaround"],
+  },
+  {
+    id: "promo-cap",
+    title: "Promotional Brand Artwork",
+    subtitle: "Embroidered Cap",
+    service: "Cap Digitizing",
+    before: { type: "low-res-logo", label: "Low-Resolution Logo" },
     after: { type: "cap-mockup", label: "Embroidered Cap" },
-  },
-  {
-    id: "jacket-back",
-    title: "Full Back Jacket Embroidery",
-    before: { type: "logo-original", label: "Artwork" },
-    after: { type: "jacket-back", label: "Jacket Back Embroidery" },
+    badges: ["Clean Stitch Path", "Production Ready", "Fast Turnaround"],
   },
 ];
+
+export const beforeAfterTrustStats = [
+  { label: "Files Delivered", display: "50,000+" },
+  { label: "Client Retention", display: "95%" },
+  { label: "Countries Served", display: "25+" },
+  { label: "Turnaround", display: "3–4 Hours" },
+] as const;
 
 /** Homepage portfolio preview — CMS-ready structure */
 export type PortfolioPreviewItem = {
@@ -214,7 +272,8 @@ export type WhyChooseIcon =
   | "shield"
   | "refresh"
   | "layers"
-  | "headset";
+  | "headset"
+  | "machine";
 
 export const whyChooseHawkCards = [
   {
@@ -236,7 +295,7 @@ export const whyChooseHawkCards = [
     icon: "lightning" as const,
     title: "Fast Turnaround",
     description:
-      "Most digitizing and vector files are completed within 12–24 hours without compromising quality.",
+      "Fastest turnaround in 3–4 hours, standard delivery within 12 hours, and rush orders available in 2 hours.",
   },
   {
     id: "patch-manufacturing",
@@ -258,6 +317,13 @@ export const whyChooseHawkCards = [
     title: "Quality Assurance",
     description:
       "Every file undergoes manual review and quality checks to ensure flawless production results.",
+  },
+  {
+    id: "machine-sew-out",
+    icon: "machine" as const,
+    title: "Machine Sew-Out Verification",
+    description:
+      "Verify stitch quality before production with optional sew-out samples for complete peace of mind.",
   },
   {
     id: "revision-assistance",

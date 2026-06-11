@@ -4,6 +4,13 @@ export const site = {
   description:
     "Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. Fast turnaround, consistent quality, worldwide delivery.",
   url: "https://www.hawkmerchandising.com",
+  /** Default Open Graph / Twitter Card image (must exist in public/) */
+  ogImage: {
+    src: "/images/sew-out/sew-out-hero.png",
+    alt: "Machine sew-out sample from Hawk Merchandising embroidery digitizing",
+    width: 1200,
+    height: 900,
+  },
   logo: {
     src: "/images/hawk-merchandising-logo.png",
     alt: "Hawk Merchandising",
@@ -160,4 +167,20 @@ export const navResources = [
 export const navLegal = [
   { href: "/terms", label: "Terms & Conditions" },
   { href: "/privacy", label: "Privacy Policy" },
+] as const;
+
+/** Public marketing routes included in sitemap.xml */
+export const publicRoutes = [
+  "/",
+  ...seoServicePages.map((page) => page.href),
+  "/promotional-products",
+  "/portfolio",
+  "/portfolio/videos",
+  "/pricing",
+  "/services",
+  "/about",
+  "/contact",
+  "/upload",
+  ...navResources.map((page) => page.href),
+  ...navLegal.map((page) => page.href),
 ] as const;

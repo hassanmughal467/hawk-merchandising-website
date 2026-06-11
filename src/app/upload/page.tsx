@@ -1,13 +1,15 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import { PageHero } from "@/components/marketing/PageHero";
 import { UploadForm } from "@/components/upload/UploadForm";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Upload your design",
   description:
     "Upload artwork for embroidery digitizing or vector conversion. Fast review and clear next steps from Hawk Merchandising.",
-};
+  path: "/upload",
+});
 
 function UploadFallback() {
   return (

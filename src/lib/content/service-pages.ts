@@ -29,7 +29,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     metadata: {
       title: "Embroidery Digitizing Services",
       description:
-        "Professional embroidery digitizing for logos, caps, jacket backs, towels, and appliqué. Hand-tuned DST, PES, and major machine formats with 24-hour turnaround.",
+        "Professional embroidery digitizing services with fast turnaround digitizing in 3–4 hours. Production ready embroidery files, machine sew-out services, and rush embroidery digitizing available.",
     },
     eyebrow: "Embroidery Digitizing",
     title: "Hand-digitized embroidery files for serious production",
@@ -77,7 +77,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     metadata: {
       title: "Vector Art Conversion",
       description:
-        "Raster to vector conversion, screen-print separations, and embroidery-ready vector artwork. EPS, AI, PDF, and CDR delivery.",
+        "Professional vector art conversion from raster artwork. Clean AI, EPS, PDF, and SVG delivery with fast turnaround and production-ready output.",
     },
     eyebrow: "Vector Art Conversion",
     title: "Vector art that survives printing—not just zooming in",
@@ -127,7 +127,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     metadata: {
       title: "Custom Patches",
       description:
-        "Custom embroidered, woven, PVC, and chenille patch artwork—borders, color breaks, and factory-ready files for your patch vendor.",
+        "Custom patch solutions for embroidered, woven, PVC, and chenille programs. Factory-ready artwork with fast turnaround and dedicated support.",
     },
     eyebrow: "Custom Patches",
     title: "Patch programs engineered for manufacturing",
@@ -294,7 +294,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     metadata: {
       title: "Cap Digitizing Services",
       description:
-        "Professional cap and hat embroidery digitizing for structured, unstructured, and trucker caps. Curved-panel sequencing with 24-hour turnaround.",
+        "Professional cap embroidery digitizing with fast turnaround digitizing in 3–4 hours. Production ready embroidery files and machine sew-out services for structured and trucker caps.",
     },
     eyebrow: "Cap Digitizing",
     title: "Cap digitizing built for curved panels",
@@ -349,7 +349,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     metadata: {
       title: "3D Puff Embroidery Digitizing",
       description:
-        "Professional 3D puff and foam embroidery digitizing for caps, polos, and jackets. Raised dimension with clean satin borders and production-ready files.",
+        "Professional 3D puff embroidery digitizing with fast turnaround digitizing and rush embroidery digitizing. Production ready embroidery files with machine sew-out services available.",
     },
     eyebrow: "3D Puff Digitizing",
     title: "3D puff embroidery with clean raised dimension",
@@ -404,7 +404,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     metadata: {
       title: "Jacket Back Embroidery Digitizing",
       description:
-        "Large-format jacket back embroidery digitizing for team jackets, corporate outerwear, and varsity programs. Stable fills with production-ready files.",
+        "Large-format jacket back embroidery digitizing services with fast turnaround digitizing. Production ready embroidery files and optional machine sew-out services for complete confidence.",
     },
     eyebrow: "Jacket Back Digitizing",
     title: "Jacket back embroidery for large-format production",

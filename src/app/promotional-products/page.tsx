@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButtons } from "@/components/marketing/CTAButtons";
 import { PageHero } from "@/components/marketing/PageHero";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Promotional Products",
   description:
     "Creative promotional products and custom giveaways with artwork support—digitizing, vector, and production-ready files.",
-};
+  path: "/promotional-products",
+});
 
 const categories = [
   {

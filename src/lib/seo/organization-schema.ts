@@ -28,6 +28,21 @@ export function buildOrganizationSchema(): JsonLd {
   };
 }
 
+export function buildWebSiteSchema(): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: site.url,
+    description: site.description,
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      logo: `${site.url}${site.logo.src}`,
+    },
+  };
+}
+
 export function buildLocalBusinessSchema(): JsonLd {
   return {
     "@context": "https://schema.org",

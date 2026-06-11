@@ -70,6 +70,16 @@ const featureIcons: Record<WhyChooseIcon, ReactNode> = {
       <path d="M6 20h3a3 3 0 0 0 3-3v-1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
+  machine: (
+    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <rect x="3" y="8" width="18" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="9" cy="13" r="1.5" fill="currentColor" />
+      <circle cx="15" cy="13" r="1.5" fill="currentColor" />
+      <path d="M12 3v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M5 18h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
 };
 
 export function WhyChooseSection() {

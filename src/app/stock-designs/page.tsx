@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Stock Designs",
   description:
     "Browse curated stock embroidery and vector starter designs—customize colors and layouts for your client programs.",
-};
+  path: "/stock-designs",
+});
 
 const categories = [
   { name: "Sports & mascots", count: "Coming soon", slug: "sports" },

@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Awards & Recognition",
   description:
     "Industry recognition and quality milestones for Hawk Merchandising digitizing and vector teams.",
-};
+  path: "/awards",
+});
 
 const highlights = [
   { year: "2020–2026", title: "Production excellence", detail: "Trusted by high-volume embroidery and print programs across the US, UK, and EU." },

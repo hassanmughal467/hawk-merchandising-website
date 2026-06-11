@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButtons } from "@/components/marketing/CTAButtons";
 import { PageHero } from "@/components/marketing/PageHero";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Custom Patches",
   description:
     "Custom embroidered, woven, and PVC-style patch programs—artwork tuned for merrow, laser-cut, and heat-seal production.",
-};
+  path: "/patches",
+  noIndex: true,
+});
 
 const types = [
   {

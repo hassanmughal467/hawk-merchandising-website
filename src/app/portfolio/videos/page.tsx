@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 import { VideoGrid } from "@/components/ui/VideoGrid";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Portfolio Videos",
   description:
     "Embroidery machine runs, vector before/after conversions, patch production, and customer project videos from Hawk Merchandising.",
-};
+  path: "/portfolio/videos",
+});
 
 export default function PortfolioVideosPage() {
   return (

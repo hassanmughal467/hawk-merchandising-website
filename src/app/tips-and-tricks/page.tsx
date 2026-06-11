@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Tips & Tricks",
   description:
     "Practical embroidery digitizing and vector artwork tips for decorators—from file prep to production pitfalls.",
-};
+  path: "/tips-and-tricks",
+});
 
 const tips = [
   {

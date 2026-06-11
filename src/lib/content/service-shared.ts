@@ -1,12 +1,25 @@
 import type { FAQItem } from "@/lib/content/faq";
 import { getFAQItemsByTopic } from "@/lib/content/faq";
+import { turnaroundTimes } from "@/lib/content/turnaround";
 import { industriesServed } from "@/lib/content/trust";
 import { services } from "@/lib/site";
 
+export const digitizingServiceSlugs = [
+  "embroidery-digitizing",
+  "cap-digitizing",
+  "3d-puff-digitizing",
+  "jacket-back-digitizing",
+] as const;
+
+export function isDigitizingService(slug: string): boolean {
+  return (digitizingServiceSlugs as readonly string[]).includes(slug);
+}
+
 export const defaultTurnaround = {
-  standard: "24 hours",
-  rush: "Same-day / 12-hour rush on request",
-  note: "Complex jobs or heavy revision rounds may require a quoted timeline upfront.",
+  fastest: turnaroundTimes.fastest,
+  standard: turnaroundTimes.standard,
+  rush: turnaroundTimes.rush,
+  note: turnaroundTimes.note,
 } as const;
 
 export const serviceFaqTopics: Record<string, string[]> = {

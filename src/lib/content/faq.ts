@@ -101,12 +101,12 @@ export const faqTopics: FAQTopic[] = [
       {
         question: "What is your standard turnaround?",
         answer:
-          "Most digitizing and vector jobs deliver within 24 hours of confirmed artwork and brief. Complex jobs may require a quoted timeline upfront.",
+          "Our fastest turnaround is 3–4 hours on qualifying jobs. Standard delivery is within 12 hours of confirmed artwork and brief. Complex jobs may require a quoted timeline upfront.",
       },
       {
         question: "Do you offer rush service?",
         answer:
-          "Yes. Same-day and 12-hour rush options are available on request. Mention your deadline when uploading so we can confirm feasibility immediately.",
+          "Yes. Rush embroidery digitizing is available in 2 hours on request. Mention your deadline when uploading so we can confirm feasibility immediately.",
       },
       {
         question: "What affects delivery time?",

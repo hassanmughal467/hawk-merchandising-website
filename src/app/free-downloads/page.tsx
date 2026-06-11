@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Free Downloads",
   description:
     "Free digitizing and vector resources: checklists, format guides, and production brief templates from Hawk Merchandising.",
-};
+  path: "/free-downloads",
+});
 
 type DownloadItem = {
   title: string;

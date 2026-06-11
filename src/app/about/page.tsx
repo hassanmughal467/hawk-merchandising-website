@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -18,13 +17,15 @@ import {
 import { getAllFAQItems } from "@/lib/content/faq";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "About",
   description:
     "Hawk Merchandising bridges embroidery craft with modern production workflows—fast turnaround, consistent quality, global delivery.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   const faqItems = getAllFAQItems().slice(0, 6);

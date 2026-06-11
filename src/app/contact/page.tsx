@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -8,13 +7,15 @@ import { getAllFAQItems } from "@/lib/content/faq";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { buildLocalBusinessSchema } from "@/lib/seo/organization-schema";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Contact",
   description:
     "Contact Hawk Merchandising for quotes, rush jobs, and production questions—email, phone, or WhatsApp.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const wa = `https://wa.me/${site.whatsappE164}?text=${encodeURIComponent(

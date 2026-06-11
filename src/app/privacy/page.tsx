@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/marketing/PageHero";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: "Privacy Policy",
   description: `Privacy policy for ${site.name} — how we handle uploads, contact details, and communications.`,
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (
@@ -50,8 +51,8 @@ export default function PrivacyPage() {
               Cookies & analytics
             </h2>
             <p className="mt-3">
-              This site may use basic analytics or logging to understand performance. You can control cookies through your
-              browser.
+              We use Meta Pixel and Google Analytics 4 to understand how visitors use this site. These services may set
+              cookies. You can control cookies through your browser settings or opt-out tools provided by Meta and Google.
             </p>
           </div>
           <div>

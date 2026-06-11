@@ -6,7 +6,9 @@ import { Footer } from "@/components/layout/Footer";
 import { ExitIntentModal } from "@/components/layout/ExitIntentModal";
 import { StickyQuoteBar } from "@/components/layout/StickyQuoteBar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { Analytics } from "@/components/analytics/Analytics";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { GOOGLE_SITE_VERIFICATION } from "@/lib/analytics";
 import { buildLocalBusinessSchema, buildOrganizationSchema } from "@/lib/seo/organization-schema";
 import { site } from "@/lib/site";
 
@@ -46,13 +48,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     type: "website",
-    images: [{ url: site.logo.src, width: site.logo.width, height: site.logo.height, alt: site.logo.alt }],
+    images: [
+      {
+        url: site.ogImage.src,
+        width: site.ogImage.width,
+        height: site.ogImage.height,
+        alt: site.ogImage.alt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | Digitizing & Vector Art`,
     description: site.description,
-    images: [site.logo.src],
+    images: [site.ogImage.src],
   },
   icons: {
     icon: site.logo.src,
@@ -62,6 +71,14 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: site.url,
+  },
+  ...(GOOGLE_SITE_VERIFICATION && {
+    verification: {
+      google: GOOGLE_SITE_VERIFICATION,
+    },
+  }),
 };
 
 export default function RootLayout({
@@ -72,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased bg-background text-foreground">
+        <Analytics />
         <JsonLdScript data={[buildOrganizationSchema(), buildLocalBusinessSchema()]} />
         <Navbar />
         <main className="flex-1">{children}</main>

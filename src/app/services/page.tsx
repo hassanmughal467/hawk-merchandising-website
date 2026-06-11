@@ -1,14 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { services, site } from "@/lib/site";
 
-export const metadata: Metadata = {
+import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const metadata = buildPageMetadata({
   title: "Services",
   description:
     "Embroidery digitizing, vector art conversion, logo redraw, woven and PVC patches—built for production teams worldwide.",
-};
+  path: "/services",
+});
 
 const detailSections = [
   {

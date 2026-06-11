@@ -1,3 +1,5 @@
+"use client";
+
 import Script from "next/script";
 import { Suspense } from "react";
 import { MetaPixelPageView } from "@/components/analytics/MetaPixelPageView";

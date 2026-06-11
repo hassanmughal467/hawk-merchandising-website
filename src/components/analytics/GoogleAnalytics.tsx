@@ -1,3 +1,5 @@
+"use client";
+
 import Script from "next/script";
 import { Suspense } from "react";
 import { GA_MEASUREMENT_ID, logAnalytics } from "@/lib/analytics";

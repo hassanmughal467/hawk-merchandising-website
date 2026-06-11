@@ -1,7 +1,7 @@
 import Script from "next/script";
 import { Suspense } from "react";
 import { MetaPixelPageView } from "@/components/analytics/MetaPixelPageView";
-import { META_PIXEL_ID } from "@/lib/analytics";
+import { logAnalytics, META_PIXEL_ID } from "@/lib/analytics";
 
 const pixelId = META_PIXEL_ID;
 
@@ -10,7 +10,11 @@ export function MetaPixel() {
 
   return (
     <>
-      <Script id="meta-pixel" strategy="afterInteractive">
+      <Script
+        id="meta-pixel"
+        strategy="afterInteractive"
+        onLoad={() => logAnalytics({ source: "meta-pixel", event: "initialized" })}
+      >
         {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,7 +25,6 @@ export function MetaPixel() {
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${pixelId}');
-          fbq('track', 'PageView');
         `}
       </Script>
       <noscript>

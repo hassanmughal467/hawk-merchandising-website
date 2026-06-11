@@ -1,3 +1,4 @@
+import { AnalyticsDebug } from "@/components/analytics/AnalyticsDebug";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
 
@@ -7,6 +8,7 @@ export function Analytics() {
     <>
       <MetaPixel />
       <GoogleAnalytics />
+      {process.env.NODE_ENV === "development" ? <AnalyticsDebug /> : null}
     </>
   );
 }

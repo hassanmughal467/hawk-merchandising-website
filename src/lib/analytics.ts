@@ -16,3 +16,28 @@ export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim
 /** Google Search Console HTML tag verification content value. */
 export const GOOGLE_SITE_VERIFICATION =
   process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() || undefined;
+
+export const ANALYTICS_DEBUG_EVENT = "hawk:analytics-debug";
+
+export type AnalyticsDebugDetail = {
+  source: "meta-pixel" | "ga4";
+  event: "initialized" | "page_view";
+  path?: string;
+};
+
+/** DEV-only console logging and debug panel events. Stripped from production bundles via NODE_ENV guard. */
+export function logAnalytics(detail: AnalyticsDebugDetail) {
+  if (process.env.NODE_ENV !== "development") return;
+
+  const label = detail.source === "meta-pixel" ? "Meta Pixel" : "GA4";
+  const message =
+    detail.event === "initialized"
+      ? `${label} initialized`
+      : `${label} PageView → ${detail.path ?? "(unknown)"}`;
+
+  console.log(`[Analytics] ${message}`);
+
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent(ANALYTICS_DEBUG_EVENT, { detail }));
+  }
+}

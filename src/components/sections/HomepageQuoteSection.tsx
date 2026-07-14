@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { QuoteForm } from "@/components/forms/QuoteForm";
 import { fadeUp, stagger } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 type HomepageQuoteSectionProps = {
   id?: string;
@@ -45,12 +46,14 @@ export function HomepageQuoteSection({ id = "quote" }: HomepageQuoteSectionProps
               </li>
             </motion.ul>
             <motion.div variants={fadeUp} className="mt-8">
-              <Link
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "homepage_quote" }}
                 className="focus-ring text-sm font-semibold text-accent hover:text-accent-hover"
               >
                 Prefer to upload files directly? Go to upload →
-              </Link>
+              </ConversionLink>
             </motion.div>
           </div>
 

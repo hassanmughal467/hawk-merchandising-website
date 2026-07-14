@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 const bullets = [
   {
@@ -50,12 +51,14 @@ export function OfferSection() {
               fast communication, and pricing that makes sense at volume.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8">
-              <Link
-                href="/upload"
+              <ConversionLink
+                href="/upload?intent=sample"
+                event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+                eventParams={{ location: "offer_section" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"
               >
                 Claim your free sample
-              </Link>
+              </ConversionLink>
             </motion.div>
           </motion.div>
 

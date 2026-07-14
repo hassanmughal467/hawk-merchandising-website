@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { CTAButtons } from "@/components/marketing/CTAButtons";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { FAQSection } from "@/components/sections/FAQSection";
@@ -138,18 +140,22 @@ export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
               Upload your artwork with garment and placement notes—we respond same business day on most requests.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "service_landing" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90"
               >
                 Upload artwork
-              </Link>
-              <Link
+              </ConversionLink>
+              <ConversionLink
                 href="/contact"
+                event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+                eventParams={{ location: "service_landing" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-base font-semibold text-white transition hover:bg-white/20"
               >
                 Get a quote
-              </Link>
+              </ConversionLink>
             </div>
           </div>
         </div>

@@ -1,4 +1,8 @@
+"use client";
+
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { site } from "@/lib/site";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 export function WhatsAppFloat() {
   const href = `https://wa.me/${site.whatsappE164}?text=${encodeURIComponent(
@@ -6,8 +10,10 @@ export function WhatsAppFloat() {
   )}`;
 
   return (
-    <a
+    <ConversionLink
       href={href}
+      event={CONVERSION_EVENTS.WHATSAPP_CLICK}
+      eventParams={{ location: "float" }}
       target="_blank"
       rel="noopener noreferrer"
       className="focus-ring fixed bottom-20 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/40 transition hover:scale-105 hover:bg-[#20bd5a] lg:bottom-6 lg:right-6"
@@ -28,6 +34,6 @@ export function WhatsAppFloat() {
           d="M12.79 10.55c-.198-.497-.407-.507-.595-.515-.154-.007-.33-.01-.506-.01-.176 0-.46.066-.702.332-.242.267-.925.902-.925 2.2 0 1.297.95 2.552 1.082 2.73.133.178 1.83 2.94 4.56 4.12 2.257.985 2.715 1.078 3.204 1.008.49-.07 1.58-.645 1.803-1.268.224-.623.224-1.16.157-1.27-.067-.11-.242-.178-.506-.312-.265-.133-1.565-.77-1.807-.858-.242-.088-.418-.133-.595.133-.177.267-.686.858-.84 1.035-.154.177-.31.2-.575.067-.265-.133-1.12-.413-2.133-1.317-.79-.705-1.323-1.575-1.477-1.84-.154-.267-.016-.412.116-.545.12-.12.265-.31.398-.465.133-.154.177-.267.266-.445.088-.178.044-.334-.022-.467-.067-.133-.595-1.435-.84-1.965z"
         />
       </svg>
-    </a>
+    </ConversionLink>
   );
 }

@@ -27,7 +27,7 @@ export function HomePortfolioGrid() {
             <PlaceholderVisual type={item.visual} label={item.category} className="h-full" />
           </div>
           <div className="p-4">
-            <p className="text-[10px] font-semibold uppercase tracking-wider text-accent">{item.category}</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent">{item.category}</p>
             <h3 className="mt-1 text-sm font-semibold text-white">{item.title}</h3>
             <p className="mt-1.5 line-clamp-2 text-xs text-zinc-500">{item.description}</p>
           </div>

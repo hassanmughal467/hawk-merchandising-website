@@ -40,7 +40,7 @@ function VideoCard({ video }: { video: PortfolioVideo }) {
         )}
       </div>
       <div className="p-5">
-        <p className="text-[10px] font-semibold uppercase tracking-widest text-accent">
+        <p className="text-xs font-semibold uppercase tracking-widest text-accent">
           {videoCategoryLabels[video.category]}
         </p>
         <h3 className="mt-2 font-[family-name:var(--font-display)] text-base font-semibold text-white">

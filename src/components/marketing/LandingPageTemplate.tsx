@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { CTAButtons } from "@/components/marketing/CTAButtons";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { RelatedServicesSection } from "@/components/sections/RelatedServicesSection";
@@ -43,12 +45,14 @@ export function LandingPageTemplate({
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">Ready to start?</h2>
             <p className="mt-3 text-sm text-zinc-400">Upload artwork or contact our team for a same-day response.</p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "landing_template" }}
                 className="focus-ring rounded-full bg-accent-gradient px-7 py-3 text-sm font-semibold text-white"
               >
                 Upload artwork
-              </Link>
+              </ConversionLink>
               <Link
                 href="/contact"
                 className="focus-ring rounded-full border border-white/15 px-7 py-3 text-sm font-semibold text-white"

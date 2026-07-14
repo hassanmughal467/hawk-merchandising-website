@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/lib/site";
 import { fadeUp } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 export function CTASection() {
   const reduce = useReducedMotion();
@@ -29,26 +30,32 @@ export function CTASection() {
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Link
+            <ConversionLink
               href="/upload?intent=sample"
+              event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+              eventParams={{ location: "cta_section" }}
               className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90"
             >
               Get free quote
-            </Link>
-            <Link
+            </ConversionLink>
+            <ConversionLink
               href="/upload"
+              event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+              eventParams={{ location: "cta_section" }}
               className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-white/20"
             >
               Upload artwork
-            </Link>
-            <a
+            </ConversionLink>
+            <ConversionLink
               href={site.clientPortal.url}
+              event={CONVERSION_EVENTS.LOGIN}
+              eventParams={{ location: "cta_section" }}
               target="_blank"
               rel="noopener noreferrer"
               className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-white/20"
             >
               Client login
-            </a>
+            </ConversionLink>
           </div>
         </motion.div>
       </div>

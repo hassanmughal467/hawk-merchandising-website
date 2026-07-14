@@ -1,9 +1,14 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { serviceOptions } from "@/lib/site";
 import { cn } from "@/lib/cn";
+import {
+  CONVERSION_EVENTS,
+  trackContactFormSubmit,
+  trackQuoteRequest,
+} from "@/lib/analytics-events";
 
 type FieldErrors = Partial<Record<"name" | "email" | "whatsapp" | "service" | "message" | "file", string>>;
 
@@ -63,6 +68,11 @@ export function QuoteForm({
       const res = await fetch("/api/contact", { method: "POST", body });
       const data = (await res.json()) as { referenceId?: string; error?: string };
       if (!res.ok) throw new Error(data.error ?? "Submission failed");
+      if (source === "contact") {
+        trackContactFormSubmit(source);
+      } else {
+        trackQuoteRequest(source);
+      }
       setSuccess({ referenceId: data.referenceId ?? "HMK-QUOTE" });
     } catch {
       setErrors({ message: "Something went wrong. Please try again or contact us on WhatsApp." });
@@ -83,12 +93,14 @@ export function QuoteForm({
         <p className="mt-2 text-sm text-zinc-400">
           We will respond same business day on most requests.
         </p>
-        <Link
+        <ConversionLink
           href="/upload"
+          event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+          eventParams={{ location: "quote_success" }}
           className="focus-ring mt-6 inline-flex rounded-full bg-accent-gradient px-6 py-2.5 text-sm font-semibold text-white"
         >
           Upload artwork now
-        </Link>
+        </ConversionLink>
       </div>
     );
   }

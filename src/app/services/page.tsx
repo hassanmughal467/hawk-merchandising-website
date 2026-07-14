@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { services, site } from "@/lib/site";
 
@@ -64,12 +66,14 @@ export default function ServicesPage() {
         subtitle={`${site.name} helps embroidery businesses and print shops ship faster—with files that behave predictably on the machine floor.`}
       >
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link
+          <ConversionLink
             href="/upload"
+            event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+            eventParams={{ location: "services_page" }}
             className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"
           >
             Start an order
-          </Link>
+          </ConversionLink>
           <Link
             href="/contact"
             className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/25 hover:bg-white/10"

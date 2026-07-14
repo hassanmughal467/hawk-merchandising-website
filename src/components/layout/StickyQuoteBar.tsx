@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/site";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 export function StickyQuoteBar() {
   const [visible, setVisible] = useState(false);
@@ -25,28 +26,34 @@ export function StickyQuoteBar() {
         )}
         aria-hidden={!visible}
       >
-        <Link
-          href="/upload"
+        <ConversionLink
+          href="/upload?intent=sample"
+          event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+          eventParams={{ location: "sticky_bar_desktop" }}
           className="focus-ring pointer-events-auto rounded-l-2xl bg-accent-gradient px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-accent-gradient-hover [writing-mode:vertical-rl]"
         >
           Get Free Quote
-        </Link>
-        <a
+        </ConversionLink>
+        <ConversionLink
           href={site.clientSignup.url}
+          event={CONVERSION_EVENTS.SIGNUP}
+          eventParams={{ location: "sticky_bar_desktop" }}
           target="_blank"
           rel="noopener noreferrer"
           className="focus-ring pointer-events-auto rounded-l-2xl border border-white/15 bg-surface/95 px-4 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-xl [writing-mode:vertical-rl]"
         >
           {site.clientSignup.label}
-        </a>
-        <a
+        </ConversionLink>
+        <ConversionLink
           href={site.clientPortal.url}
+          event={CONVERSION_EVENTS.LOGIN}
+          eventParams={{ location: "sticky_bar_desktop" }}
           target="_blank"
           rel="noopener noreferrer"
           className="focus-ring pointer-events-auto rounded-l-2xl border border-white/15 bg-surface/95 px-4 py-3 text-xs font-semibold text-zinc-300 shadow-lg backdrop-blur-xl [writing-mode:vertical-rl]"
         >
           {site.clientPortal.label}
-        </a>
+        </ConversionLink>
       </div>
 
       {/* Mobile sticky bottom bar */}
@@ -58,20 +65,24 @@ export function StickyQuoteBar() {
         aria-hidden={!visible}
       >
         <div className="mx-auto flex max-w-lg items-center gap-2 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-          <Link
+          <ConversionLink
             href="/upload?intent=sample"
+            event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+            eventParams={{ location: "sticky_bar_mobile" }}
             className="focus-ring flex-1 rounded-full bg-accent-gradient py-3 text-center text-sm font-semibold text-white"
           >
             Free Quote
-          </Link>
-          <a
+          </ConversionLink>
+          <ConversionLink
             href={site.clientSignup.url}
+            event={CONVERSION_EVENTS.SIGNUP}
+            eventParams={{ location: "sticky_bar_mobile" }}
             target="_blank"
             rel="noopener noreferrer"
             className="focus-ring flex-1 rounded-full border border-white/15 bg-white/5 py-3 text-center text-sm font-semibold text-white"
           >
             {site.clientSignup.label}
-          </a>
+          </ConversionLink>
         </div>
       </div>
     </>

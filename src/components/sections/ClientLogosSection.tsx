@@ -30,7 +30,7 @@ export function ClientLogosSection() {
               <div
                 key={logo.name}
                 className={cn(
-                  "flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-2 text-center text-[10px] font-semibold uppercase tracking-wide text-zinc-400",
+                  "flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-2 text-center text-xs font-semibold uppercase tracking-wide text-zinc-400",
                 )}
               >
                 {logo.name}

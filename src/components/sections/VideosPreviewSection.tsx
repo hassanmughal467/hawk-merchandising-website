@@ -51,7 +51,7 @@ export function VideosPreviewSection() {
                 <span className="absolute bottom-3 right-3 rounded-md bg-black/70 px-2 py-1 text-xs text-zinc-300">
                   {video.duration}
                 </span>
-                <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-zinc-300 backdrop-blur-sm">
+                <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-300 backdrop-blur-sm">
                   Coming soon
                 </span>
               </div>

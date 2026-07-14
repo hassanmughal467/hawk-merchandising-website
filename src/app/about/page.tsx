@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { CountriesServedSection } from "@/components/sections/CountriesServedSection";
 import { CTASection } from "@/components/sections/CTASection";
@@ -146,12 +148,14 @@ export default function AboutPage() {
               Upload artwork or contact our team—24-hour standard turnaround with rush options available.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-              <Link
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "about_page" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"
               >
                 Upload a design
-              </Link>
+              </ConversionLink>
               <Link
                 href="/contact"
                 className="focus-ring inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-7 py-3.5 text-base font-semibold text-zinc-900 transition hover:border-zinc-400"

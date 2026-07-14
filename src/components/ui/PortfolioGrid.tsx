@@ -33,7 +33,7 @@ function Panel({
     >
       <span
         className={cn(
-          "absolute left-3 top-3 rounded-full bg-black/60 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide",
+          "absolute left-3 top-3 rounded-full bg-black/60 px-2 py-1 text-xs font-semibold uppercase tracking-wide",
           variant === "accent" ? "text-accent" : "text-zinc-300",
         )}
       >

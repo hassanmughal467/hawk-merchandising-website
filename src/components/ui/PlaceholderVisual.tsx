@@ -327,7 +327,7 @@ export function PlaceholderVisual({ type, label, className, showLabel = true }: 
     <div className={cn("relative overflow-hidden", className)}>
       {Visual()}
       {showLabel && label ? (
-        <span className="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-zinc-200 backdrop-blur-sm">
+        <span className="absolute left-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-zinc-200 backdrop-blur-sm">
           {label}
         </span>
       ) : null}

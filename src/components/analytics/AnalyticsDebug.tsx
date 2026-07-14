@@ -35,17 +35,31 @@ export function AnalyticsDebug() {
     };
 
     const onDebugEvent = (event: Event) => {
-      const detail = (event as CustomEvent<AnalyticsDebugDetail>).detail;
-      const label = detail.source === "meta-pixel" ? "Meta Pixel" : "GA4";
+      const detail = (event as CustomEvent<AnalyticsDebugDetail | { type: "conversion"; platform: string; event: string; params?: Record<string, string> }>).detail;
+
+      if ("type" in detail && detail.type === "conversion") {
+        const label = detail.platform === "meta-pixel" ? "Meta Pixel" : "GA4";
+        const params = detail.params ? ` ${JSON.stringify(detail.params)}` : "";
+        setState((current) => ({
+          ...current,
+          metaPixelLoaded: detail.platform === "meta-pixel" ? true : current.metaPixelLoaded,
+          gaLoaded: detail.platform === "ga4" ? true : current.gaLoaded,
+          lastEvent: `${label} ${detail.event}${params}`,
+        }));
+        return;
+      }
+
+      const pageDetail = detail as AnalyticsDebugDetail;
+      const label = pageDetail.source === "meta-pixel" ? "Meta Pixel" : "GA4";
       const message =
-        detail.event === "initialized"
+        pageDetail.event === "initialized"
           ? `${label} initialized`
-          : `${label} PageView → ${detail.path ?? pathname}`;
+          : `${label} PageView → ${pageDetail.path ?? pathname}`;
 
       setState((current) => ({
         ...current,
-        metaPixelLoaded: detail.source === "meta-pixel" ? true : current.metaPixelLoaded,
-        gaLoaded: detail.source === "ga4" ? true : current.gaLoaded,
+        metaPixelLoaded: pageDetail.source === "meta-pixel" ? true : current.metaPixelLoaded,
+        gaLoaded: pageDetail.source === "ga4" ? true : current.gaLoaded,
         lastEvent: message,
       }));
     };

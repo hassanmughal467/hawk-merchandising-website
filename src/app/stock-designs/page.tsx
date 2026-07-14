@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -62,12 +64,14 @@ export default function StockDesignsPage() {
               advise the fastest path.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "stock_designs_page" }}
                 className="focus-ring inline-flex justify-center rounded-full bg-accent-gradient px-6 py-3 text-sm font-semibold text-white hover:bg-accent-gradient-hover"
               >
                 Upload brief
-              </Link>
+              </ConversionLink>
               <Link
                 href="/embroidery-digitizing"
                 className="focus-ring inline-flex justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white hover:bg-white/5"

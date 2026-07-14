@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
@@ -53,33 +54,55 @@ export default function ContactPage() {
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Email</dt>
                 <dd className="mt-2">
-                  <a className="text-white underline-offset-4 hover:underline" href={`mailto:${site.email}`}>
+                  <ConversionLink
+                    href={`mailto:${site.email}`}
+                    event={CONVERSION_EVENTS.EMAIL_CLICK}
+                    eventParams={{ location: "contact_page" }}
+                    className="text-white underline-offset-4 hover:underline"
+                  >
                     {site.email}
-                  </a>
+                  </ConversionLink>
                 </dd>
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Phone (US)</dt>
                 <dd className="mt-2">
-                  <a className="text-white underline-offset-4 hover:underline" href={`tel:${site.phoneUs.replace(/\s/g, "")}`}>
+                  <ConversionLink
+                    href={`tel:${site.phoneUs.replace(/\s/g, "")}`}
+                    event={CONVERSION_EVENTS.PHONE_CLICK}
+                    eventParams={{ location: "contact_page", region: "us" }}
+                    className="text-white underline-offset-4 hover:underline"
+                  >
                     {site.phoneUs}
-                  </a>
+                  </ConversionLink>
                 </dd>
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Phone (UK)</dt>
                 <dd className="mt-2">
-                  <a className="text-white underline-offset-4 hover:underline" href={`tel:${site.phoneUk.replace(/\s/g, "")}`}>
+                  <ConversionLink
+                    href={`tel:${site.phoneUk.replace(/\s/g, "")}`}
+                    event={CONVERSION_EVENTS.PHONE_CLICK}
+                    eventParams={{ location: "contact_page", region: "uk" }}
+                    className="text-white underline-offset-4 hover:underline"
+                  >
                     {site.phoneUk}
-                  </a>
+                  </ConversionLink>
                 </dd>
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">WhatsApp</dt>
                 <dd className="mt-2">
-                  <a className="text-white underline-offset-4 hover:underline" href={wa} target="_blank" rel="noreferrer">
+                  <ConversionLink
+                    href={wa}
+                    event={CONVERSION_EVENTS.WHATSAPP_CLICK}
+                    eventParams={{ location: "contact_page" }}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-white underline-offset-4 hover:underline"
+                  >
                     Message us on WhatsApp
-                  </a>
+                  </ConversionLink>
                 </dd>
               </div>
               <div>
@@ -106,14 +129,16 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <a
+            <ConversionLink
               href={wa}
+              event={CONVERSION_EVENTS.WHATSAPP_CLICK}
+              eventParams={{ location: "contact_page_cta" }}
               target="_blank"
               rel="noreferrer"
               className="focus-ring mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#20bd5a] sm:w-auto"
             >
               Chat on WhatsApp
-            </a>
+            </ConversionLink>
           </div>
 
           <div className="lg:col-span-7">
@@ -156,12 +181,14 @@ export default function ContactPage() {
                 Upload artwork with placement notes for the quickest estimate.
               </p>
             </div>
-            <Link
+            <ConversionLink
               href="/upload"
+              event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+              eventParams={{ location: "contact_page" }}
               className="focus-ring shrink-0 rounded-full bg-accent-gradient px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover"
             >
               Go to upload
-            </Link>
+            </ConversionLink>
           </div>
         </div>
       </section>

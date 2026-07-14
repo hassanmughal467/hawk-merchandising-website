@@ -23,7 +23,7 @@ export function GoogleReviewCard({ review, className }: GoogleReviewCardProps) {
           </p>
           <time
             dateTime={review.date}
-            className="mt-1 block text-[10px] uppercase tracking-wide text-zinc-500"
+            className="mt-1 block text-xs uppercase tracking-wide text-zinc-500"
           >
             {review.dateDisplay}
           </time>
@@ -38,7 +38,7 @@ export function GoogleReviewCard({ review, className }: GoogleReviewCardProps) {
       </p>
 
       <footer className="mt-4 border-t border-white/10 pt-3">
-        <p className="text-[10px] uppercase tracking-wide text-zinc-600">
+        <p className="text-xs uppercase tracking-wide text-zinc-600">
           Posted on {review.source === "google" ? "Google" : review.source}
         </p>
       </footer>

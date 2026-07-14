@@ -39,13 +39,13 @@ export function SewOutImage({
       </div>
 
       {label ? (
-        <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
+        <span className="absolute bottom-3 left-3 rounded-full bg-black/65 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
           {label}
         </span>
       ) : null}
 
       {showApprovedBadge ? (
-        <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white shadow-lg">
+        <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-accent/90 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-white shadow-lg">
           <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path
               d="M5 12.5L10 17.5L19 7.5"
@@ -64,7 +64,7 @@ export function SewOutImage({
           {badges.map((badge) => (
             <span
               key={badge}
-              className="rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-zinc-100 backdrop-blur-sm"
+              className="rounded-full bg-black/60 px-2 py-0.5 text-xs font-semibold text-zinc-100 backdrop-blur-sm"
             >
               ✓ {badge}
             </span>

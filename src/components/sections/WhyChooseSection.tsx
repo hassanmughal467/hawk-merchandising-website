@@ -1,10 +1,11 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { whyChooseHawkCards, type WhyChooseIcon } from "@/lib/content/homepage";
 import { fadeUp, stagger } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 const featureIcons: Record<WhyChooseIcon, ReactNode> = {
   manager: (
@@ -168,18 +169,22 @@ export function WhyChooseSection() {
             digitizing, vector art, patches, and promotional products.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
+            <ConversionLink
               href="/upload?intent=sample"
+              event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+              eventParams={{ location: "why_choose" }}
               className="focus-ring inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90 sm:w-auto"
             >
               Get Free Quote
-            </Link>
-            <Link
+            </ConversionLink>
+            <ConversionLink
               href="/upload"
+              event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+              eventParams={{ location: "why_choose" }}
               className="focus-ring inline-flex w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-white/20 sm:w-auto"
             >
               Upload Artwork
-            </Link>
+            </ConversionLink>
           </div>
         </motion.div>
       </div>

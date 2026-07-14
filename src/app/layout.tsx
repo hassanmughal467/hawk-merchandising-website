@@ -88,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background text-base text-foreground">
         <Analytics />
         <JsonLdScript data={[buildOrganizationSchema(), buildLocalBusinessSchema()]} />
         <Navbar />

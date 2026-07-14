@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { QuoteForm } from "@/components/forms/QuoteForm";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 const STORAGE_KEY = "hawk-exit-intent-dismissed";
 
@@ -85,13 +86,15 @@ export function ExitIntentModal() {
         </div>
 
         <div className="mt-4">
-          <Link
+          <ConversionLink
             href="/upload?intent=sample"
+            event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+            eventParams={{ location: "exit_intent" }}
             onClick={dismiss}
             className="focus-ring block w-full rounded-full bg-accent-gradient py-2.5 text-center text-sm font-semibold text-white"
           >
             Get free sample
-          </Link>
+          </ConversionLink>
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { HeroImageSlider } from "@/components/ui/HeroImageSlider";
 import { fadeUp, stagger } from "@/lib/motion";
 
@@ -46,18 +47,22 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link
+              <ConversionLink
                 href="/upload?intent=sample"
+                event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+                eventParams={{ location: "hero" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"
               >
                 Get Free Quote
-              </Link>
-              <Link
+              </ConversionLink>
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "hero" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
               >
                 Upload Artwork
-              </Link>
+              </ConversionLink>
             </motion.div>
 
             <motion.ul

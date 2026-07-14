@@ -27,7 +27,7 @@ export function TrustBar() {
             {trustBarItems.map((item) => (
               <li
                 key={item.label}
-                className="flex items-center gap-2 text-xs font-medium text-zinc-600 sm:text-sm"
+                className="flex items-center gap-2 text-sm font-medium text-zinc-600"
               >
                 <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
                   <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" aria-hidden>

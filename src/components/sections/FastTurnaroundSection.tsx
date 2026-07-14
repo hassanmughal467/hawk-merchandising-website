@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { motion, useReducedMotion } from "framer-motion";
 import { fastTurnaround } from "@/lib/content/trust";
 import { fadeUp, stagger } from "@/lib/motion";
@@ -38,12 +39,14 @@ export function FastTurnaroundSection() {
               </div>
             </motion.div>
             <motion.div variants={fadeUp} className="mt-8">
-              <Link
+              <ConversionLink
                 href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "fast_turnaround" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover"
               >
                 Upload artwork
-              </Link>
+              </ConversionLink>
             </motion.div>
           </div>
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import {
   navLegal,
   navPrimary,
@@ -7,6 +8,7 @@ import {
   site,
 } from "@/lib/site";
 import { Logo } from "@/components/brand/Logo";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 const footerServices = [
   ...seoServicePages,
@@ -120,19 +122,34 @@ export function Footer() {
             </p>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">
               <li>
-                <a className="hover:text-white" href={`mailto:${site.email}`}>
+                <ConversionLink
+                  href={`mailto:${site.email}`}
+                  event={CONVERSION_EVENTS.EMAIL_CLICK}
+                  eventParams={{ location: "footer" }}
+                  className="hover:text-white"
+                >
                   {site.email}
-                </a>
+                </ConversionLink>
               </li>
               <li>
-                <a className="hover:text-white" href={`tel:${site.phoneUs.replace(/\s/g, "")}`}>
+                <ConversionLink
+                  href={`tel:${site.phoneUs.replace(/\s/g, "")}`}
+                  event={CONVERSION_EVENTS.PHONE_CLICK}
+                  eventParams={{ location: "footer", region: "us" }}
+                  className="hover:text-white"
+                >
                   {site.phoneUs}
-                </a>
+                </ConversionLink>
               </li>
               <li>
-                <a className="hover:text-white" href={`tel:${site.phoneUk.replace(/\s/g, "")}`}>
+                <ConversionLink
+                  href={`tel:${site.phoneUk.replace(/\s/g, "")}`}
+                  event={CONVERSION_EVENTS.PHONE_CLICK}
+                  eventParams={{ location: "footer", region: "uk" }}
+                  className="hover:text-white"
+                >
                   {site.phoneUk}
-                </a>
+                </ConversionLink>
               </li>
               <li className="text-zinc-500">{site.addressUs}</li>
               <li className="text-zinc-500">{site.addressUk}</li>

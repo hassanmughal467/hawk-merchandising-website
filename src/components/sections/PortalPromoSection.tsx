@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { clientPortalBenefits } from "@/lib/content/portal";
 import { site } from "@/lib/site";
 import { fadeUp, stagger } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 type PortalPromoSectionProps = {
   variant?: "premium" | "compact";
@@ -63,14 +65,16 @@ export function PortalPromoSection({ variant = "premium" }: PortalPromoSectionPr
               review invoices, and manage recurring programs without email back-and-forth.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
+              <ConversionLink
                 href={site.clientPortal.url}
+                event={CONVERSION_EVENTS.LOGIN}
+                eventParams={{ location: "portal_promo" }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-accent-secondary transition hover:bg-white/90"
               >
                 {site.clientPortal.label}
-              </a>
+              </ConversionLink>
               <Link
                 href="/contact"
                 className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/20"

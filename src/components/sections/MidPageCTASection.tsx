@@ -1,8 +1,9 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 type MidPageCTASectionProps = {
   variant?: "dark" | "gradient";
@@ -35,18 +36,22 @@ export function MidPageCTASection({ variant = "gradient" }: MidPageCTASectionPro
             quote and production plan.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
+            <ConversionLink
               href="/upload?intent=sample"
+              event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+              eventParams={{ location: "mid_page_cta" }}
               className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90"
             >
               Get Free Quote
-            </Link>
-            <Link
+            </ConversionLink>
+            <ConversionLink
               href="/upload"
+              event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+              eventParams={{ location: "mid_page_cta" }}
               className="focus-ring inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 py-3.5 text-base font-semibold text-white transition hover:bg-white/20"
             >
               Upload Artwork
-            </Link>
+            </ConversionLink>
           </div>
         </motion.div>
       </div>

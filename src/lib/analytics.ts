@@ -25,6 +25,12 @@ export type AnalyticsDebugDetail = {
   path?: string;
 };
 
+export type ConversionAnalyticsDebugDetail = {
+  platform: "meta-pixel" | "ga4";
+  event: string;
+  params?: Record<string, string>;
+};
+
 /** DEV-only console logging and debug panel events. Stripped from production bundles via NODE_ENV guard. */
 export function logAnalytics(detail: AnalyticsDebugDetail) {
   if (process.env.NODE_ENV !== "development") return;
@@ -39,5 +45,24 @@ export function logAnalytics(detail: AnalyticsDebugDetail) {
 
   if (typeof window !== "undefined") {
     window.dispatchEvent(new CustomEvent(ANALYTICS_DEBUG_EVENT, { detail }));
+  }
+}
+
+/** DEV-only logging for conversion / Lead events. */
+export function logConversionAnalytics(detail: ConversionAnalyticsDebugDetail) {
+  if (process.env.NODE_ENV !== "development") return;
+
+  const label = detail.platform === "meta-pixel" ? "Meta Pixel" : "GA4";
+  const params = detail.params ? ` ${JSON.stringify(detail.params)}` : "";
+  const message = `${label} ${detail.event}${params}`;
+
+  console.log(`[Analytics] ${message}`);
+
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(
+      new CustomEvent(ANALYTICS_DEBUG_EVENT, {
+        detail: { type: "conversion", ...detail },
+      }),
+    );
   }
 }

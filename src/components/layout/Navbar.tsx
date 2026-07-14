@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { cn } from "@/lib/cn";
 import { navPrimary, navResources, site } from "@/lib/site";
 import { Logo } from "@/components/brand/Logo";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 function isNavActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -52,7 +54,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "focus-ring shrink-0 rounded-full px-2 py-2 text-[11px] font-medium text-zinc-300 transition hover:text-white lg:px-2 xl:px-3 xl:text-sm",
+                    "focus-ring shrink-0 rounded-full px-2 py-2 text-xs font-medium text-zinc-300 transition hover:text-white lg:px-2 xl:px-3 xl:text-sm",
                     active && "bg-white/5 text-white",
                   )}
                 >
@@ -65,7 +67,7 @@ export function Navbar() {
               <button
                 type="button"
                 className={cn(
-                  "focus-ring flex items-center gap-1 rounded-full px-2 py-2 text-[11px] font-medium text-zinc-300 hover:text-white lg:px-2 xl:px-3 xl:text-sm",
+                  "focus-ring flex items-center gap-1 rounded-full px-2 py-2 text-xs font-medium text-zinc-300 hover:text-white lg:px-2 xl:px-3 xl:text-sm",
                   resourcesActive && "text-white",
                 )}
                 aria-haspopup="menu"
@@ -112,22 +114,26 @@ export function Navbar() {
         </nav>
 
         <div className="relative z-10 flex shrink-0 items-center gap-2 bg-surface/60 lg:bg-transparent">
-          <a
+          <ConversionLink
             href={site.clientPortal.url}
+            event={CONVERSION_EVENTS.LOGIN}
+            eventParams={{ location: "navbar" }}
             target="_blank"
             rel="noopener noreferrer"
             className="focus-ring hidden rounded-full border border-white/15 px-3 py-2 text-xs font-semibold text-zinc-200 transition hover:border-white/25 hover:bg-white/5 sm:inline-flex xl:px-4 xl:text-sm"
           >
             {site.clientPortal.label}
-          </a>
-          <a
+          </ConversionLink>
+          <ConversionLink
             href={site.clientSignup.url}
+            event={CONVERSION_EVENTS.SIGNUP}
+            eventParams={{ location: "navbar" }}
             target="_blank"
             rel="noopener noreferrer"
             className="focus-ring hidden rounded-full bg-accent-gradient px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover sm:inline-flex"
           >
             {site.clientSignup.label}
-          </a>
+          </ConversionLink>
           <button
             type="button"
             className="focus-ring inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white lg:hidden"
@@ -181,7 +187,7 @@ export function Navbar() {
               </Link>
             );
           })}
-          <p className="mt-3 px-3 text-[10px] font-semibold uppercase tracking-widest text-zinc-500">
+          <p className="mt-3 px-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
             Resources
           </p>
           {navResources.map((link) => {
@@ -199,22 +205,26 @@ export function Navbar() {
               </Link>
             );
           })}
-          <a
+          <ConversionLink
             href={site.clientSignup.url}
+            event={CONVERSION_EVENTS.SIGNUP}
+            eventParams={{ location: "navbar_mobile" }}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 rounded-xl bg-accent-gradient px-3 py-3 text-center text-sm font-semibold text-white"
           >
             {site.clientSignup.label}
-          </a>
-          <a
+          </ConversionLink>
+          <ConversionLink
             href={site.clientPortal.url}
+            event={CONVERSION_EVENTS.LOGIN}
+            eventParams={{ location: "navbar_mobile" }}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-xl border border-white/15 px-3 py-3 text-center text-sm font-semibold text-zinc-200"
           >
             {site.clientPortal.label}
-          </a>
+          </ConversionLink>
         </div>
       </div>
     </header>

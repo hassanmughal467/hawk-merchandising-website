@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Logo } from "@/components/brand/Logo";
 import { serviceOptions } from "@/lib/site";
 import { cn } from "@/lib/cn";
+import { trackUploadArtworkSubmit } from "@/lib/analytics-events";
 
 type FieldErrors = Partial<Record<"name" | "email" | "whatsapp" | "service" | "file", string>>;
 
@@ -84,6 +85,7 @@ export function UploadForm() {
         return;
       }
 
+      trackUploadArtworkSubmit();
       setSuccess({ referenceId: data.referenceId ?? "HMK-OK" });
       setName("");
       setEmail("");

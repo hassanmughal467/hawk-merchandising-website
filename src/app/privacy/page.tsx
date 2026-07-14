@@ -1,6 +1,8 @@
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 export const metadata = buildPageMetadata({
   title: "Privacy Policy",
@@ -61,9 +63,14 @@ export default function PrivacyPage() {
             </h2>
             <p className="mt-3">
               Privacy questions:{" "}
-              <a className="font-semibold text-accent hover:underline" href={`mailto:${site.email}`}>
+              <ConversionLink
+                href={`mailto:${site.email}`}
+                event={CONVERSION_EVENTS.EMAIL_CLICK}
+                eventParams={{ location: "privacy_page" }}
+                className="font-semibold text-accent hover:underline"
+              >
                 {site.email}
-              </a>
+              </ConversionLink>
               .
             </p>
           </div>

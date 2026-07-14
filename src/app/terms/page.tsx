@@ -1,6 +1,8 @@
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 export const metadata = buildPageMetadata({
   title: "Terms & Conditions",
@@ -69,9 +71,14 @@ export default function TermsPage() {
             </h2>
             <p className="mt-3">
               Questions about these terms:{" "}
-              <a className="font-semibold text-accent hover:underline" href={`mailto:${site.email}`}>
+              <ConversionLink
+                href={`mailto:${site.email}`}
+                event={CONVERSION_EVENTS.EMAIL_CLICK}
+                eventParams={{ location: "terms_page" }}
+                className="font-semibold text-accent hover:underline"
+              >
                 {site.email}
-              </a>
+              </ConversionLink>
               .
             </p>
           </div>

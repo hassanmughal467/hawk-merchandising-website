@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { defaultTurnaround } from "@/lib/content/service-shared";
 import { fadeUp, stagger } from "@/lib/motion";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 type TurnaroundSectionProps = {
   standard?: string;
@@ -39,12 +40,14 @@ export function TurnaroundSection({
               {note}
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8">
-              <Link
-                href="/upload"
+              <ConversionLink
+                href="/upload?intent=sample"
+                event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+                eventParams={{ location: "turnaround_section" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover"
               >
                 Upload for a quote
-              </Link>
+              </ConversionLink>
             </motion.div>
           </div>
 

@@ -62,7 +62,7 @@ export default function FreeDownloadsPage() {
                 key={d.title}
                 className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6"
               >
-                <span className="w-fit rounded-full border border-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+                <span className="w-fit rounded-full border border-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-zinc-400">
                   {d.tag}
                 </span>
                 <h2 className="mt-4 font-[family-name:var(--font-display)] text-lg font-semibold text-white">

@@ -1,3 +1,5 @@
+import { portfolioSrc } from "@/lib/content/portfolio-assets";
+
 export const portfolioCategoryGroups = [
   {
     id: "embroidery-digitizing",
@@ -29,63 +31,151 @@ export type PortfolioItem = {
   subcategory: string;
   layout: PortfolioLayout;
   description: string;
+  imageSrc: string;
 };
 
 const embroiderySubcats = portfolioCategoryGroups[0].subcategories;
 const vectorSubcats = portfolioCategoryGroups[1].subcategories;
 const patchSubcats = portfolioCategoryGroups[2].subcategories;
 
-function embroideryItems(start: number, count: number): PortfolioItem[] {
-  const layouts: PortfolioLayout[] = ["triple", "before-after", "single"];
-  return Array.from({ length: count }, (_, i) => {
-    const n = start + i;
-    const sub = embroiderySubcats[i % embroiderySubcats.length];
+function titleFromFile(filename: string): string {
+  return filename.replace(/\.[^.]+$/, "");
+}
+
+function idFromFile(filename: string): string {
+  return titleFromFile(filename)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function patchSubcategory(filename: string, index: number): string {
+  const lower = filename.toLowerCase();
+  if (lower.includes("pvc")) return "PVC";
+  if (lower.includes("woven")) return "Woven";
+  if (lower.includes("chenille")) return "Chenille";
+  if (lower.includes("leather")) return "Embroidered";
+  return patchSubcats[index % patchSubcats.length];
+}
+
+function buildItems(
+  files: readonly string[],
+  category: Exclude<PortfolioCategoryId, "all">,
+  subcats: readonly string[],
+  description: (subcategory: string) => string,
+  subcategoryForFile?: (filename: string, index: number) => string,
+): PortfolioItem[] {
+  return files.map((file, index) => {
+    const subcategory = subcategoryForFile
+      ? subcategoryForFile(file, index)
+      : subcats[index % subcats.length];
+
     return {
-      id: `emb-${n}`,
-      title: `Embroidery project ${String(n).padStart(2, "0")}`,
-      category: "embroidery-digitizing" as const,
-      subcategory: sub,
-      layout: layouts[i % layouts.length],
-      description: `${sub} — production-tested for caps, polos, and jacket backs.`,
+      id: idFromFile(file),
+      title: titleFromFile(file),
+      category,
+      subcategory,
+      layout: "single",
+      description: description(subcategory),
+      imageSrc: portfolioSrc(file),
     };
   });
 }
 
-function vectorItems(start: number, count: number): PortfolioItem[] {
-  return Array.from({ length: count }, (_, i) => {
-    const n = start + i;
-    const sub = vectorSubcats[i % vectorSubcats.length];
-    return {
-      id: `vec-${n}`,
-      title: `Vector conversion ${String(n).padStart(2, "0")}`,
-      category: "vector-conversion" as const,
-      subcategory: sub,
-      layout: "before-after" as const,
-      description: `${sub} — clean nodes, print-ready separations, embroidery-friendly paths.`,
-    };
-  });
-}
+const embroideryFiles = [
+  "Embroidery project 01.jpeg",
+  "Embroidery project 01(1).jpeg",
+  "Embroidery project 01(2).jpeg",
+  "Embroidery project 02.jpeg",
+  "Embroidery project 03.jpg",
+  "Embroidery project 04.jpeg",
+  "Embroidery project 04(1).jpeg",
+  "Embroidery project 04(2).jpeg",
+  "Embroidery project 05.jpeg",
+  "Embroidery project 06.jpg",
+  "Embroidery project 07.jpg",
+  "Embroidery project 07(1).jpg",
+  "Embroidery project 08.jpeg",
+  "Embroidery project 09.jfif",
+  "embroidery project 11(1).jpg",
+  "EmbroIdery project 11.jpg",
+  "Embroidery project 12.jpg",
+  "Embroidery project 14.jpg",
+  "Embroidery project 14(1).jpg",
+  "3D puff cap embroidery.png",
+  "BEFORE AND AFTER DIGITIZING.png",
+  "Corporate Polo Left Chest.jpeg",
+  "embroidered polo shirt .png",
+  "Healthcare Uniform Program.jfif",
+  "military design logo.png",
+  "Restaurant Logo .png",
+  "Raised Foam Cap Mark.png",
+  "school logo.png",
+  "Sports Team Logo .png",
+  "Structured Cap Logo.png",
+  "Team Jacket Full Back.png",
+  "Uniform Left Chest Program.png",
+  "Uniform Woven Shoulder Mark.jpeg",
+  "Trade Show Promo Tote.png",
+] as const;
 
-function patchItems(start: number, count: number): PortfolioItem[] {
-  return Array.from({ length: count }, (_, i) => {
-    const n = start + i;
-    const sub = patchSubcats[i % patchSubcats.length];
-    return {
-      id: `patch-${n}`,
-      title: `Custom patch ${String(n).padStart(2, "0")}`,
-      category: "custom-patches" as const,
-      subcategory: sub,
-      layout: "single" as const,
-      description: `${sub} patch program — borders, color breaks, and factory-ready artwork.`,
-    };
-  });
-}
+const vectorFiles = [
+  "Vector conversion 01.jpg",
+  "Vector conversion 02.jpg",
+  "Vector conversion 03.jpg",
+  "Vector conversion 04.jpg",
+  "Vector conversion 05.jpeg",
+  "Vector conversion 06.jpg",
+  "Vector conversion 07.jpg",
+  "Vector conversion 08.jpg",
+  "Vector conversion 09.jpg",
+  "Vector conversion 10.jpg",
+  "Vector conversion 11.PNG",
+  "Screen Print Vector Master.jpeg",
+  "Fashion Brand Artwork.png",
+  "Promotional Brand Artwork.png",
+  "Construction Company Logo.png",
+  "CORPORATE LOGO .png",
+] as const;
 
-/** 36 examples — swap gradient placeholders for real photography over time (target 30–50). */
+const patchFiles = [
+  "Custom patch 01.PNG",
+  "Custom patch 02.png",
+  "Custom patch 03.png",
+  "Custom patch 04.png",
+  "Custom patch 05.png",
+  "Custom patch 06.png",
+  "Custom patch 07.png",
+  "Custom patch 09.png",
+  "Custom patch 10.png",
+  "Custom patch 11.png",
+  "custom PVC patch.png",
+  "Outdoor Brand PVC Badge.png",
+  "Premium Leather Deboss Patch.png",
+  "Varsity Chenille Letter.png",
+  "woven patch program.png",
+] as const;
+
 export const portfolioItems: PortfolioItem[] = [
-  ...embroideryItems(1, 14),
-  ...vectorItems(1, 11),
-  ...patchItems(1, 11),
+  ...buildItems(
+    embroideryFiles,
+    "embroidery-digitizing",
+    embroiderySubcats,
+    (sub) => `${sub} — production-tested for caps, polos, and jacket backs.`,
+  ),
+  ...buildItems(
+    vectorFiles,
+    "vector-conversion",
+    vectorSubcats,
+    (sub) => `${sub} — clean nodes, print-ready separations, embroidery-friendly paths.`,
+  ),
+  ...buildItems(
+    patchFiles,
+    "custom-patches",
+    patchSubcats,
+    (sub) => `${sub} patch program — borders, color breaks, and factory-ready artwork.`,
+    patchSubcategory,
+  ),
 ];
 
 export function getPortfolioCategoryLabel(id: PortfolioCategoryId): string {

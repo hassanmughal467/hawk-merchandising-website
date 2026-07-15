@@ -5,6 +5,7 @@ import { PortfolioCategoryNav } from "@/components/ui/PortfolioCategoryNav";
 import { PortfolioGrid } from "@/components/ui/PortfolioGrid";
 import {
   portfolioCategoryGroups,
+  portfolioItems,
   type PortfolioCategoryId,
 } from "@/lib/content/portfolio";
 
@@ -31,9 +32,7 @@ export function PortfolioPageContent() {
         <PortfolioGrid category={category} />
       </div>
       <p className="mt-10 text-center text-xs text-zinc-600">
-        {category === "all"
-          ? "36 examples shown — add real photography over time (target 30–50+)."
-          : "Swap gradient placeholders for project photos when assets are ready."}
+        {portfolioItems.length} examples across embroidery digitizing, vector conversion, and custom patches.
       </p>
     </>
   );

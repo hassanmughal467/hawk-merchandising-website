@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import {
   portfolioItems,
   type PortfolioCategoryId,
@@ -15,54 +16,18 @@ type PortfolioGridProps = {
   className?: string;
 };
 
-function Panel({
-  label,
-  variant = "default",
-}: {
-  label: string;
-  variant?: "default" | "accent";
-}) {
-  return (
-    <div
-      className={cn(
-        "relative aspect-[4/3] bg-gradient-to-br",
-        variant === "accent"
-          ? "from-zinc-700 to-zinc-900"
-          : "from-zinc-800 to-zinc-950",
-      )}
-    >
-      <span
-        className={cn(
-          "absolute left-3 top-3 rounded-full bg-black/60 px-2 py-1 text-xs font-semibold uppercase tracking-wide",
-          variant === "accent" ? "text-accent" : "text-zinc-300",
-        )}
-      >
-        {label}
-      </span>
-    </div>
-  );
-}
-
 function PortfolioTile({ item }: { item: PortfolioItem }) {
   return (
     <motion.article
       variants={fadeUp}
       className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
     >
-      {item.layout === "triple" ? (
-        <div className="grid grid-cols-3 gap-px bg-white/10">
-          <Panel label="Original" />
-          <Panel label="Digitized" variant="accent" />
-          <Panel label="Stitched" />
-        </div>
-      ) : item.layout === "before-after" ? (
-        <div className="grid grid-cols-2 gap-px bg-white/10">
-          <Panel label="Before" />
-          <Panel label="After" variant="accent" />
-        </div>
-      ) : (
-        <Panel label={item.subcategory} variant="accent" />
-      )}
+      <PortfolioImage
+        src={item.imageSrc}
+        alt={item.title}
+        label={item.subcategory}
+        className="aspect-[4/3]"
+      />
       <div className="p-4">
         <p className="text-sm font-semibold text-white">{item.title}</p>
         <p className="mt-1 text-xs text-zinc-500">

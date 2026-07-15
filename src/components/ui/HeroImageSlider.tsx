@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
+import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import { heroSlides } from "@/lib/content/homepage";
 import { cn } from "@/lib/cn";
 
@@ -39,12 +40,38 @@ export function HeroImageSlider() {
             >
               {slide.layout === "split" ? (
                 <div className="grid h-full grid-cols-2 gap-px bg-white/10">
-                  {slide.visuals.map((v) => (
-                    <PlaceholderVisual key={v.label} type={v.type} label={v.label} className="h-full" />
-                  ))}
+                  {slide.visuals.map((v) =>
+                    v.imageSrc ? (
+                      <PortfolioImage
+                        key={v.label}
+                        src={v.imageSrc}
+                        alt={v.label}
+                        label={v.label}
+                        className="h-full"
+                      />
+                    ) : (
+                      <PlaceholderVisual
+                        key={v.label}
+                        type={v.type!}
+                        label={v.label}
+                        className="h-full"
+                      />
+                    ),
+                  )}
                 </div>
+              ) : slide.visuals[0].imageSrc ? (
+                <PortfolioImage
+                  src={slide.visuals[0].imageSrc}
+                  alt={slide.visuals[0].label}
+                  label={slide.visuals[0].label}
+                  className="h-full"
+                />
               ) : (
-                <PlaceholderVisual type={slide.visuals[0].type} label={slide.visuals[0].label} className="h-full" />
+                <PlaceholderVisual
+                  type={slide.visuals[0].type!}
+                  label={slide.visuals[0].label}
+                  className="h-full"
+                />
               )}
             </motion.div>
           </AnimatePresence>

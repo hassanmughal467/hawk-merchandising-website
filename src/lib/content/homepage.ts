@@ -1,3 +1,5 @@
+import { portfolioSrc } from "@/lib/content/portfolio-assets";
+
 export type VisualType =
   | "logo-original"
   | "digitized-result"
@@ -22,7 +24,7 @@ export type HeroSlide = {
   id: string;
   title: string;
   subtitle: string;
-  visuals: { type: VisualType; label: string }[];
+  visuals: { type?: VisualType; label: string; imageSrc?: string }[];
   layout: "split" | "single";
 };
 
@@ -31,10 +33,12 @@ export const heroSlides: HeroSlide[] = [
     id: "before-after",
     title: "Before vs After Digitizing",
     subtitle: "Original artwork transformed into production-ready embroidery files",
-    layout: "split",
+    layout: "single",
     visuals: [
-      { type: "logo-original", label: "Original Logo" },
-      { type: "digitized-result", label: "Digitized Result" },
+      {
+        label: "Before & After",
+        imageSrc: portfolioSrc("BEFORE AND AFTER DIGITIZING.png"),
+      },
     ],
   },
   {
@@ -42,28 +46,48 @@ export const heroSlides: HeroSlide[] = [
     title: "Embroidered Polo Shirt",
     subtitle: "Left chest logo placement — crisp edges on pique knit",
     layout: "single",
-    visuals: [{ type: "polo-mockup", label: "Left Chest Logo" }],
+    visuals: [
+      {
+        label: "Left Chest Logo",
+        imageSrc: portfolioSrc("Corporate Polo Left Chest.jpeg"),
+      },
+    ],
   },
   {
     id: "cap-puff",
     title: "3D Puff Cap Embroidery",
     subtitle: "Raised foam dimension with clean satin borders",
     layout: "single",
-    visuals: [{ type: "cap-puff", label: "3D Puff Embroidery" }],
+    visuals: [
+      {
+        label: "3D Puff Embroidery",
+        imageSrc: portfolioSrc("3D puff cap embroidery.png"),
+      },
+    ],
   },
   {
     id: "pvc",
     title: "Custom PVC Patch",
     subtitle: "Molded rubber badge with precise color breaks",
     layout: "single",
-    visuals: [{ type: "pvc-patch", label: "PVC Patch" }],
+    visuals: [
+      {
+        label: "PVC Patch",
+        imageSrc: portfolioSrc("custom PVC patch.png"),
+      },
+    ],
   },
   {
     id: "woven",
     title: "Woven Patch Program",
     subtitle: "Fine detail and gradients at patch scale",
     layout: "single",
-    visuals: [{ type: "woven-patch", label: "Woven Patch" }],
+    visuals: [
+      {
+        label: "Woven Patch",
+        imageSrc: portfolioSrc("woven patch program.png"),
+      },
+    ],
   },
 ];
 
@@ -80,8 +104,8 @@ export type BeforeAfterCard = {
   title: string;
   subtitle: string;
   service: string;
-  before: { type: VisualType; label: string };
-  after: { type: VisualType; label: string };
+  before: { type?: VisualType; label: string; imageSrc?: string };
+  after: { type?: VisualType; label: string; imageSrc?: string };
   badges: ResultBadge[];
 };
 
@@ -91,8 +115,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Corporate Logo",
     subtitle: "Left Chest Polo Embroidery",
     service: "Logo Digitizing",
-    before: { type: "logo-original", label: "Original JPG" },
-    after: { type: "polo-mockup", label: "Embroidered Polo" },
+    before: { label: "Original JPG", imageSrc: portfolioSrc("CORPORATE LOGO .png") },
+    after: { label: "Embroidered Polo", imageSrc: portfolioSrc("Corporate Polo Left Chest.jpeg") },
     badges: ["Clean Stitch Path", "Production Ready", "Optimized Underlay"],
   },
   {
@@ -100,8 +124,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Sports Team Logo",
     subtitle: "3D Puff Cap Embroidery",
     service: "Cap Digitizing",
-    before: { type: "screenshot-logo", label: "Screenshot Logo" },
-    after: { type: "cap-puff", label: "3D Puff Cap" },
+    before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Sports Team Logo .png") },
+    after: { label: "3D Puff Cap", imageSrc: portfolioSrc("3D puff cap embroidery.png") },
     badges: ["High Detail Accuracy", "Machine Tested", "Fast Turnaround"],
   },
   {
@@ -109,8 +133,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Construction Company Logo",
     subtitle: "Workwear Uniform Embroidery",
     service: "Professional Embroidery Services",
-    before: { type: "low-res-logo", label: "Low-Resolution Logo" },
-    after: { type: "workwear-mockup", label: "Uniform Embroidery" },
+    before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Construction Company Logo.png") },
+    after: { label: "Uniform Embroidery", imageSrc: portfolioSrc("Uniform Left Chest Program.png") },
     badges: ["Optimized Underlay", "Production Ready", "Clean Stitch Path"],
   },
   {
@@ -118,8 +142,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Fashion Brand Artwork",
     subtitle: "Jacket Back Embroidery",
     service: "Embroidery Digitizing Services",
-    before: { type: "complex-artwork", label: "Complex Artwork" },
-    after: { type: "jacket-back", label: "Jacket Back Result" },
+    before: { label: "Complex Artwork", imageSrc: portfolioSrc("Fashion Brand Artwork.png") },
+    after: { label: "Jacket Back Result", imageSrc: portfolioSrc("Team Jacket Full Back.png") },
     badges: ["High Detail Accuracy", "Clean Stitch Path", "Machine Tested"],
   },
   {
@@ -127,8 +151,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Military Style Design",
     subtitle: "PVC Patch Production",
     service: "Custom Patch Design",
-    before: { type: "logo-original", label: "PNG Artwork" },
-    after: { type: "pvc-patch", label: "PVC Patch" },
+    before: { label: "PNG Artwork", imageSrc: portfolioSrc("military design logo.png") },
+    after: { label: "PVC Patch", imageSrc: portfolioSrc("Outdoor Brand PVC Badge.png") },
     badges: ["Production Ready", "High Detail Accuracy", "Fast Turnaround"],
   },
   {
@@ -136,8 +160,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "School Logo",
     subtitle: "Woven Patch",
     service: "Custom Patch Design",
-    before: { type: "logo-original", label: "Original Logo" },
-    after: { type: "woven-patch", label: "Woven Patch" },
+    before: { label: "Original Logo", imageSrc: portfolioSrc("school logo.png") },
+    after: { label: "Woven Patch", imageSrc: portfolioSrc("woven patch program.png") },
     badges: ["High Detail Accuracy", "Production Ready", "Clean Stitch Path"],
   },
   {
@@ -145,8 +169,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Restaurant Logo",
     subtitle: "Apron Embroidery",
     service: "Logo Digitizing",
-    before: { type: "screenshot-logo", label: "Screenshot Logo" },
-    after: { type: "apron-mockup", label: "Apron Embroidery" },
+    before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Restaurant Logo .png") },
+    after: { label: "Apron Embroidery", imageSrc: portfolioSrc("embroidered polo shirt .png") },
     badges: ["Optimized Underlay", "Machine Tested", "Fast Turnaround"],
   },
   {
@@ -154,8 +178,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Promotional Brand Artwork",
     subtitle: "Embroidered Cap",
     service: "Cap Digitizing",
-    before: { type: "low-res-logo", label: "Low-Resolution Logo" },
-    after: { type: "cap-mockup", label: "Embroidered Cap" },
+    before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Promotional Brand Artwork.png") },
+    after: { label: "Embroidered Cap", imageSrc: portfolioSrc("Structured Cap Logo.png") },
     badges: ["Clean Stitch Path", "Production Ready", "Fast Turnaround"],
   },
 ];
@@ -172,7 +196,8 @@ export type PortfolioPreviewItem = {
   id: string;
   title: string;
   category: string;
-  visual: VisualType;
+  visual?: VisualType;
+  imageSrc: string;
   description: string;
 };
 
@@ -181,84 +206,84 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
     id: "pp-01",
     title: "Corporate Polo Left Chest",
     category: "Embroidery Digitizing",
-    visual: "polo-mockup",
+    imageSrc: portfolioSrc("Corporate Polo Left Chest.jpeg"),
     description: "Hand-tuned underlay for pique knit with satin borders.",
   },
   {
     id: "pp-02",
     title: "Structured Cap Logo",
     category: "Cap Digitizing",
-    visual: "cap-mockup",
+    imageSrc: portfolioSrc("Structured Cap Logo.png"),
     description: "Curved-panel sequencing for six-panel structured caps.",
   },
   {
     id: "pp-03",
     title: "Raised Foam Cap Mark",
     category: "3D Puff",
-    visual: "cap-puff",
+    imageSrc: portfolioSrc("Raised Foam Cap Mark.png"),
     description: "3D puff foam with clean satin outline and density control.",
   },
   {
     id: "pp-04",
     title: "Uniform Left Chest Program",
     category: "Left Chest Logos",
-    visual: "embroidery-sample",
+    imageSrc: portfolioSrc("Uniform Left Chest Program.png"),
     description: "Consistent sizing across polos, oxfords, and soft shells.",
   },
   {
     id: "pp-05",
     title: "Team Jacket Full Back",
     category: "Jacket Backs",
-    visual: "jacket-back",
+    imageSrc: portfolioSrc("Team Jacket Full Back.png"),
     description: "Large-fill sequencing with stable underlay on outerwear.",
   },
   {
     id: "pp-06",
     title: "Outdoor Brand PVC Badge",
     category: "PVC Patches",
-    visual: "pvc-patch",
+    imageSrc: portfolioSrc("Outdoor Brand PVC Badge.png"),
     description: "Layer-separated vector art for molded rubber production.",
   },
   {
     id: "pp-07",
     title: "Varsity Chenille Letter",
     category: "Chenille Patches",
-    visual: "chenille-patch",
+    imageSrc: portfolioSrc("Varsity Chenille Letter.png"),
     description: "Fuzzy chenille texture with chain-stitch borders.",
   },
   {
     id: "pp-08",
     title: "Uniform Woven Shoulder Mark",
     category: "Woven Patches",
-    visual: "woven-patch",
+    imageSrc: portfolioSrc("Uniform Woven Shoulder Mark.jpeg"),
     description: "Fine type and gradient detail at woven patch scale.",
   },
   {
     id: "pp-09",
     title: "Premium Leather Deboss Patch",
     category: "Leather Patches",
-    visual: "leather-patch",
+    imageSrc: portfolioSrc("Premium Leather Deboss Patch.png"),
     description: "Heat-deboss artwork for bags, hats, and outerwear.",
   },
   {
     id: "pp-10",
     title: "Screen Print Vector Master",
     category: "Vector Art",
-    visual: "vector-art",
+    imageSrc: portfolioSrc("Screen Print Vector Master.jpeg"),
     description: "Clean separations with embroidery-friendly paths.",
   },
   {
     id: "pp-11",
     title: "Healthcare Uniform Program",
     category: "Corporate Uniform Logos",
-    visual: "polo-mockup",
+    imageSrc: portfolioSrc("Healthcare Uniform Program.jfif"),
     description: "Multi-garment brand consistency for 500+ piece rollout.",
   },
   {
     id: "pp-12",
     title: "Trade Show Promo Tote",
     category: "Promotional Products",
-    visual: "promo-product",
+    imageSrc: portfolioSrc("Trade Show Promo Tote.png"),
     description: "Embroidery-ready artwork for bags, towels, and event merch.",
   },
 ];
@@ -355,6 +380,7 @@ export const processVideos = [
     description:
       "Follow a logo from artwork upload through hand digitizing, run-sheet QA, and final machine-ready file delivery.",
     duration: "2:14",
+    src: portfolioSrc("Digitizing Process.mp4"),
   },
   {
     id: "patch-production",
@@ -362,6 +388,7 @@ export const processVideos = [
     description:
       "See how embroidered, woven, PVC, and chenille patch artwork moves from approved vector to factory sample.",
     duration: "3:02",
+    src: portfolioSrc("Patch Production.mp4"),
   },
   {
     id: "client-testimonial",
@@ -369,5 +396,6 @@ export const processVideos = [
     description:
       "Hear from an embroidery shop owner on turnaround speed, file quality, and dedicated account support.",
     duration: "1:48",
+    src: portfolioSrc("Customer project - corporate uniform program.mp4"),
   },
 ] as const;

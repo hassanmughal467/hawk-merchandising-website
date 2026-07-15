@@ -2,8 +2,36 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
+import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import { beforeAfterShowcase } from "@/lib/content/homepage";
 import { fadeUp, stagger } from "@/lib/motion";
+
+function ShowcasePanel({
+  panel,
+  alt,
+}: {
+  panel: { type?: string; label: string; imageSrc?: string };
+  alt: string;
+}) {
+  if (panel.imageSrc) {
+    return (
+      <PortfolioImage
+        src={panel.imageSrc}
+        alt={alt}
+        label={panel.label}
+        className="h-full"
+      />
+    );
+  }
+
+  return (
+    <PlaceholderVisual
+      type={panel.type as Parameters<typeof PlaceholderVisual>[0]["type"]}
+      label={panel.label}
+      className="h-full"
+    />
+  );
+}
 
 export function BeforeAfterSection() {
   const reduce = useReducedMotion();
@@ -45,11 +73,7 @@ export function BeforeAfterSection() {
             >
               <div className="relative grid grid-cols-[1fr_auto_1fr] items-stretch gap-0">
                 <div className="aspect-[4/3]">
-                  <PlaceholderVisual
-                    type={card.before.type}
-                    label={card.before.label}
-                    className="h-full"
-                  />
+                  <ShowcasePanel panel={card.before} alt={`${card.title} — before`} />
                 </div>
                 <div className="flex items-center justify-center bg-white/5 px-2">
                   <span className="text-lg font-bold text-accent" aria-hidden>
@@ -57,11 +81,7 @@ export function BeforeAfterSection() {
                   </span>
                 </div>
                 <div className="aspect-[4/3]">
-                  <PlaceholderVisual
-                    type={card.after.type}
-                    label={card.after.label}
-                    className="h-full"
-                  />
+                  <ShowcasePanel panel={card.after} alt={`${card.title} — after`} />
                 </div>
               </div>
               <div className="border-t border-white/10 p-4">

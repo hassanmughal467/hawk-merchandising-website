@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
+import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import { portfolioPreviewItems } from "@/lib/content/homepage";
 import { fadeUp, stagger } from "@/lib/motion";
 
@@ -23,9 +23,12 @@ export function HomePortfolioGrid() {
           variants={fadeUp}
           className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-accent/25 hover:bg-white/[0.05]"
         >
-          <div className="aspect-[4/3]">
-            <PlaceholderVisual type={item.visual} label={item.category} className="h-full" />
-          </div>
+          <PortfolioImage
+            src={item.imageSrc}
+            alt={item.title}
+            label={item.category}
+            className="aspect-[4/3]"
+          />
           <div className="p-4">
             <p className="text-xs font-semibold uppercase tracking-wider text-accent">{item.category}</p>
             <h3 className="mt-1 text-sm font-semibold text-white">{item.title}</h3>

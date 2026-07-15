@@ -41,18 +41,25 @@ export function VideosPreviewSection() {
               className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-accent/25"
             >
               <div className="relative aspect-video bg-gradient-to-br from-zinc-800 to-zinc-950">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/20 text-accent backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-accent/30">
-                    <svg className="ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
+                {"src" in video && video.src ? (
+                  <video
+                    src={video.src}
+                    controls
+                    preload="metadata"
+                    playsInline
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/20 text-accent backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-accent/30">
+                      <svg className="ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
                   </div>
-                </div>
-                <span className="absolute bottom-3 right-3 rounded-md bg-black/70 px-2 py-1 text-xs text-zinc-300">
+                )}
+                <span className="pointer-events-none absolute bottom-3 right-3 rounded-md bg-black/70 px-2 py-1 text-xs text-zinc-300">
                   {video.duration}
-                </span>
-                <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-zinc-300 backdrop-blur-sm">
-                  Coming soon
                 </span>
               </div>
               <div className="p-5">

@@ -15,7 +15,15 @@ function VideoCard({ video }: { video: PortfolioVideo }) {
       className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
     >
       <div className="relative aspect-video bg-gradient-to-br from-zinc-800 to-zinc-950">
-        {video.embedUrl ? (
+        {video.src ? (
+          <video
+            src={video.src}
+            controls
+            preload="metadata"
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : video.embedUrl ? (
           <iframe
             src={video.embedUrl}
             title={video.title}
@@ -31,13 +39,13 @@ function VideoCard({ video }: { video: PortfolioVideo }) {
             <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
               Video coming soon
             </p>
-            {video.duration ? (
-              <span className="absolute bottom-3 right-3 rounded-md bg-black/70 px-2 py-1 text-xs text-zinc-300">
-                {video.duration}
-              </span>
-            ) : null}
           </div>
         )}
+        {video.duration ? (
+          <span className="pointer-events-none absolute bottom-3 right-3 rounded-md bg-black/70 px-2 py-1 text-xs text-zinc-300">
+            {video.duration}
+          </span>
+        ) : null}
       </div>
       <div className="p-5">
         <p className="text-xs font-semibold uppercase tracking-widest text-accent">

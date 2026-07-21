@@ -52,7 +52,7 @@ export const portfolioVideos: PortfolioVideo[] = [
     title: "Customer project — corporate uniform program",
     description: "Left-chest and name-badge consistency across a 500-piece uniform rollout.",
     category: "customer",
-    src: portfolioSrc("Customer project - corporate uniform program.mp4"),
+    src: portfolioSrc("Customer project — corporate uniform program.mp4"),
     duration: "2:05",
   },
   {

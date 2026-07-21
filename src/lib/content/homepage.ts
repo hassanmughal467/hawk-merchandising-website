@@ -115,8 +115,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Corporate Logo",
     subtitle: "Left Chest Polo Embroidery",
     service: "Logo Digitizing",
-    before: { label: "Original JPG", imageSrc: portfolioSrc("CORPORATE LOGO .png") },
-    after: { label: "Embroidered Polo", imageSrc: portfolioSrc("Corporate Polo Left Chest.jpeg") },
+    before: { label: "Original JPG", imageSrc: portfolioSrc("corporate logo before.jpg") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("corporate after logo.jpg") },
     badges: ["Clean Stitch Path", "Production Ready", "Optimized Underlay"],
   },
   {
@@ -124,8 +124,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Sports Team Logo",
     subtitle: "3D Puff Cap Embroidery",
     service: "Cap Digitizing",
-    before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Sports Team Logo .png") },
-    after: { label: "3D Puff Cap", imageSrc: portfolioSrc("3D puff cap embroidery.png") },
+    before: { label: "Original Logo", imageSrc: portfolioSrc("Sports Team Logo .png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Sports Team Logo after.png") },
     badges: ["High Detail Accuracy", "Machine Tested", "Fast Turnaround"],
   },
   {
@@ -133,8 +133,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Construction Company Logo",
     subtitle: "Workwear Uniform Embroidery",
     service: "Professional Embroidery Services",
-    before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Construction Company Logo.png") },
-    after: { label: "Uniform Embroidery", imageSrc: portfolioSrc("Uniform Left Chest Program.png") },
+    before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("contruction campany before.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("contruction logo after.png") },
     badges: ["Optimized Underlay", "Production Ready", "Clean Stitch Path"],
   },
   {
@@ -142,8 +142,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Fashion Brand Artwork",
     subtitle: "Jacket Back Embroidery",
     service: "Embroidery Digitizing Services",
-    before: { label: "Complex Artwork", imageSrc: portfolioSrc("Fashion Brand Artwork.png") },
-    after: { label: "Jacket Back Result", imageSrc: portfolioSrc("Team Jacket Full Back.png") },
+    before: { label: "Complex Artwork", imageSrc: portfolioSrc("Fashion Brand Artwork before.jpg") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Fashion Brand Artwork after.png") },
     badges: ["High Detail Accuracy", "Clean Stitch Path", "Machine Tested"],
   },
   {
@@ -151,8 +151,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Military Style Design",
     subtitle: "PVC Patch Production",
     service: "Custom Patch Design",
-    before: { label: "PNG Artwork", imageSrc: portfolioSrc("military design logo.png") },
-    after: { label: "PVC Patch", imageSrc: portfolioSrc("Outdoor Brand PVC Badge.png") },
+    before: { label: "PNG Artwork", imageSrc: portfolioSrc("Military Style Design before.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Military Style Design after.png") },
     badges: ["Production Ready", "High Detail Accuracy", "Fast Turnaround"],
   },
   {
@@ -160,8 +160,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "School Logo",
     subtitle: "Woven Patch",
     service: "Custom Patch Design",
-    before: { label: "Original Logo", imageSrc: portfolioSrc("school logo.png") },
-    after: { label: "Woven Patch", imageSrc: portfolioSrc("woven patch program.png") },
+    before: { label: "Original Logo", imageSrc: portfolioSrc("School Logo before.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("School Logo after.jpg") },
     badges: ["High Detail Accuracy", "Production Ready", "Clean Stitch Path"],
   },
   {
@@ -169,8 +169,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Restaurant Logo",
     subtitle: "Apron Embroidery",
     service: "Logo Digitizing",
-    before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Restaurant Logo .png") },
-    after: { label: "Apron Embroidery", imageSrc: portfolioSrc("embroidered polo shirt .png") },
+    before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Restaurant Logo before.jpg") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Restaurant Logo after.png") },
     badges: ["Optimized Underlay", "Machine Tested", "Fast Turnaround"],
   },
   {
@@ -178,8 +178,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Promotional Brand Artwork",
     subtitle: "Embroidered Cap",
     service: "Cap Digitizing",
-    before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Promotional Brand Artwork.png") },
-    after: { label: "Embroidered Cap", imageSrc: portfolioSrc("Structured Cap Logo.png") },
+    before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Promotional Brand Artwork before.JPG") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Promotional Brand Artwork after.png") },
     badges: ["Clean Stitch Path", "Production Ready", "Fast Turnaround"],
   },
 ];
@@ -396,6 +396,6 @@ export const processVideos = [
     description:
       "Hear from an embroidery shop owner on turnaround speed, file quality, and dedicated account support.",
     duration: "1:48",
-    src: portfolioSrc("Customer project - corporate uniform program.mp4"),
+    src: portfolioSrc("Customer project — corporate uniform program.mp4"),
   },
 ] as const;

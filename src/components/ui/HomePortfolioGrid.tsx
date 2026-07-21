@@ -30,7 +30,7 @@ export function HomePortfolioGrid() {
             <button
               type="button"
               onClick={() => setSelectedItem(item)}
-              className="focus-ring block w-full cursor-zoom-in text-left"
+              className="focus-ring block w-full cursor-pointer text-left"
               aria-label={`View ${item.title} — ${item.category}`}
             >
               <div className="relative">

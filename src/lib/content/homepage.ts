@@ -276,7 +276,7 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
     id: "pp-11",
     title: "Healthcare Uniform Program",
     category: "Corporate Uniform Logos",
-    imageSrc: portfolioSrc("Healthcare Uniform Program.jfif"),
+    imageSrc: portfolioSrc("Healthcare Uniform Program.jpg"),
     description: "Multi-garment brand consistency for 500+ piece rollout.",
   },
   {

@@ -47,6 +47,7 @@ export function HeroImageSlider() {
                         src={v.imageSrc}
                         alt={v.label}
                         label={v.label}
+                        fit="contain"
                         className="h-full"
                       />
                     ) : (
@@ -64,6 +65,7 @@ export function HeroImageSlider() {
                   src={slide.visuals[0].imageSrc}
                   alt={slide.visuals[0].label}
                   label={slide.visuals[0].label}
+                  fit="contain"
                   className="h-full"
                 />
               ) : (

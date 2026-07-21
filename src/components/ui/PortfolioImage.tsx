@@ -7,6 +7,7 @@ type PortfolioImageProps = {
   className?: string;
   label?: string;
   priority?: boolean;
+  fit?: "cover" | "contain";
 };
 
 export function PortfolioImage({
@@ -15,6 +16,7 @@ export function PortfolioImage({
   className,
   label,
   priority = false,
+  fit = "cover",
 }: PortfolioImageProps) {
   return (
     <div className={cn("relative overflow-hidden bg-zinc-900", className)}>
@@ -23,7 +25,7 @@ export function PortfolioImage({
         alt={alt}
         fill
         priority={priority}
-        className="object-cover"
+        className={fit === "contain" ? "object-contain" : "object-cover"}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
       />
       {label ? (

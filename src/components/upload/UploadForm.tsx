@@ -11,6 +11,15 @@ type FieldErrors = Partial<Record<"name" | "email" | "whatsapp" | "service" | "f
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Keep in sync with the file input's accept attribute below.
+const ALLOWED_FILE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".pdf", ".ai", ".eps", ".svg", ".zip"];
+const UNSUPPORTED_FILE_TYPE_ERROR = "Unsupported file type. Please upload PNG, JPG, PDF, AI, EPS, SVG, or ZIP.";
+
+function hasAllowedExtension(filename: string): boolean {
+  const lower = filename.toLowerCase();
+  return ALLOWED_FILE_EXTENSIONS.some((ext) => lower.endsWith(ext));
+}
+
 export function UploadForm() {
   const searchParams = useSearchParams();
   const intent = searchParams.get("intent");
@@ -55,12 +64,29 @@ export function UploadForm() {
     e.preventDefault();
     setDragOver(false);
     const f = e.dataTransfer.files?.[0];
-    if (f) setFile(f);
+    if (!f) return;
+
+    if (!hasAllowedExtension(f.name)) {
+      setErrors((prev) => ({ ...prev, file: UNSUPPORTED_FILE_TYPE_ERROR }));
+      return;
+    }
+
+    setErrors((prev) => ({ ...prev, file: undefined }));
+    setFile(f);
   }, []);
 
   const onFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
-    if (f) setFile(f);
+    if (!f) return;
+
+    if (!hasAllowedExtension(f.name)) {
+      setErrors((prev) => ({ ...prev, file: UNSUPPORTED_FILE_TYPE_ERROR }));
+      e.target.value = ""; // allow re-selecting the same rejected file to re-trigger validation
+      return;
+    }
+
+    setErrors((prev) => ({ ...prev, file: undefined }));
+    setFile(f);
   }, []);
 
   async function onSubmit(e: React.FormEvent) {

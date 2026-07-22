@@ -32,6 +32,7 @@ export function UploadForm() {
     setInstructions(defaultInstructions);
   }, [defaultInstructions]);
   const [file, setFile] = useState<File | null>(null);
+  const [company, setCompany] = useState(""); // honeypot — real users never see this field
   const [dragOver, setDragOver] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -65,6 +66,13 @@ export function UploadForm() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSuccess(null);
+
+    if (company.trim()) {
+      // Honeypot tripped — silently pretend success, no network call.
+      setSuccess({ referenceId: "HMK-OK" });
+      return;
+    }
+
     if (!validate()) return;
 
     setLoading(true);
@@ -75,6 +83,7 @@ export function UploadForm() {
       fd.set("whatsapp", whatsapp.trim());
       fd.set("service", service);
       fd.set("instructions", instructions.trim());
+      fd.set("company", company);
       if (file) fd.set("file", file);
 
       const res = await fetch("/api/upload", { method: "POST", body: fd });
@@ -120,6 +129,18 @@ export function UploadForm() {
         </div>
       ) : (
         <form onSubmit={onSubmit} className="space-y-6">
+          <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+            <label htmlFor="upload-company">Company</label>
+            <input
+              type="text"
+              id="upload-company"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+            />
+          </div>
           <div className="grid gap-6 sm:grid-cols-2">
             <div>
               <label className="text-xs font-semibold uppercase tracking-wider text-zinc-500">

@@ -35,6 +35,7 @@ export function QuoteForm({
   const [service, setService] = useState(defaultService ?? serviceOptions[0]);
   const [message, setMessage] = useState("");
   const [file, setFile] = useState<File | null>(null);
+  const [company, setCompany] = useState(""); // honeypot — real users never see this field
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [success, setSuccess] = useState<{ referenceId: string } | null>(null);
@@ -52,6 +53,13 @@ export function QuoteForm({
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (company.trim()) {
+      // Honeypot tripped — silently pretend success, no network call.
+      setSuccess({ referenceId: "HMK-QUOTE" });
+      return;
+    }
+
     if (!validate()) return;
 
     setLoading(true);
@@ -63,6 +71,7 @@ export function QuoteForm({
       body.set("service", service);
       body.set("message", message.trim());
       body.set("source", source);
+      body.set("company", company);
       if (file) body.set("file", file);
 
       const res = await fetch("/api/contact", { method: "POST", body });
@@ -74,8 +83,12 @@ export function QuoteForm({
         trackQuoteRequest(source);
       }
       setSuccess({ referenceId: data.referenceId ?? "HMK-QUOTE" });
-    } catch {
-      setErrors({ message: "Something went wrong. Please try again or contact us on WhatsApp." });
+    } catch (err) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again or contact us on WhatsApp.";
+      setErrors({ message });
     } finally {
       setLoading(false);
     }
@@ -107,6 +120,18 @@ export function QuoteForm({
 
   return (
     <form onSubmit={onSubmit} className={cn("space-y-4", className)} noValidate>
+      <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="quote-company">Company</label>
+        <input
+          type="text"
+          id="quote-company"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
+      </div>
       <div className={compact ? "space-y-4" : "grid gap-4 sm:grid-cols-2"}>
         <Field label="Full name" error={errors.name}>
           <input

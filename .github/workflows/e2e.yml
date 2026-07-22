@@ -30,15 +30,15 @@ jobs:
   e2e:
     name: Playwright E2E
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
@@ -58,7 +58,7 @@ jobs:
         with:
           name: playwright-test-results
           path: test-results/
-          retention-days: 7
+          retention-days: 14
 
   gate-staging-promotion:
     name: Require dev -> staging promotion rules

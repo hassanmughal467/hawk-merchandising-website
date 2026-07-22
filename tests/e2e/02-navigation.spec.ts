@@ -47,17 +47,34 @@ test.describe("Floating UI", () => {
     await expect(waLink).toHaveAttribute("href", /^https:\/\/wa\.me\//);
   });
 
-  test("sticky quote bar appears after scrolling past the threshold", async ({ page }) => {
+  test("sticky quote bar appears after scrolling past the threshold and becomes keyboard-focusable", async ({
+    page,
+  }) => {
     await page.goto("/");
-    // Plain CSS/text locator, not getByRole: the wrapper is aria-hidden while
+    // data-testid, not text: several other CTAs on the homepage share the
+    // exact "Get Free Quote" copy, and the wrapper is aria-hidden while
     // closed, which excludes it (and its link) from the accessibility tree
     // that getByRole queries against.
-    const barLink = page.locator("a", { hasText: "Get Free Quote" });
-    const barWrapper = barLink.locator('xpath=ancestor::div[@aria-hidden][1]');
+    const barWrapper = page.getByTestId("sticky-quote-bar-desktop");
+    const barLink = barWrapper.locator("a").first();
 
     await expect(barWrapper).toHaveAttribute("aria-hidden", "true");
+    // inert must also block keyboard focus while hidden — aria-hidden alone
+    // doesn't stop Tab from landing on an invisible link.
+    const focusableWhileHidden = await barLink.evaluate((el) => {
+      (el as HTMLElement).focus();
+      return document.activeElement === el;
+    });
+    expect(focusableWhileHidden, "hidden bar link must not be keyboard-focusable").toBe(false);
+
     await page.mouse.wheel(0, 800);
     await expect(barWrapper).toHaveAttribute("aria-hidden", "false");
+
+    const focusableWhileVisible = await barLink.evaluate((el) => {
+      (el as HTMLElement).focus();
+      return document.activeElement === el;
+    });
+    expect(focusableWhileVisible, "visible bar link must be keyboard-focusable").toBe(true);
   });
 
   test("exit-intent modal opens on desktop mouse-leave and shows a quote form", async ({ page }) => {

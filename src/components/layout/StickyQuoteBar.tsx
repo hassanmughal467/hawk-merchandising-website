@@ -20,11 +20,13 @@ export function StickyQuoteBar() {
     <>
       {/* Desktop sticky side bar */}
       <div
+        data-testid="sticky-quote-bar-desktop"
         className={cn(
           "pointer-events-none fixed right-0 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-2 pr-3 transition-opacity duration-300 lg:flex",
           visible ? "opacity-100" : "opacity-0",
         )}
         aria-hidden={!visible}
+        inert={!visible}
       >
         <ConversionLink
           href="/upload?intent=sample"
@@ -58,11 +60,13 @@ export function StickyQuoteBar() {
 
       {/* Mobile sticky bottom bar */}
       <div
+        data-testid="sticky-quote-bar-mobile"
         className={cn(
           "fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-surface/95 backdrop-blur-xl transition-transform duration-300 lg:hidden",
           visible ? "translate-y-0" : "translate-y-full",
         )}
         aria-hidden={!visible}
+        inert={!visible}
       >
         <div className="mx-auto flex max-w-lg items-center gap-2 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           <ConversionLink

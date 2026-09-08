@@ -119,6 +119,7 @@ export default function ContactPage() {
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Offices</p>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{site.addressUs}</p>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{site.addressUk}</p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">{site.addressPk}</p>
             </div>
 
             <div className="mt-6 rounded-2xl border border-accent/30 bg-accent/10 p-6">
@@ -153,10 +154,10 @@ export default function ContactPage() {
             Our locations
           </h2>
           <p className="mt-3 text-sm text-zinc-400">
-            US headquarters and UK contact office—serving clients worldwide via email, phone, WhatsApp, and client portal.
+            US headquarters, UK contact office, and Karachi production office—serving clients worldwide via email, phone, WhatsApp, and client portal.
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {[site.addressUs, site.addressUk].map((address) => (
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[site.addressUs, site.addressUk, site.addressPk].map((address) => (
               <div
                 key={address}
                 className="flex min-h-[12rem] items-end rounded-2xl border border-white/10 bg-white/[0.03] p-6"

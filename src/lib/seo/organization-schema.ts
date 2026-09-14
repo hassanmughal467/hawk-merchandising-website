@@ -23,12 +23,6 @@ export function buildOrganizationSchema(): JsonLd {
         streetAddress: site.addressUk,
         addressCountry: "GB",
       },
-      {
-        "@type": "PostalAddress",
-        streetAddress: site.addressPk,
-        addressLocality: "Karachi",
-        addressCountry: "PK",
-      },
     ],
     sameAs: [`https://wa.me/${site.whatsappE164}`],
   };
@@ -74,39 +68,6 @@ export function buildLocalBusinessSchema(): JsonLd {
       postalCode: "27713",
       addressCountry: "US",
     },
-    location: [
-      {
-        "@type": "Place",
-        name: `${site.name} US`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.addressUs,
-          addressLocality: "Durham",
-          addressRegion: "NC",
-          postalCode: "27713",
-          addressCountry: "US",
-        },
-      },
-      {
-        "@type": "Place",
-        name: `${site.name} UK`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.addressUk,
-          addressCountry: "GB",
-        },
-      },
-      {
-        "@type": "Place",
-        name: `${site.name} Pakistan`,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: site.addressPk,
-          addressLocality: "Karachi",
-          addressCountry: "PK",
-        },
-      },
-    ],
-    areaServed: ["US", "GB", "PK", "CA", "AU", "Worldwide"],
+    areaServed: ["US", "GB", "CA", "AU", "Worldwide"],
   };
 }

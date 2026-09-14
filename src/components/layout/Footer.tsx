@@ -153,7 +153,6 @@ export function Footer() {
               </li>
               <li className="text-zinc-500">{site.addressUs}</li>
               <li className="text-zinc-500">{site.addressUk}</li>
-              <li className="text-zinc-500">{site.addressPk}</li>
             </ul>
           </div>
         </div>

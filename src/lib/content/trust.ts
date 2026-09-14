@@ -96,12 +96,6 @@ export const countriesServed = [
     flag: "🇬🇧",
   },
   {
-    name: "Pakistan",
-    detail:
-      "Karachi office at Federal B Area supporting production coordination for embroidery, vector, and patch programs.",
-    flag: "🇵🇰",
-  },
-  {
     name: "Canada",
     detail: "Cross-border artwork delivery with formats and communication tuned for Canadian decorators.",
     flag: "🇨🇦",

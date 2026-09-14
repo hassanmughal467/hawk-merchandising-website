@@ -33,8 +33,6 @@ export const site = {
   whatsappE164: "19292991866",
   addressUs: "Torry Pine Lane, Durham, NC 27713, USA",
   addressUk: "22 Wenlock Rd, London N1 7GU, UK",
-  addressPk:
-    "Office No. R-861, Mezzanine 1st Floor, Block 19, Federal B Area, Karachi, Pakistan",
   businessHours: "Monday–Friday, 8:00 AM – 6:00 PM ET",
   responseTime: "Same business day for most requests",
   clientPortal: {

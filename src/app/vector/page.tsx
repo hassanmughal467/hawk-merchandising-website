@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Vector Art & Conversion",
   description:
-    "Raster to vector conversion, logo redraws, and screen-print ready artwork. EPS, AI, PDF, CDR with clean separations.",
+    "Raster to vector conversion, logo redraws, and print-ready artwork for DTF and sublimation. EPS, AI, PDF, CDR with clean separations.",
   path: "/vector",
   noIndex: true,
 });
@@ -18,8 +18,8 @@ const offerings = [
     body: "Low-resolution logos and scans rebuilt as crisp line art—ready for enlargement, vinyl, or print.",
   },
   {
-    title: "Screen print separations",
-    body: "Spot channels, traps, and underbases coordinated with how your decorator actually produces.",
+    title: "DTF and sublimation artwork",
+    body: "Print-ready color breaks and layers coordinated with how your decorator actually produces.",
   },
   {
     title: "Embroidery-ready vectors",
@@ -39,7 +39,7 @@ export default function VectorPage() {
       <PageHero
         eyebrow="Vector"
         title="Vector art that survives printing—not just zooming in"
-        subtitle={`${site.name} produces editable vector artwork for screen print, heat transfer, signage, and production digitizing workflows.`}
+        subtitle={`${site.name} produces editable vector artwork for DTF and sublimation, heat transfer, signage, and production digitizing workflows.`}
       />
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">

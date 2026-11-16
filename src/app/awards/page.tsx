@@ -12,7 +12,7 @@ export const metadata = buildPageMetadata({
 });
 
 const highlights = [
-  { year: "2020–2026", title: "Production excellence", detail: "Trusted by high-volume embroidery and print programs across the US, UK, and EU." },
+  { year: "2020–2026", title: "Production excellence", detail: "Trusted by high-volume embroidery shops and uniform and promo suppliers across the US, UK, and EU." },
   { year: "Ongoing", title: "Quality-first file delivery", detail: "Consistent QA checkpoints, run-sheet discipline, and revision workflows built for shops." },
   { year: "Community", title: "Decorator partnerships", detail: "Long-term relationships with apparel decorators, promo companies, and in-house embroidery teams." },
 ];

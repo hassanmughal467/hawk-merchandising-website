@@ -19,7 +19,7 @@ export const clientTestimonials: ClientTestimonial[] = [
   },
   {
     quote:
-      "Vector separations were spot on for screen print. Communication was clear from upload to delivery.",
+      "Vector separations were spot on for DTF and sublimation. Communication was clear from upload to delivery.",
     name: "Brendan Rose",
     title: "Print & Promo Director",
   },

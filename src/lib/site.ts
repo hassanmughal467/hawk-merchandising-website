@@ -1,8 +1,12 @@
+/** Shared buyer audience for meta, footer, JSON-LD, and marketing copy */
+export const siteAudience =
+  "embroidery businesses, apparel brands, and apparel decorators" as const;
+
 export const site = {
   name: "Hawk Merchandising",
   tagline: "Digitizing & vector art for global brands",
   description:
-    "Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. Fast turnaround, consistent quality, worldwide delivery.",
+    `Premium embroidery digitizing and vector art for ${siteAudience}. Fast turnaround, consistent quality, worldwide delivery.`,
   url: "https://www.hawkmerchandising.com",
   /** Default Open Graph / Twitter Card image (must exist in public/) */
   ogImage: {

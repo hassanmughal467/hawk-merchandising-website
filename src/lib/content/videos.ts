@@ -26,7 +26,7 @@ export const portfolioVideos: PortfolioVideo[] = [
     id: "vector-before-after",
     title: "Before / after vector conversion",
     description:
-      "Raster logo rebuilt as clean vector art with separations ready for screen print and vinyl.",
+      "Raster logo rebuilt as clean vector art with print-ready separations for DTF, sublimation, and vinyl.",
     category: "vector",
     src: portfolioSrc("Digitizing Process.mp4"),
     duration: "1:45",

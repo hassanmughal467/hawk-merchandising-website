@@ -14,7 +14,7 @@ export const metadata = buildPageMetadata({
 const categories = [
   {
     title: "Headwear & bags",
-    body: "Caps, beanies, totes, and backpacks with embroidery or print-ready separations.",
+    body: "Caps, beanies, totes, and backpacks with embroidery or print-ready DTF and sublimation artwork.",
   },
   {
     title: "Apparel programs",

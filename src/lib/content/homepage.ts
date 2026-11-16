@@ -373,6 +373,12 @@ export const whyChooseHawkCards = [
   },
 ] as const;
 
+/**
+ * Homepage "Watch Our Process" preview.
+ * Driven by videosPage.enabled — keep false until public video clips are approved.
+ */
+export { videosPage as processVideosSection } from "@/lib/content/videos";
+
 export const processVideos = [
   {
     id: "digitizing-process",
@@ -389,13 +395,5 @@ export const processVideos = [
       "See how embroidered, woven, PVC, and chenille patch artwork moves from approved vector to factory sample.",
     duration: "3:02",
     src: portfolioSrc("Patch Production.mp4"),
-  },
-  {
-    id: "client-testimonial",
-    title: "Client Testimonial",
-    description:
-      "Hear from an embroidery shop owner on turnaround speed, file quality, and dedicated account support.",
-    duration: "1:48",
-    src: portfolioSrc("Customer project — corporate uniform program.mp4"),
   },
 ] as const;

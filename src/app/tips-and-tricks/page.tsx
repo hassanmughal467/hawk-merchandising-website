@@ -76,14 +76,14 @@ export default function TipsAndTricksPage() {
                 Want this as a PDF for your floor?
               </p>
               <p className="mt-2 text-sm text-zinc-400">
-                Ask us to bundle these tips with the free downloads pack.
+                Ask us to bundle these tips into a PDF for your production floor.
               </p>
             </div>
             <Link
-              href="/free-downloads"
+              href="/contact"
               className="focus-ring inline-flex rounded-full bg-accent-gradient px-6 py-3 text-sm font-semibold text-white hover:bg-accent-gradient-hover"
             >
-              Free downloads
+              Request a PDF
             </Link>
           </div>
         </div>

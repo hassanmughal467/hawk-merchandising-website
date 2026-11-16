@@ -85,8 +85,8 @@ export default function VectorPage() {
             Not sure what you need? Upload your reference and we’ll recommend the best master format for your vendors.
           </p>
           <div className="mt-8">
-            <Link href="/free-downloads" className="text-sm font-semibold text-accent hover:text-accent-hover">
-              Free downloads & spec sheets →
+            <Link href="/tips-and-tricks" className="text-sm font-semibold text-accent hover:text-accent-hover">
+              Tips & production guides →
             </Link>
           </div>
         </div>

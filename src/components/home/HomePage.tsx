@@ -16,6 +16,7 @@ import { VideosPreviewSection } from "@/components/sections/VideosPreviewSection
 import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
 import { getFAQPreview } from "@/lib/content/faq";
 import type { ReviewsData } from "@/lib/content/reviews";
+import { videosPage } from "@/lib/content/videos";
 
 type HomePageProps = {
   reviewsData: ReviewsData;
@@ -34,7 +35,7 @@ export function HomePage({ reviewsData }: HomePageProps) {
       <IndustriesSection />
       <WhyChooseSection />
       <MidPageCTASection />
-      <VideosPreviewSection />
+      {videosPage.enabled ? <VideosPreviewSection /> : null}
       <FastTurnaroundSection />
       <GoogleReviewsSection data={reviewsData} />
       <ClientSuccessSection />

@@ -39,13 +39,23 @@ function CarouselNavButton({
   );
 }
 
+function uniqueById<T extends { id: string }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    if (seen.has(item.id)) return false;
+    seen.add(item.id);
+    return true;
+  });
+}
+
 export function GoogleReviews({
   data,
   maxReviews,
   className,
 }: GoogleReviewsProps) {
   const { summary, reviews } = data;
-  const visibleReviews = maxReviews ? reviews.slice(0, maxReviews) : reviews;
+  const deduped = uniqueById(reviews);
+  const visibleReviews = maxReviews ? deduped.slice(0, maxReviews) : deduped;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(visibleReviews.length > 1);
@@ -95,10 +105,8 @@ export function GoogleReviews({
             <span className="font-semibold text-white">
               {summary.averageRating.toFixed(1)}
             </span>
-            <span aria-hidden> · </span>
-            <span>
-              {summary.totalReviewCount.toLocaleString()} reviews
-            </span>
+            {" "}
+            <span>on Google</span>
           </p>
         </div>
 
@@ -134,29 +142,28 @@ export function GoogleReviews({
           />
         </div>
 
-        {/* Mobile / tablet: horizontal scroll carousel */}
+        {/*
+          Single list of cards: horizontal snap-scroll below lg, 2-col grid at lg+.
+          Do not map reviews twice — duplicates previously appeared as a doubled carousel.
+        */}
         <div
           ref={scrollRef}
           onScroll={updateScrollState}
-          className="flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
+          className={cn(
+            "flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+            "lg:grid lg:grid-cols-2 lg:overflow-visible lg:pb-0",
+          )}
           style={{ scrollSnapType: "x mandatory" }}
         >
           {visibleReviews.map((review) => (
             <div
               key={review.id}
               data-review-card
-              className="w-[min(100%,20rem)] shrink-0"
+              className="w-[min(100%,20rem)] shrink-0 lg:w-auto lg:min-w-0 lg:shrink"
               style={{ scrollSnapAlign: "start" }}
             >
               <GoogleReviewCard review={review} />
             </div>
-          ))}
-        </div>
-
-        {/* Desktop: responsive grid */}
-        <div className="hidden gap-3 sm:grid-cols-2 lg:grid lg:grid-cols-2">
-          {visibleReviews.map((review) => (
-            <GoogleReviewCard key={review.id} review={review} />
           ))}
         </div>
       </div>

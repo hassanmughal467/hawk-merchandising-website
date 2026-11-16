@@ -21,12 +21,14 @@ export function GoogleReviewCard({ review, className }: GoogleReviewCardProps) {
           <p className="truncate text-sm font-semibold text-white">
             {review.reviewerName}
           </p>
-          <time
-            dateTime={review.date}
-            className="mt-1 block text-xs uppercase tracking-wide text-zinc-500"
-          >
-            {review.dateDisplay}
-          </time>
+          {review.dateDisplay ? (
+            <time
+              dateTime={review.date}
+              className="mt-1 block text-xs uppercase tracking-wide text-zinc-500"
+            >
+              {review.dateDisplay}
+            </time>
+          ) : null}
         </div>
         <GoogleBranding showLabel={false} className="shrink-0 opacity-80" />
       </header>

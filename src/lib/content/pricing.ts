@@ -1,3 +1,5 @@
+import { unlimitedRevisions } from "@/lib/content/offer";
+
 export type PricingPlan = {
   id: string;
   name: string;
@@ -23,7 +25,7 @@ export const pricingPlans: readonly PricingPlan[] = [
     features: [
       "Production Ready File",
       "DST, EMB, PES & More",
-      "Free Minor Revisions",
+      unlimitedRevisions,
       "Quality Checked",
       "Machine Sew-Out Available",
     ],

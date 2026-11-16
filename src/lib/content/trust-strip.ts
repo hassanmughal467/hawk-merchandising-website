@@ -1,5 +1,7 @@
+import { unlimitedStitches } from "@/lib/content/offer";
+
 export const trustStripItems = [
-  { label: "Unlimited Stitches" },
+  { label: unlimitedStitches },
   { label: "Fastest Turnaround 3–4 Hours" },
   { label: "Rush Orders in 2 Hours" },
   { label: "Machine Sew-Out Available" },

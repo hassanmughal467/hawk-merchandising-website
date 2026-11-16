@@ -1,3 +1,4 @@
+import { unlimitedRevisions } from "@/lib/content/offer";
 import { countriesServed, industriesServed } from "@/lib/content/trust";
 
 export const companyStory = {
@@ -36,7 +37,7 @@ export const values = [
 export const whyClientsStay = [
   "Predictable stitch behavior on caps, flats, jackets, and specialty fabrics",
   "Direct access to digitizers who understand your machines and thread charts",
-  "Unlimited reasonable revisions until production samples are approved",
+  unlimitedRevisions,
   "One partner for digitizing, vector conversion, logo redraw, and patch artwork",
   "24-hour standard turnaround with rush options when deadlines tighten",
   "Client portal for order tracking, file downloads, and invoice history",

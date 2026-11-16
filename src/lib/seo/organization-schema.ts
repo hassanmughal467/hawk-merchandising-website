@@ -24,7 +24,10 @@ export function buildOrganizationSchema(): JsonLd {
         addressCountry: "GB",
       },
     ],
-    sameAs: [`https://wa.me/${site.whatsappE164}`],
+    sameAs: [
+      `https://wa.me/${site.whatsappE164}`,
+      ...site.social.map((profile) => profile.href),
+    ],
   };
 }
 

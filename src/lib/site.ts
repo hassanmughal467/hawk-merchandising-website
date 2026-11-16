@@ -155,9 +155,8 @@ export const seoServicePages = [
   { href: "/leather-patches", label: "Leather Patches" },
 ] as const;
 
-/** Resources dropdown (reference-style: awards, downloads, tips, stock) */
+/** Resources dropdown (reference-style: downloads, tips, stock). Awards hidden until real awards exist. */
 export const navResources = [
-  { href: "/awards", label: "Awards" },
   { href: "/free-downloads", label: "Free Downloads" },
   { href: "/tips-and-tricks", label: "Tips & Tricks" },
   { href: "/stock-designs", label: "Stock Designs" },

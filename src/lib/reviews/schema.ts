@@ -3,8 +3,13 @@ import { site } from "@/lib/site";
 
 type JsonLd = Record<string, unknown>;
 
+/**
+ * Organization JSON-LD with AggregateRating only.
+ * Owner-confirmed: ratingValue 5.0, reviewCount 14.
+ * Individual `review` entries are omitted — several quote dates are unverified.
+ */
 export function buildReviewsJsonLd(data: ReviewsData): JsonLd {
-  const { summary, reviews } = data;
+  const { summary } = data;
 
   return {
     "@context": "https://schema.org",
@@ -18,24 +23,5 @@ export function buildReviewsJsonLd(data: ReviewsData): JsonLd {
       bestRating: 5,
       worstRating: 1,
     },
-    review: reviews.map((review) => ({
-      "@type": "Review",
-      author: {
-        "@type": "Person",
-        name: review.reviewerName,
-      },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: review.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
-      reviewBody: review.reviewText,
-      datePublished: review.date,
-      publisher: {
-        "@type": "Organization",
-        name: "Google",
-      },
-    })),
   };
 }

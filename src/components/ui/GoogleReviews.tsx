@@ -10,7 +10,7 @@ import { StarRating } from "@/components/ui/StarRating";
 
 type GoogleReviewsProps = {
   data: ReviewsData;
-  /** Max review cards shown in the carousel/grid */
+  /** Max review cards shown in the carousel */
   maxReviews?: number;
   className?: string;
 };
@@ -39,13 +39,23 @@ function CarouselNavButton({
   );
 }
 
+function uniqueById<T extends { id: string }>(items: T[]): T[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    if (seen.has(item.id)) return false;
+    seen.add(item.id);
+    return true;
+  });
+}
+
 export function GoogleReviews({
   data,
   maxReviews,
   className,
 }: GoogleReviewsProps) {
   const { summary, reviews } = data;
-  const visibleReviews = maxReviews ? reviews.slice(0, maxReviews) : reviews;
+  const deduped = uniqueById(reviews);
+  const visibleReviews = maxReviews ? deduped.slice(0, maxReviews) : deduped;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(visibleReviews.length > 1);
@@ -95,10 +105,8 @@ export function GoogleReviews({
             <span className="font-semibold text-white">
               {summary.averageRating.toFixed(1)}
             </span>
-            <span aria-hidden> · </span>
-            <span>
-              {summary.totalReviewCount.toLocaleString()} reviews
-            </span>
+            {" on Google · "}
+            <span>{summary.totalReviewCount} reviews</span>
           </p>
         </div>
 
@@ -121,7 +129,7 @@ export function GoogleReviews({
       </div>
 
       <div className="min-w-0 flex-1">
-        <div className="mb-4 flex items-center justify-end gap-2 lg:hidden">
+        <div className="mb-4 flex items-center justify-end gap-2">
           <CarouselNavButton
             direction="prev"
             onClick={() => scroll("prev")}
@@ -134,11 +142,11 @@ export function GoogleReviews({
           />
         </div>
 
-        {/* Mobile / tablet: horizontal scroll carousel */}
+        {/* Compact horizontal carousel — each review once (no duplicated maps). */}
         <div
           ref={scrollRef}
           onScroll={updateScrollState}
-          className="flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] lg:hidden [&::-webkit-scrollbar]:hidden"
+          className="flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {visibleReviews.map((review) => (
@@ -150,13 +158,6 @@ export function GoogleReviews({
             >
               <GoogleReviewCard review={review} />
             </div>
-          ))}
-        </div>
-
-        {/* Desktop: responsive grid */}
-        <div className="hidden gap-3 sm:grid-cols-2 lg:grid lg:grid-cols-2">
-          {visibleReviews.map((review) => (
-            <GoogleReviewCard key={review.id} review={review} />
           ))}
         </div>
       </div>

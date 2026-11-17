@@ -15,11 +15,10 @@ type PortfolioLightboxModalProps = {
 
 function buildQuoteHref(item: PortfolioPreviewItem) {
   const params = new URLSearchParams({
-    intent: "sample",
     ref: "portfolio",
     project: item.title,
   });
-  return `/upload?${params.toString()}`;
+  return `/free-trial?${params.toString()}`;
 }
 
 function buildUploadHref(item: PortfolioPreviewItem) {

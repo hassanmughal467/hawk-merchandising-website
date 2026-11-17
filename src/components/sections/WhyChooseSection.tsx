@@ -170,7 +170,7 @@ export function WhyChooseSection() {
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <ConversionLink
-              href="/upload?intent=sample"
+              href="/free-trial"
               event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
               eventParams={{ location: "why_choose" }}
               className="focus-ring inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90 sm:w-auto"

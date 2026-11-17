@@ -1,9 +1,17 @@
 "use client";
 
+import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
-import { OfferTrustBlock } from "@/components/marketing/OfferTrustBlock";
+import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { HeroImageSlider } from "@/components/ui/HeroImageSlider";
 import { fadeUp, stagger } from "@/lib/motion";
+
+const trustBadges = [
+  "24/7 Support",
+  "Fast Turnaround",
+  "Global Clients",
+  "Quality Guaranteed",
+] as const;
 
 export function HeroSection() {
   const reduce = useReducedMotion();
@@ -38,9 +46,46 @@ export function HeroSection() {
               product companies worldwide.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="mt-8">
-              <OfferTrustBlock location="hero" />
+            <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ConversionLink
+                href="/free-trial"
+                event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
+                eventParams={{ location: "hero" }}
+                className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"
+              >
+                Get Free Quote
+              </ConversionLink>
+              <ConversionLink
+                href="/upload"
+                event={CONVERSION_EVENTS.UPLOAD_ARTWORK_CLICK}
+                eventParams={{ location: "hero" }}
+                className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+              >
+                Upload Artwork
+              </ConversionLink>
             </motion.div>
+
+            <motion.ul
+              variants={fadeUp}
+              className="mt-8 grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:gap-x-6"
+            >
+              {trustBadges.map((badge) => (
+                <li key={badge} className="flex items-center gap-2 text-sm font-medium text-zinc-300">
+                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+                    <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <path
+                        d="M5 12.5L10 17.5L19 7.5"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  {badge}
+                </li>
+              ))}
+            </motion.ul>
           </motion.div>
 
           <motion.div

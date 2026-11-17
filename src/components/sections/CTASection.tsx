@@ -31,7 +31,7 @@ export function CTASection() {
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <ConversionLink
-              href="/upload?intent=sample"
+              href="/free-trial"
               event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
               eventParams={{ location: "cta_section" }}
               className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90"

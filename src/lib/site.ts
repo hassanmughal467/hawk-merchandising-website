@@ -218,6 +218,7 @@ export const publicRoutes = [
   "/about",
   "/contact",
   "/upload",
+  "/free-trial",
   ...navResources.map((page) => page.href),
   ...navLegal.map((page) => page.href),
 ] as const;

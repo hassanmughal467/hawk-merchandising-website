@@ -41,7 +41,7 @@ export function TurnaroundSection({
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8">
               <ConversionLink
-                href="/upload?intent=sample"
+                href="/free-trial"
                 event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
                 eventParams={{ location: "turnaround_section" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-gradient-hover"

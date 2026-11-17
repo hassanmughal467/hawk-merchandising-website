@@ -53,7 +53,7 @@ export function OfferSection() {
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8">
               <ConversionLink
-                href="/upload?intent=sample"
+                href="/free-trial"
                 event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
                 eventParams={{ location: "offer_section" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"

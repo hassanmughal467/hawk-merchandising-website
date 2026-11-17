@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 import { resourceFlags } from "./src/lib/content/resource-flags";
 
 const nextConfig: NextConfig = {
+  images: {
+    // Prefer modern formats from /_next/image (AVIF then WebP).
+    formats: ["image/avif", "image/webp"],
+  },
   async redirects() {
     const featureRedirects = [
       ...(!resourceFlags.videos

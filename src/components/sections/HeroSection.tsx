@@ -1,10 +1,8 @@
 "use client";
 
 import { ConversionLink } from "@/components/analytics/ConversionLink";
-import { motion, useReducedMotion } from "framer-motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { HeroImageSlider } from "@/components/ui/HeroImageSlider";
-import { fadeUp, stagger } from "@/lib/motion";
 
 const trustBadges = [
   "24/7 Support",
@@ -13,9 +11,12 @@ const trustBadges = [
   "Quality Guaranteed",
 ] as const;
 
+/**
+ * Hero LCP fix: H1, subtext, CTAs, and badges are plain SSR-visible markup
+ * (no opacity:0 / translateY initial hide). Motion lives only in the slider
+ * transitions after the first slide, and respects prefers-reduced-motion there.
+ */
 export function HeroSection() {
-  const reduce = useReducedMotion();
-
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-brand-dark-gradient">
       <div className="pointer-events-none absolute inset-0">
@@ -26,27 +27,17 @@ export function HeroSection() {
 
       <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-16 lg:px-8 lg:pb-24 lg:pt-20">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-          <motion.div
-            initial={reduce ? false : "hidden"}
-            animate={reduce ? undefined : "visible"}
-            variants={stagger}
-          >
-            <motion.h1
-              variants={fadeUp}
-              className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl"
-            >
+          <div>
+            <h1 className="font-[family-name:var(--font-display)] text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
               Premium Embroidery Digitizing, Vector Art &amp; Custom Patch Solutions
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="mt-5 text-base leading-relaxed text-zinc-400 sm:text-lg"
-            >
+            <p className="mt-5 text-base leading-relaxed text-zinc-400 sm:text-lg">
               Trusted by embroidery shops, apparel brands, uniform suppliers and promotional
               product companies worldwide.
-            </motion.p>
+            </p>
 
-            <motion.div variants={fadeUp} className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ConversionLink
                 href="/free-trial"
                 event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
@@ -63,12 +54,9 @@ export function HeroSection() {
               >
                 Upload Artwork
               </ConversionLink>
-            </motion.div>
+            </div>
 
-            <motion.ul
-              variants={fadeUp}
-              className="mt-8 grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:gap-x-6"
-            >
+            <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:gap-x-6">
               {trustBadges.map((badge) => (
                 <li key={badge} className="flex items-center gap-2 text-sm font-medium text-zinc-300">
                   <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
@@ -85,16 +73,12 @@ export function HeroSection() {
                   {badge}
                 </li>
               ))}
-            </motion.ul>
-          </motion.div>
+            </ul>
+          </div>
 
-          <motion.div
-            initial={reduce ? false : { opacity: 0, x: 24 }}
-            animate={reduce ? undefined : { opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          >
+          <div>
             <HeroImageSlider />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

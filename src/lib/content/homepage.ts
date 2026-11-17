@@ -37,7 +37,7 @@ export const heroSlides: HeroSlide[] = [
     visuals: [
       {
         label: "Before & After",
-        imageSrc: portfolioSrc("BEFORE AND AFTER DIGITIZING.png"),
+        imageSrc: portfolioSrc("BEFORE AND AFTER DIGITIZING.jpg"),
       },
     ],
   },
@@ -61,7 +61,7 @@ export const heroSlides: HeroSlide[] = [
     visuals: [
       {
         label: "3D Puff Embroidery",
-        imageSrc: portfolioSrc("3D puff cap embroidery.png"),
+        imageSrc: portfolioSrc("3D puff cap embroidery.jpg"),
       },
     ],
   },
@@ -73,7 +73,7 @@ export const heroSlides: HeroSlide[] = [
     visuals: [
       {
         label: "PVC Patch",
-        imageSrc: portfolioSrc("custom PVC patch.png"),
+        imageSrc: portfolioSrc("custom PVC patch.jpg"),
       },
     ],
   },
@@ -85,7 +85,7 @@ export const heroSlides: HeroSlide[] = [
     visuals: [
       {
         label: "Woven Patch",
-        imageSrc: portfolioSrc("woven patch program.png"),
+        imageSrc: portfolioSrc("woven patch program.jpg"),
       },
     ],
   },
@@ -124,8 +124,8 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "Sports Team Logo",
     subtitle: "3D Puff Cap Embroidery",
     service: "Cap Digitizing",
-    before: { label: "Original Logo", imageSrc: portfolioSrc("Sports Team Logo .png") },
-    after: { label: "Digitized Result", imageSrc: portfolioSrc("Sports Team Logo after.png") },
+    before: { label: "Original Logo", imageSrc: portfolioSrc("Sports Team Logo .jpg") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Sports Team Logo after.jpg") },
     badges: ["High Detail Accuracy", "Machine Tested", "Fast Turnaround"],
   },
   {
@@ -134,7 +134,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     subtitle: "Workwear Uniform Embroidery",
     service: "Professional Embroidery Services",
     before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("contruction campany before.png") },
-    after: { label: "Digitized Result", imageSrc: portfolioSrc("contruction logo after.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("contruction logo after.jpg") },
     badges: ["Optimized Underlay", "Production Ready", "Clean Stitch Path"],
   },
   {
@@ -143,7 +143,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     subtitle: "Jacket Back Embroidery",
     service: "Embroidery Digitizing Services",
     before: { label: "Complex Artwork", imageSrc: portfolioSrc("Fashion Brand Artwork before.jpg") },
-    after: { label: "Digitized Result", imageSrc: portfolioSrc("Fashion Brand Artwork after.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Fashion Brand Artwork after.jpg") },
     badges: ["High Detail Accuracy", "Clean Stitch Path", "Machine Tested"],
   },
   {
@@ -152,7 +152,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     subtitle: "PVC Patch Production",
     service: "Custom Patch Design",
     before: { label: "PNG Artwork", imageSrc: portfolioSrc("Military Style Design before.png") },
-    after: { label: "Digitized Result", imageSrc: portfolioSrc("Military Style Design after.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Military Style Design after.jpg") },
     badges: ["Production Ready", "High Detail Accuracy", "Fast Turnaround"],
   },
   {
@@ -160,7 +160,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     title: "School Logo",
     subtitle: "Woven Patch",
     service: "Custom Patch Design",
-    before: { label: "Original Logo", imageSrc: portfolioSrc("School Logo before.png") },
+    before: { label: "Original Logo", imageSrc: portfolioSrc("School Logo before.jpg") },
     after: { label: "Digitized Result", imageSrc: portfolioSrc("School Logo after.jpg") },
     badges: ["High Detail Accuracy", "Production Ready", "Clean Stitch Path"],
   },
@@ -170,7 +170,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     subtitle: "Apron Embroidery",
     service: "Logo Digitizing",
     before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Restaurant Logo before.jpg") },
-    after: { label: "Digitized Result", imageSrc: portfolioSrc("Restaurant Logo after.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Restaurant Logo after.jpg") },
     badges: ["Optimized Underlay", "Machine Tested", "Fast Turnaround"],
   },
   {
@@ -179,7 +179,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     subtitle: "Embroidered Cap",
     service: "Cap Digitizing",
     before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Promotional Brand Artwork before.JPG") },
-    after: { label: "Digitized Result", imageSrc: portfolioSrc("Promotional Brand Artwork after.png") },
+    after: { label: "Digitized Result", imageSrc: portfolioSrc("Promotional Brand Artwork after.jpg") },
     badges: ["Clean Stitch Path", "Production Ready", "Fast Turnaround"],
   },
 ];
@@ -213,7 +213,7 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
     id: "pp-02",
     title: "Structured Cap Logo",
     category: "Cap Digitizing",
-    imageSrc: portfolioSrc("Structured Cap Logo.png"),
+    imageSrc: portfolioSrc("Structured Cap Logo.jpg"),
     description: "Curved-panel sequencing for six-panel structured caps.",
   },
   {
@@ -227,21 +227,21 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
     id: "pp-04",
     title: "Uniform Left Chest Program",
     category: "Left Chest Logos",
-    imageSrc: portfolioSrc("Uniform Left Chest Program.png"),
+    imageSrc: portfolioSrc("Uniform Left Chest Program.jpg"),
     description: "Consistent sizing across polos, oxfords, and soft shells.",
   },
   {
     id: "pp-05",
     title: "Team Jacket Full Back",
     category: "Jacket Backs",
-    imageSrc: portfolioSrc("Team Jacket Full Back.png"),
+    imageSrc: portfolioSrc("Team Jacket Full Back.jpg"),
     description: "Large-fill sequencing with stable underlay on outerwear.",
   },
   {
     id: "pp-06",
     title: "Outdoor Brand PVC Badge",
     category: "PVC Patches",
-    imageSrc: portfolioSrc("Outdoor Brand PVC Badge.png"),
+    imageSrc: portfolioSrc("Outdoor Brand PVC Badge.jpg"),
     description: "Layer-separated vector art for molded rubber production.",
   },
   {
@@ -262,7 +262,7 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
     id: "pp-09",
     title: "Premium Leather Deboss Patch",
     category: "Leather Patches",
-    imageSrc: portfolioSrc("Premium Leather Deboss Patch.png"),
+    imageSrc: portfolioSrc("Premium Leather Deboss Patch.jpg"),
     description: "Heat-deboss artwork for bags, hats, and outerwear.",
   },
   {
@@ -283,7 +283,7 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
     id: "pp-12",
     title: "Trade Show Promo Tote",
     category: "Promotional Products",
-    imageSrc: portfolioSrc("Trade Show Promo Tote.png"),
+    imageSrc: portfolioSrc("Trade Show Promo Tote.jpg"),
     description: "Embroidery-ready artwork for bags, towels, and event merch.",
   },
 ];

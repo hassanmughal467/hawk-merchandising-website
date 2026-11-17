@@ -12,6 +12,16 @@ export const logoSizes = {
   "2xl": "h-28",
 } as const;
 
+/** Approximate displayed height in CSS pixels for each size token. */
+const logoDisplayHeightPx: Record<keyof typeof logoSizes, number> = {
+  xs: 32,
+  sm: 36,
+  md: 44,
+  lg: 64,
+  xl: 80,
+  "2xl": 112,
+};
+
 export type LogoSize = keyof typeof logoSizes;
 export type LogoVariant = "full" | "icon" | "light";
 
@@ -35,6 +45,29 @@ function getLogoAsset(variant: LogoVariant) {
   }
 }
 
+/**
+ * Encode width/height near 2× the displayed size so next/image does not
+ * request the full intrinsic asset (e.g. 2048w for a ~40px-tall header logo).
+ */
+function displayDimensions(
+  asset: { width: number; height: number },
+  size: LogoSize,
+  className?: string,
+) {
+  let displayH = logoDisplayHeightPx[size];
+  // Navbar overrides size with h-9 / sm:h-10 — prefer the larger breakpoint.
+  if (className?.includes("sm:h-10")) displayH = 40;
+  else if (className?.includes("h-12") || className?.includes("sm:h-14")) displayH = 56;
+  else if (className?.includes("h-14")) displayH = 56;
+
+  const ratio = asset.width / asset.height;
+  const displayW = Math.round(displayH * ratio);
+  // 2× for retina, capped so we never upscale past the source.
+  const width = Math.min(asset.width, displayW * 2);
+  const height = Math.min(asset.height, displayH * 2);
+  return { width, height, sizes: `${displayW}px` };
+}
+
 export function Logo({
   size = "md",
   variant = "full",
@@ -43,14 +76,17 @@ export function Logo({
   href = "/",
 }: LogoProps) {
   const asset = getLogoAsset(variant);
+  const { width, height, sizes } = displayDimensions(asset, size, className);
 
   const image = (
     <Image
       src={asset.src}
       alt={site.logo.alt}
-      width={asset.width}
-      height={asset.height}
+      width={width}
+      height={height}
+      sizes={sizes}
       priority={priority}
+      loading={priority ? undefined : "lazy"}
       className={cn("w-auto object-contain", logoSizes[size], className)}
     />
   );

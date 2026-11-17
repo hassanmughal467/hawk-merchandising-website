@@ -3,17 +3,21 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
-import { PortfolioImage } from "@/components/ui/PortfolioImage";
+import { HERO_SLIDE_SIZES, PortfolioImage } from "@/components/ui/PortfolioImage";
 import { heroSlides } from "@/lib/content/homepage";
 import { cn } from "@/lib/cn";
 
 export function HeroImageSlider() {
   const reduce = useReducedMotion();
   const [active, setActive] = useState(0);
+  const [hasCycled, setHasCycled] = useState(false);
   const total = heroSlides.length;
 
   const goTo = useCallback(
-    (index: number) => setActive((index + total) % total),
+    (index: number) => {
+      setHasCycled(true);
+      setActive((index + total) % total);
+    },
     [total],
   );
 
@@ -24,6 +28,8 @@ export function HeroImageSlider() {
   }, [active, goTo, reduce]);
 
   const slide = heroSlides[active];
+  // Priority only on the first paint slide; later slides stay lazy.
+  const prioritize = active === 0 && !hasCycled;
 
   return (
     <div className="relative">
@@ -32,7 +38,8 @@ export function HeroImageSlider() {
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id}
-              initial={reduce ? false : { opacity: 0, scale: 0.98 }}
+              // First slide: no opacity:0 so the hero image is paintable immediately.
+              initial={reduce || !hasCycled ? false : { opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={reduce ? undefined : { opacity: 0, scale: 1.02 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -49,6 +56,8 @@ export function HeroImageSlider() {
                         label={v.label}
                         fit="contain"
                         className="h-full"
+                        sizes={HERO_SLIDE_SIZES}
+                        priority={prioritize}
                       />
                     ) : (
                       <PlaceholderVisual
@@ -67,6 +76,8 @@ export function HeroImageSlider() {
                   label={slide.visuals[0].label}
                   fit="contain"
                   className="h-full"
+                  sizes={HERO_SLIDE_SIZES}
+                  priority={prioritize}
                 />
               ) : (
                 <PlaceholderVisual

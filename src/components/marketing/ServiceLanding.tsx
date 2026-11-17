@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ConversionLink } from "@/components/analytics/ConversionLink";
-import { CTAButtons } from "@/components/marketing/CTAButtons";
+import { OfferTrustBlock } from "@/components/marketing/OfferTrustBlock";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
@@ -27,7 +27,7 @@ export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
   return (
     <div className="bg-background">
       <PageHero eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle}>
-        <CTAButtons className="!mt-0" />
+        <OfferTrustBlock location="service_hero" className="!mt-0" />
       </PageHero>
 
       <TrustStrip />

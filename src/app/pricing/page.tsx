@@ -1,3 +1,4 @@
+import { OfferTrustBlock } from "@/components/marketing/OfferTrustBlock";
 import { PageHero } from "@/components/marketing/PageHero";
 import { PricingCardsSection } from "@/components/sections/PricingCardsSection";
 import { TrustStrip } from "@/components/sections/TrustStrip";
@@ -19,7 +20,9 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title={pricingSectionTitle}
         subtitle={pricingSectionSubtitle}
-      />
+      >
+        <OfferTrustBlock location="pricing_hero" className="!mt-0" />
+      </PageHero>
 
       <TrustStrip />
       <PricingCardsSection showHeader={false} />

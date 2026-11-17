@@ -4,6 +4,7 @@ import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { PortfolioPageContent } from "@/components/portfolio/PortfolioPageContent";
+import { videosPage } from "@/lib/content/videos";
 
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -31,12 +32,14 @@ export default function PortfolioPage() {
           >
             Request a quote
           </ConversionLink>
-          <Link
-            href="/portfolio/videos"
-            className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
-          >
-            Watch videos
-          </Link>
+          {videosPage.enabled ? (
+            <Link
+              href="/portfolio/videos"
+              className="focus-ring inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+            >
+              Watch videos
+            </Link>
+          ) : null}
         </div>
       </PageHero>
 

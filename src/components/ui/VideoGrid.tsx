@@ -37,7 +37,7 @@ function VideoCard({ video }: { video: PortfolioVideo }) {
               ▶
             </span>
             <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">
-              Video coming soon
+              Video unavailable
             </p>
           </div>
         )}

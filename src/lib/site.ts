@@ -1,3 +1,5 @@
+import { resourceFlags } from "@/lib/content/resource-flags";
+
 export const site = {
   name: "Hawk Merchandising",
   tagline: "Digitizing & vector art for global brands",
@@ -156,12 +158,25 @@ export const seoServicePages = [
 ] as const;
 
 /** Resources dropdown (reference-style: awards, downloads, tips, stock) */
-export const navResources = [
-  { href: "/awards", label: "Awards" },
-  { href: "/free-downloads", label: "Free Downloads" },
-  { href: "/tips-and-tricks", label: "Tips & Tricks" },
-  { href: "/stock-designs", label: "Stock Designs" },
+const navResourcesAll = [
+  { href: "/awards", label: "Awards", enabled: true },
+  {
+    href: "/free-downloads",
+    label: "Free Downloads",
+    enabled: resourceFlags.freeDownloads,
+  },
+  { href: "/tips-and-tricks", label: "Tips & Tricks", enabled: true },
+  {
+    href: "/stock-designs",
+    label: "Stock Designs",
+    enabled: resourceFlags.stockDesigns,
+  },
 ] as const;
+
+/** Visible Resources links (hidden pages stay out of header and footer) */
+export const navResources = navResourcesAll
+  .filter((page) => page.enabled)
+  .map(({ href, label }) => ({ href, label }));
 
 /** Footer-only shortcuts */
 export const navLegal = [
@@ -175,7 +190,7 @@ export const publicRoutes = [
   ...seoServicePages.map((page) => page.href),
   "/promotional-products",
   "/portfolio",
-  "/portfolio/videos",
+  ...(resourceFlags.videos ? (["/portfolio/videos"] as const) : []),
   "/pricing",
   "/services",
   "/about",

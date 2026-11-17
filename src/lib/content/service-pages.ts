@@ -67,7 +67,6 @@ export const servicePages: Record<string, ServicePageContent> = {
     ],
     relatedLinks: [
       { href: "/portfolio?category=embroidery-digitizing", label: "View digitizing portfolio" },
-      { href: "/portfolio/videos", label: "Watch production videos" },
     ],
     portfolioCategory: "embroidery-digitizing",
   },
@@ -240,7 +239,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     ],
     relatedLinks: [
       { href: "/vector-art-conversion", label: "Vector art conversion" },
-      { href: "/portfolio/videos", label: "Patch production videos" },
+      { href: "/portfolio?category=custom-patches", label: "View patch portfolio" },
     ],
     portfolioCategory: "custom-patches",
   },
@@ -394,7 +393,6 @@ export const servicePages: Record<string, ServicePageContent> = {
     relatedLinks: [
       { href: "/cap-digitizing", label: "Cap digitizing" },
       { href: "/embroidery-digitizing", label: "Embroidery digitizing" },
-      { href: "/portfolio/videos", label: "Watch puff production" },
     ],
     portfolioCategory: "embroidery-digitizing",
   },

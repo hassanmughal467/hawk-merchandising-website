@@ -10,7 +10,7 @@ import { StarRating } from "@/components/ui/StarRating";
 
 type GoogleReviewsProps = {
   data: ReviewsData;
-  /** Max review cards shown in the carousel/grid */
+  /** Max review cards shown in the carousel */
   maxReviews?: number;
   className?: string;
 };
@@ -105,8 +105,8 @@ export function GoogleReviews({
             <span className="font-semibold text-white">
               {summary.averageRating.toFixed(1)}
             </span>
-            {" "}
-            <span>on Google</span>
+            {" on Google · "}
+            <span>{summary.totalReviewCount} reviews</span>
           </p>
         </div>
 
@@ -129,7 +129,7 @@ export function GoogleReviews({
       </div>
 
       <div className="min-w-0 flex-1">
-        <div className="mb-4 flex items-center justify-end gap-2 lg:hidden">
+        <div className="mb-4 flex items-center justify-end gap-2">
           <CarouselNavButton
             direction="prev"
             onClick={() => scroll("prev")}
@@ -142,24 +142,18 @@ export function GoogleReviews({
           />
         </div>
 
-        {/*
-          Single list of cards: horizontal snap-scroll below lg, 2-col grid at lg+.
-          Do not map reviews twice — duplicates previously appeared as a doubled carousel.
-        */}
+        {/* Compact horizontal carousel — each review once (no duplicated maps). */}
         <div
           ref={scrollRef}
           onScroll={updateScrollState}
-          className={cn(
-            "flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
-            "lg:grid lg:grid-cols-2 lg:overflow-visible lg:pb-0",
-          )}
+          className="flex gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           style={{ scrollSnapType: "x mandatory" }}
         >
           {visibleReviews.map((review) => (
             <div
               key={review.id}
               data-review-card
-              className="w-[min(100%,20rem)] shrink-0 lg:w-auto lg:min-w-0 lg:shrink"
+              className="w-[min(100%,20rem)] shrink-0"
               style={{ scrollSnapAlign: "start" }}
             >
               <GoogleReviewCard review={review} />

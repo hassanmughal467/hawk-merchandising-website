@@ -1,9 +1,9 @@
 /**
  * Google Reviews — curated quotes from Hawk Merchandising's Google Business Profile.
  *
- * Do not invent a review count here. The UI shows "5.0 on Google" until the owner
- * confirms the live Google count. When GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID are
- * set, `getReviews()` can fetch live rating, count, and review text from Places.
+ * Owner-confirmed summary (task 7): "5.0 on Google · 14 reviews".
+ * When GOOGLE_PLACES_API_KEY + GOOGLE_PLACE_ID are set, `getReviews()` can fetch
+ * live rating, count, and review text from the Places API.
  *
  * Dates: show real month + year only when verified; otherwise omit (never relative
  * "X months ago" strings that go stale or disagree with Google).
@@ -25,11 +25,7 @@ export type Review = {
 
 export type ReviewsSummary = {
   averageRating: number;
-  /**
-   * Live Google total when known from Places API.
-   * Omit / null for static fallback — never invent a hard-coded count.
-   */
-  totalReviewCount?: number | null;
+  totalReviewCount: number;
   profileUrl: string;
   /** Google Place ID — set in env or here when known */
   placeId?: string;
@@ -42,7 +38,7 @@ export type ReviewsData = {
 
 export const reviewsSummary: ReviewsSummary = {
   averageRating: 5.0,
-  totalReviewCount: null,
+  totalReviewCount: 14,
   profileUrl:
     "https://www.google.com/maps/search/?api=1&query=Hawk+Merchandising+Durham+NC",
   placeId: undefined,

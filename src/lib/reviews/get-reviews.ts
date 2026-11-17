@@ -117,9 +117,10 @@ async function fetchGooglePlaceReviews(
   return {
     summary: {
       averageRating: rating ?? mockReviewsData.summary.averageRating,
-      // Live Places total is real Google data; static fallback keeps this null.
       totalReviewCount:
-        typeof user_ratings_total === "number" ? user_ratings_total : null,
+        typeof user_ratings_total === "number"
+          ? user_ratings_total
+          : mockReviewsData.summary.totalReviewCount,
       profileUrl: mapsUrl ?? mockReviewsData.summary.profileUrl,
       placeId,
     },

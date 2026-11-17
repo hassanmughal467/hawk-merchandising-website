@@ -13,16 +13,17 @@ import { getFAQPreview } from "@/lib/content/faq";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildWebSiteSchema } from "@/lib/seo/organization-schema";
 import { getReviews } from "@/lib/reviews/get-reviews";
+import { buildReviewsJsonLd } from "@/lib/reviews/schema";
 
 export default async function Page() {
   const reviewsData = await getReviews();
+  const reviewsJsonLd = buildReviewsJsonLd(reviewsData);
   const faqPreview = getFAQPreview(5);
   const faqJsonLd = buildFAQSchema(faqPreview);
 
   return (
     <>
-      {/* Review/AggregateRating JSON-LD omitted until Google count is owner-confirmed (brief task 7). */}
-      <JsonLdScript data={[buildWebSiteSchema(), faqJsonLd]} />
+      <JsonLdScript data={[buildWebSiteSchema(), reviewsJsonLd, faqJsonLd]} />
       <HomePage reviewsData={reviewsData} />
     </>
   );

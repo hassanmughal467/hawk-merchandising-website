@@ -5,9 +5,10 @@ import { motion, useReducedMotion } from "framer-motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { HeroImageSlider } from "@/components/ui/HeroImageSlider";
 import { fadeUp, stagger } from "@/lib/motion";
+import { site } from "@/lib/site";
 
 const trustBadges = [
-  "24/7 Support",
+  site.supportHoursShort,
   "Fast Turnaround",
   "Global Clients",
   "Quality Guaranteed",

@@ -106,8 +106,8 @@ export default function ContactPage() {
                 </dd>
               </div>
               <div>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Business hours</dt>
-                <dd className="mt-2 text-zinc-300">{site.businessHours}</dd>
+                <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Support</dt>
+                <dd className="mt-2 text-zinc-300">{site.supportHours}</dd>
               </div>
               <div>
                 <dt className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Response time</dt>

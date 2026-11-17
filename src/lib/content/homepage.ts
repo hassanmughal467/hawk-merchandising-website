@@ -1,4 +1,5 @@
 import { portfolioSrc } from "@/lib/content/portfolio-assets";
+import { site } from "@/lib/site";
 
 export type VisualType =
   | "logo-original"
@@ -367,9 +368,8 @@ export const whyChooseHawkCards = [
   {
     id: "customer-support",
     icon: "headset" as const,
-    title: "24/7 Customer Support",
-    description:
-      "Our team is available whenever you need assistance, updates, or urgent production help.",
+    title: site.supportHoursShort,
+    description: site.supportHours,
   },
 ] as const;
 

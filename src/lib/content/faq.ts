@@ -1,3 +1,5 @@
+import { site } from "@/lib/site";
+
 export type FAQItem = {
   question: string;
   answer: string;
@@ -154,6 +156,16 @@ export const faqTopics: FAQTopic[] = [
         question: "Does rush cost extra?",
         answer:
           "Rush jobs may carry a priority fee based on complexity and slot availability. We quote the rush rate before work begins—no surprises.",
+      },
+    ],
+  },
+  {
+    id: "support",
+    title: "Support",
+    items: [
+      {
+        question: "What are your support hours?",
+        answer: site.supportHours,
       },
     ],
   },

@@ -11,6 +11,7 @@ export function buildOrganizationSchema(): JsonLd {
     logo: `${site.url}${site.logo.src}`,
     description: site.description,
     email: site.email,
+    foundingDate: site.foundingDate,
     telephone: [site.phoneUs, site.phoneUk],
     address: [
       {
@@ -56,9 +57,17 @@ export function buildLocalBusinessSchema(): JsonLd {
     priceRange: "$$",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "18:00",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
     },
     address: {
       "@type": "PostalAddress",

@@ -27,14 +27,19 @@ export const site = {
       height: 1024,
     },
   },
-  email: "info@hawkmerchandising.com",
+  email: "sales@hawkmerchandising.com",
   phoneUs: "+1 929-299-1866",
   phoneUk: "+44 20 3026 5676",
   whatsappE164: "19292991866",
   addressUs: "Torry Pine Lane, Durham, NC 27713, USA",
   addressUk: "22 Wenlock Rd, London N1 7GU, UK",
-  businessHours: "Monday–Friday, 8:00 AM – 6:00 PM ET",
+  /** Full support-hours claim (contact, FAQ, hours blocks). */
+  supportHours: "Support available 24/7, 7 days a week",
+  /** Short badge form when space is tight (hero trust badges). */
+  supportHoursShort: "Support available 24/7",
   responseTime: "Same business day for most requests",
+  foundingLine: "Since 2009",
+  foundingDate: "2009",
   clientPortal: {
     url: "https://admin.hawkmerchandising.com/",
     label: "Login",

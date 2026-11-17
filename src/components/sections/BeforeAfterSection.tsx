@@ -2,7 +2,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { PlaceholderVisual } from "@/components/ui/PlaceholderVisual";
-import { PortfolioImage } from "@/components/ui/PortfolioImage";
+import {
+  BEFORE_AFTER_PANEL_SIZES,
+  PortfolioImage,
+} from "@/components/ui/PortfolioImage";
 import { beforeAfterShowcase } from "@/lib/content/homepage";
 import { fadeUp, stagger } from "@/lib/motion";
 
@@ -20,6 +23,7 @@ function ShowcasePanel({
         alt={alt}
         label={panel.label}
         className="h-full"
+        sizes={BEFORE_AFTER_PANEL_SIZES}
       />
     );
   }

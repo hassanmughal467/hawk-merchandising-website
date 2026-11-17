@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    // Prefer modern formats from /_next/image (AVIF then WebP).
+    formats: ["image/avif", "image/webp"],
+  },
   async redirects() {
     return [
       { source: "/digitizing", destination: "/embroidery-digitizing", permanent: true },

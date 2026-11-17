@@ -17,9 +17,10 @@ export const site = {
     width: 1024,
     height: 1024,
     icon: {
-      src: "/images/hawk-merchandising-icon.png",
-      width: 1024,
-      height: 593,
+      // Header-sized asset (~2× display) so next/image never requests 1024w+.
+      src: "/images/hawk-merchandising-icon-header.png",
+      width: 140,
+      height: 81,
     },
     light: {
       src: "/images/hawk-merchandising-logo-light.png",

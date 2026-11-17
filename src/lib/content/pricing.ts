@@ -1,8 +1,33 @@
+/**
+ * Website-only pricing. Do not reuse these rates in social widgets,
+ * share cards, or copy meant for social profiles.
+ */
+export const websitePricing = {
+  embroideryUpTo5: {
+    name: 'Embroidery designs up to 5"',
+    rate: "$4 flat rate",
+  },
+  embroidery5to12: {
+    name: 'Embroidery designs from 5" to 12"',
+    rate: "$8 flat rate",
+  },
+  simpleVector: {
+    name: "Simple vector art",
+    rate: "$4 flat rate",
+  },
+  complexVector: {
+    name: "Complex vector art",
+    rate: "Quoted based on detail",
+  },
+  qualityLine:
+    "Our low price never compromises quality, and a sew-out is available on request.",
+} as const;
+
 export type PricingPlan = {
   id: string;
   name: string;
-  priceLabel: string;
-  price: string | null;
+  /** Full rate string shown on the card (e.g. "$4 flat rate"). */
+  rate: string;
   features: readonly string[];
   href: string;
   cta: string;
@@ -16,10 +41,9 @@ export const pricingSectionSubtitle =
 
 export const pricingPlans: readonly PricingPlan[] = [
   {
-    id: "left-chest",
-    name: "Left Chest Digitizing",
-    priceLabel: "Starting at",
-    price: "$5",
+    id: "embroidery-up-to-5",
+    name: websitePricing.embroideryUpTo5.name,
+    rate: websitePricing.embroideryUpTo5.rate,
     features: [
       "Production Ready File",
       "DST, EMB, PES & More",
@@ -31,10 +55,9 @@ export const pricingPlans: readonly PricingPlan[] = [
     cta: "Get Started",
   },
   {
-    id: "jacket-back",
-    name: "Jacket Back Digitizing",
-    priceLabel: "Starting at",
-    price: "$8",
+    id: "embroidery-5-to-12",
+    name: websitePricing.embroidery5to12.name,
+    rate: websitePricing.embroidery5to12.rate,
     features: [
       "Large Design Optimization",
       "Clean Stitch Path",
@@ -47,9 +70,8 @@ export const pricingPlans: readonly PricingPlan[] = [
   },
   {
     id: "simple-vector",
-    name: "Simple Vector Art",
-    priceLabel: "Starting at",
-    price: "$5",
+    name: websitePricing.simpleVector.name,
+    rate: websitePricing.simpleVector.rate,
     features: [
       "Clean Vector Conversion",
       "AI, EPS, SVG, PDF",
@@ -62,9 +84,8 @@ export const pricingPlans: readonly PricingPlan[] = [
   },
   {
     id: "complex-vector",
-    name: "Complex Vector Art",
-    priceLabel: "Custom Quote",
-    price: null,
+    name: websitePricing.complexVector.name,
+    rate: websitePricing.complexVector.rate,
     features: [
       "Detailed Artwork Recreation",
       "Complex Logo Redraw",
@@ -78,8 +99,7 @@ export const pricingPlans: readonly PricingPlan[] = [
   {
     id: "custom-projects",
     name: "Custom Projects",
-    priceLabel: "Custom Pricing",
-    price: null,
+    rate: "Custom quote",
     featured: true,
     features: [
       "Patches",

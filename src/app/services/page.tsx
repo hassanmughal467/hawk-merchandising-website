@@ -3,7 +3,7 @@ import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { ServiceCard } from "@/components/ui/ServiceCard";
-import { services, site } from "@/lib/site";
+import { services, site, siteAudience } from "@/lib/site";
 
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -43,7 +43,7 @@ const detailSections = [
     id: "vector",
     title: "Vector Conversion",
     body: [
-      "Clean vector rebuilds for screen print, heat transfer, and sign workflows—EPS, AI, PDF, and Corel-friendly outputs.",
+      "Clean vector rebuilds for DTF and sublimation, heat transfer, and sign workflows—EPS, AI, PDF, and Corel-friendly outputs.",
       "Raster-to-vector with attention to traps, knockouts, and separations when your decorator needs them.",
     ],
   },
@@ -63,7 +63,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Production-grade digitizing & vector art"
-        subtitle={`${site.name} helps embroidery businesses and print shops ship faster—with files that behave predictably on the machine floor.`}
+        subtitle={`${site.name} helps ${siteAudience} ship faster—with files that behave predictably on the machine floor.`}
       >
         <div className="flex flex-col gap-3 sm:flex-row">
           <ConversionLink

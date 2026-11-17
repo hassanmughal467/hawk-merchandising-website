@@ -131,7 +131,7 @@ const vectorFiles = [
   "Vector conversion 09.jpg",
   "Vector conversion 10.jpg",
   "Vector conversion 11.PNG",
-  "Screen Print Vector Master.jpeg",
+  "Print-Ready Vector Master.jpeg",
   "Fashion Brand Artwork.png",
   "Promotional Brand Artwork.png",
   "Construction Company Logo.png",

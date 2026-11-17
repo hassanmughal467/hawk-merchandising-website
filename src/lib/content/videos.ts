@@ -1,13 +1,4 @@
 import { portfolioSrc } from "@/lib/content/portfolio-assets";
-import { resourceFlags } from "@/lib/content/resource-flags";
-
-/**
- * Portfolio Videos page + homepage process preview.
- * Controlled by resourceFlags.videos in resource-flags.ts.
- */
-export const videosPage = {
-  enabled: resourceFlags.videos,
-} as const;
 
 export type PortfolioVideo = {
   id: string;
@@ -21,7 +12,6 @@ export type PortfolioVideo = {
   duration?: string;
 };
 
-/** Only used when videosPage.enabled is true */
 export const portfolioVideos: PortfolioVideo[] = [
   {
     id: "machine-stitch",
@@ -36,7 +26,7 @@ export const portfolioVideos: PortfolioVideo[] = [
     id: "vector-before-after",
     title: "Before / after vector conversion",
     description:
-      "Raster logo rebuilt as clean vector art with separations ready for DTF, sublimation, and vinyl.",
+      "Raster logo rebuilt as clean vector art with print-ready separations for DTF, sublimation, and vinyl.",
     category: "vector",
     src: portfolioSrc("Digitizing Process.mp4"),
     duration: "1:45",

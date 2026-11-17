@@ -20,7 +20,7 @@ import { getAllFAQItems } from "@/lib/content/faq";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { site } from "@/lib/site";
+import { site, siteAudience } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "About",
@@ -43,7 +43,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About"
         title="Built for shops that cannot afford rework"
-        subtitle={`${site.name} partners with embroidery businesses, apparel brands, and print shops that need reliable digitizing and vector art—without drama at the machine.`}
+        subtitle={`${site.name} partners with ${siteAudience} that need reliable digitizing and vector art—without drama at the machine.`}
       />
 
       <section className="border-b border-white/10">

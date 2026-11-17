@@ -267,10 +267,10 @@ export const portfolioPreviewItems: PortfolioPreviewItem[] = [
   },
   {
     id: "pp-10",
-    title: "Screen Print Vector Master",
+    title: "Print-Ready Vector Master",
     category: "Vector Art",
-    imageSrc: portfolioSrc("Screen Print Vector Master.jpeg"),
-    description: "Clean separations with embroidery-friendly paths.",
+    imageSrc: portfolioSrc("Print-Ready Vector Master.jpeg"),
+    description: "Clean print-ready paths for DTF, sublimation, and embroidery prep.",
   },
   {
     id: "pp-11",

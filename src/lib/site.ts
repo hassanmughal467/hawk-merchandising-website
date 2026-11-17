@@ -1,10 +1,12 @@
-import { resourceFlags } from "@/lib/content/resource-flags";
+/** Shared buyer audience for meta, footer, JSON-LD, and marketing copy */
+export const siteAudience =
+  "embroidery businesses, apparel brands, and apparel decorators" as const;
 
 export const site = {
   name: "Hawk Merchandising",
   tagline: "Digitizing & vector art for global brands",
   description:
-    "Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. Fast turnaround, consistent quality, worldwide delivery.",
+    `Premium embroidery digitizing and vector art for ${siteAudience}. Fast turnaround, consistent quality, worldwide delivery.`,
   url: "https://www.hawkmerchandising.com",
   /** Default Open Graph / Twitter Card image (must exist in public/) */
   ogImage: {
@@ -158,25 +160,12 @@ export const seoServicePages = [
 ] as const;
 
 /** Resources dropdown (reference-style: awards, downloads, tips, stock) */
-const navResourcesAll = [
-  { href: "/awards", label: "Awards", enabled: true },
-  {
-    href: "/free-downloads",
-    label: "Free Downloads",
-    enabled: resourceFlags.freeDownloads,
-  },
-  { href: "/tips-and-tricks", label: "Tips & Tricks", enabled: true },
-  {
-    href: "/stock-designs",
-    label: "Stock Designs",
-    enabled: resourceFlags.stockDesigns,
-  },
+export const navResources = [
+  { href: "/awards", label: "Awards" },
+  { href: "/free-downloads", label: "Free Downloads" },
+  { href: "/tips-and-tricks", label: "Tips & Tricks" },
+  { href: "/stock-designs", label: "Stock Designs" },
 ] as const;
-
-/** Visible Resources links (hidden pages stay out of header and footer) */
-export const navResources = navResourcesAll
-  .filter((page) => page.enabled)
-  .map(({ href, label }) => ({ href, label }));
 
 /** Footer-only shortcuts */
 export const navLegal = [
@@ -190,7 +179,7 @@ export const publicRoutes = [
   ...seoServicePages.map((page) => page.href),
   "/promotional-products",
   "/portfolio",
-  ...(resourceFlags.videos ? (["/portfolio/videos"] as const) : []),
+  "/portfolio/videos",
   "/pricing",
   "/services",
   "/about",

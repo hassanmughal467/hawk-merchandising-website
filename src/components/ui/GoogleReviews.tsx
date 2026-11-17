@@ -103,7 +103,7 @@ export function GoogleReviews({
         </div>
 
         <p className="mt-4 text-sm leading-relaxed text-zinc-500">
-          Verified feedback from embroidery shops, apparel brands, and print teams
+          Verified feedback from embroidery shops, apparel brands, and apparel decorators
           who rely on Hawk for production-ready files.
         </p>
 

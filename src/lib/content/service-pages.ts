@@ -81,17 +81,17 @@ export const servicePages: Record<string, ServicePageContent> = {
     eyebrow: "Vector Art Conversion",
     title: "Vector art that survives printing—not just zooming in",
     subtitle:
-      "Editable vector artwork for screen print, heat transfer, signage, and production digitizing workflows.",
+      "Editable vector artwork for DTF and sublimation, heat transfer, signage, and production digitizing workflows.",
     overview:
-      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—screen print separations, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
+      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—DTF and sublimation artwork, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
     features: [
       {
         title: "Raster to vector",
         body: "Low-resolution logos and scans rebuilt as crisp line art—ready for enlargement, vinyl, or print.",
       },
       {
-        title: "Screen print separations",
-        body: "Spot channels, traps, and underbases coordinated with how your decorator actually produces.",
+        title: "DTF and sublimation artwork",
+        body: "Print-ready color breaks and layers coordinated with how your decorator actually produces.",
       },
       {
         title: "Embroidery-ready vectors",
@@ -254,9 +254,9 @@ export const servicePages: Record<string, ServicePageContent> = {
     eyebrow: "Logo Redraw",
     title: "Logo redraws that unify every vendor",
     subtitle:
-      "One accurate master logo for embroidery, screen print, patches, and promo—so your brand looks the same everywhere.",
+      "One accurate master logo for embroidery, DTF and sublimation, patches, and promo—so your brand looks the same everywhere.",
     overview:
-      "Blurry scans, outdated marks, and low-resolution logos become one crisp master for every vendor you work with. Our redraws consider stitch behavior, patch borders, and print separations—not just how the mark looks at 400% zoom.",
+      "Blurry scans, outdated marks, and low-resolution logos become one crisp master for every vendor you work with. Our redraws consider stitch behavior, patch borders, and print-ready color breaks—not just how the mark looks at 400% zoom.",
     features: [
       {
         title: "Low-resolution rescue",

@@ -1,5 +1,6 @@
 import type { FAQItem } from "@/lib/content/faq";
 import { getFAQItemsByTopic } from "@/lib/content/faq";
+import { unlimitedRevisions } from "@/lib/content/offer";
 import { turnaroundTimes } from "@/lib/content/turnaround";
 import { industriesServed } from "@/lib/content/trust";
 import { services } from "@/lib/site";
@@ -57,7 +58,7 @@ export const serviceBenefits = [
     body: "Direct communication with specialists who understand your machines, fabrics, and deadlines.",
   },
   {
-    title: "Unlimited reasonable revisions",
+    title: unlimitedRevisions,
     body: "We adjust until your sample runs correctly without surprise fees on standard production tweaks.",
   },
   {

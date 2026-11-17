@@ -2,6 +2,7 @@
 
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
+import { unlimitedRevisions } from "@/lib/content/offer";
 import { fadeUp, stagger } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
@@ -11,7 +12,7 @@ const bullets = [
     body: "Try our quality on your logo—no guesswork, no awkward first invoice.",
   },
   {
-    title: "Unlimited revisions",
+    title: unlimitedRevisions,
     body: "We refine until it runs clean—within the scope of the approved artwork.",
   },
   {

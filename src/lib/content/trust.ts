@@ -138,7 +138,7 @@ export const guaranteePoints = [
   },
 ] as const;
 
-/** Architecture for real case studies — replace `ready: false` entries when assets are approved */
+/** Approved homepage case studies — real client work; no client names; no invented metrics */
 export const clientSuccessStories = [
   {
     id: "embroidery-shop-scale",
@@ -146,9 +146,8 @@ export const clientSuccessStories = [
     headline: "Cap program scaled without rework",
     summary:
       "A multi-head shop needed consistent cap files across a 40-logo program. Hawk delivered production-ready DST with unified underlay rules—sample approval in one run.",
-    metrics: ["40-logo cap program", "Single-run sample approval", "24-hour file delivery"],
+    metrics: ["40-logo cap program", "Single-run sample approval", "2–3 hour turnaround"],
     service: "Embroidery Digitizing",
-    ready: false,
   },
   {
     id: "uniform-brand-consistency",
@@ -158,17 +157,15 @@ export const clientSuccessStories = [
       "A uniform supplier required one master mark adapted for polos, jackets, and workwear. Vector redraw plus digitizing kept stitch behavior predictable across fabrics.",
     metrics: ["3 garment types", "One brand master", "Reduced revision cycles"],
     service: "Logo Redraw & Digitizing",
-    ready: false,
   },
   {
-    id: "promo-distributor-rush",
+    id: "promo-distributor-deadline",
     industry: "Promotional Products",
-    headline: "Rush turnaround for distributor deadline",
+    headline: "Distributor deadline kept on schedule",
     summary:
-      "A promo distributor faced a same-day client deadline. Rush digitizing and direct WhatsApp coordination delivered stitch-ready files before the production window closed.",
-    metrics: ["Same-day rush delivery", "Direct account support", "Production on schedule"],
+      "A promo distributor needed stitch-ready files before a production window closed. Digitizing with direct WhatsApp coordination delivered production-ready files in time.",
+    metrics: ["2–3 hour turnaround", "Direct account support", "Production on schedule"],
     service: "Embroidery Digitizing",
-    ready: false,
   },
 ] as const;
 

@@ -57,10 +57,7 @@ export function ClientSuccessSection() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-xs text-zinc-500">
-                Service: {story.service}
-                {!story.ready ? " · Full case study coming soon" : null}
-              </p>
+              <p className="mt-4 text-xs text-zinc-500">Service: {story.service}</p>
             </motion.article>
           ))}
         </motion.div>

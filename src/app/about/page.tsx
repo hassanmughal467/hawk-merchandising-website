@@ -41,7 +41,7 @@ export default function AboutPage() {
       <JsonLdScript data={[buildBreadcrumbSchema(breadcrumbs), buildFAQSchema(faqItems)]} />
 
       <PageHero
-        eyebrow="About"
+        eyebrow={site.foundingLine}
         title="Built for shops that cannot afford rework"
         subtitle={`${site.name} partners with ${siteAudience} that need reliable digitizing and vector art—without drama at the machine.`}
       />

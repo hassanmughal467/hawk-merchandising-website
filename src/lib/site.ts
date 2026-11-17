@@ -1,12 +1,8 @@
-/** Shared buyer audience for meta, footer, JSON-LD, and marketing copy */
-export const siteAudience =
-  "embroidery businesses, apparel brands, and apparel decorators" as const;
-
 export const site = {
   name: "Hawk Merchandising",
   tagline: "Digitizing & vector art for global brands",
   description:
-    `Premium embroidery digitizing and vector art for ${siteAudience}. Fast turnaround, consistent quality, worldwide delivery.`,
+    "Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. Fast turnaround, consistent quality, worldwide delivery.",
   url: "https://www.hawkmerchandising.com",
   /** Default Open Graph / Twitter Card image (must exist in public/) */
   ogImage: {
@@ -21,10 +17,9 @@ export const site = {
     width: 1024,
     height: 1024,
     icon: {
-      // Header-sized asset (~2× display) so next/image never requests 1024w+.
-      src: "/images/hawk-merchandising-icon-header.png",
-      width: 140,
-      height: 81,
+      src: "/images/hawk-merchandising-icon.png",
+      width: 1024,
+      height: 593,
     },
     light: {
       src: "/images/hawk-merchandising-logo-light.png",
@@ -32,29 +27,19 @@ export const site = {
       height: 1024,
     },
   },
-  email: "info@hawkmerchandising.com",
+  email: "sales@hawkmerchandising.com",
   phoneUs: "+1 929-299-1866",
   phoneUk: "+44 20 3026 5676",
   whatsappE164: "19292991866",
-  /** Display strings (footer/contact). London street number waits on owner (task 11). */
   addressUs: "Torry Pine Lane, Durham, NC 27713, USA",
   addressUk: "22 Wenlock Rd, London N1 7GU, UK",
-  /** Structured PostalAddress parts for JSON-LD (must match display strings above). */
-  addressUsParts: {
-    streetAddress: "Torry Pine Lane",
-    addressLocality: "Durham",
-    addressRegion: "NC",
-    postalCode: "27713",
-    addressCountry: "US",
-  },
-  addressUkParts: {
-    streetAddress: "22 Wenlock Rd",
-    addressLocality: "London",
-    postalCode: "N1 7GU",
-    addressCountry: "GB",
-  },
-  businessHours: "Monday–Friday, 8:00 AM – 6:00 PM ET",
+  /** Full support-hours claim (contact, FAQ, hours blocks). */
+  supportHours: "Support available 24/7, 7 days a week",
+  /** Short badge form when space is tight (hero trust badges). */
+  supportHoursShort: "Support available 24/7",
   responseTime: "Same business day for most requests",
+  foundingLine: "Since 2009",
+  foundingDate: "2009",
   clientPortal: {
     url: "https://admin.hawkmerchandising.com/",
     label: "Login",
@@ -63,25 +48,6 @@ export const site = {
     url: "https://admin.hawkmerchandising.com/auth/register",
     label: "Signup",
   },
-  /** Public social profiles (footer + Organization JSON-LD sameAs). No YouTube yet. */
-  social: [
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/company/hawkmerchandising",
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/hawkmerchandising",
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/hawk_merchandisingllc/",
-    },
-    {
-      name: "Pinterest",
-      href: "https://www.pinterest.com/hawkoffice/",
-    },
-  ],
 } as const;
 
 export const services = [
@@ -194,8 +160,9 @@ export const seoServicePages = [
   { href: "/leather-patches", label: "Leather Patches" },
 ] as const;
 
-/** Resources dropdown (reference-style: downloads, tips, stock). Awards hidden until real awards exist. */
+/** Resources dropdown (reference-style: awards, downloads, tips, stock) */
 export const navResources = [
+  { href: "/awards", label: "Awards" },
   { href: "/free-downloads", label: "Free Downloads" },
   { href: "/tips-and-tricks", label: "Tips & Tricks" },
   { href: "/stock-designs", label: "Stock Designs" },
@@ -203,7 +170,7 @@ export const navResources = [
 
 /** Footer-only shortcuts */
 export const navLegal = [
-  { href: "/terms", label: "Terms of Service" },
+  { href: "/terms", label: "Terms & Conditions" },
   { href: "/privacy", label: "Privacy Policy" },
 ] as const;
 
@@ -219,7 +186,6 @@ export const publicRoutes = [
   "/about",
   "/contact",
   "/upload",
-  "/free-trial",
   ...navResources.map((page) => page.href),
   ...navLegal.map((page) => page.href),
 ] as const;

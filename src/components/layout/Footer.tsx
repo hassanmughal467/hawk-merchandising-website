@@ -9,11 +9,14 @@ import {
 } from "@/lib/site";
 import { Logo } from "@/components/brand/Logo";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
+import { videosPage } from "@/lib/content/videos";
 
 const footerServices = [
   ...seoServicePages,
   { href: "/promotional-products", label: "Promotional Products" },
-  { href: "/portfolio/videos", label: "Portfolio Videos" },
+  ...(videosPage.enabled
+    ? [{ href: "/portfolio/videos", label: "Portfolio Videos" }]
+    : []),
   { href: "/pricing", label: "Pricing" },
   { href: "/services", label: "All Services" },
 ];

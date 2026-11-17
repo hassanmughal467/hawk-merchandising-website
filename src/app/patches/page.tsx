@@ -78,8 +78,8 @@ export default function PatchesPage() {
               </li>
             ))}
           </ul>
-          <Link href="/stock-designs" className="mt-10 inline-block text-sm font-semibold text-accent hover:text-accent-hover">
-            Browse stock design starters →
+          <Link href="/portfolio?category=custom-patches" className="mt-10 inline-block text-sm font-semibold text-accent hover:text-accent-hover">
+            View patch portfolio →
           </Link>
         </div>
       </section>

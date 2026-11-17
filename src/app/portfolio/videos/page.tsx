@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { PageHero } from "@/components/marketing/PageHero";
 import { VideoGrid } from "@/components/ui/VideoGrid";
+import { videosPage } from "@/lib/content/videos";
 
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
@@ -12,12 +14,16 @@ export const metadata = buildPageMetadata({
 });
 
 export default function PortfolioVideosPage() {
+  if (!videosPage.enabled) {
+    redirect("/portfolio");
+  }
+
   return (
     <div className="bg-background">
       <PageHero
         eyebrow="Videos"
         title="Production in motion"
-        subtitle="Add YouTube or Vimeo embed URLs in src/lib/content/videos.ts as clips are ready. Placeholders below show layout and categories."
+        subtitle="Machine runs, vector conversions, and patch production clips from Hawk Merchandising."
       >
         <Link
           href="/portfolio"

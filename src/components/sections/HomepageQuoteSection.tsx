@@ -3,7 +3,7 @@
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { QuoteForm } from "@/components/forms/QuoteForm";
-import { unlimitedRevisions } from "@/lib/content/offer";
+import { turnaround } from "@/lib/content/turnaround";
 import { fadeUp, stagger } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
@@ -32,27 +32,15 @@ export function HomepageQuoteSection({ id = "quote" }: HomepageQuoteSectionProps
               Get a free quote today
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-4 text-base leading-relaxed text-zinc-400">
-              Share your artwork, garment type, and deadline—we respond same business day on most requests.{" "}
-              First-time clients can{" "}
-              <ConversionLink
-                href="/free-trial"
-                event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
-                eventParams={{ location: "homepage_quote_sample" }}
-                className="font-semibold text-accent underline-offset-4 hover:underline"
-              >
-                request a free trial
-              </ConversionLink>
-              .
+              Share your artwork, garment type, and deadline—we respond same business day on most requests.
+              First-time clients can request a free sample digitizing.
             </motion.p>
             <motion.ul variants={fadeUp} className="mt-6 space-y-3 text-sm text-zinc-400">
               <li className="flex items-center gap-2">
-                <span className="text-accent">✓</span> 24-hour standard turnaround
+                <span className="text-accent">✓</span> {turnaround}
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-accent">✓</span> Same-day rush available
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-accent">✓</span> {unlimitedRevisions}
+                <span className="text-accent">✓</span> Unlimited reasonable revisions
               </li>
             </motion.ul>
             <motion.div variants={fadeUp} className="mt-8">

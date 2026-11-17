@@ -1,5 +1,5 @@
 import type { FAQItem } from "@/lib/content/faq";
-import { portfolioSrc } from "@/lib/content/portfolio-assets";
+import { patchesTurnaround, turnaround } from "@/lib/content/turnaround";
 
 export type ServiceFeature = {
   title: string;
@@ -10,8 +10,6 @@ export type ServicePageContent = {
   slug: string;
   path: string;
   metadata: { title: string; description: string };
-  /** Distinct Open Graph image from existing portfolio assets */
-  ogImage: { src: string; alt: string };
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -31,12 +29,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/embroidery-digitizing",
     metadata: {
       title: "Embroidery Digitizing Services",
-      description:
-        "Professional embroidery digitizing services with fast turnaround digitizing in 3–4 hours. Production ready embroidery files, machine sew-out services, and rush embroidery digitizing available.",
-    },
-    ogImage: {
-      src: portfolioSrc("BEFORE AND AFTER DIGITIZING.png"),
-      alt: "Before and after embroidery digitizing sample from Hawk Merchandising",
+      description: `Professional embroidery digitizing services with ${turnaround}. Production ready embroidery files and machine sew-out services available.`,
     },
     eyebrow: "Embroidery Digitizing",
     title: "Hand-digitized embroidery files for serious production",
@@ -74,6 +67,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     ],
     relatedLinks: [
       { href: "/portfolio?category=embroidery-digitizing", label: "View digitizing portfolio" },
+      { href: "/portfolio/videos", label: "Watch production videos" },
     ],
     portfolioCategory: "embroidery-digitizing",
   },
@@ -82,27 +76,22 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/vector-art-conversion",
     metadata: {
       title: "Vector Art Conversion",
-      description:
-        "Professional vector art conversion from raster artwork. Clean AI, EPS, PDF, and SVG delivery with fast turnaround and production-ready output.",
-    },
-    ogImage: {
-      src: portfolioSrc("Vector conversion 01.jpg"),
-      alt: "Vector art conversion sample from Hawk Merchandising",
+      description: `Professional vector art conversion from raster artwork. Clean AI, EPS, PDF, and SVG delivery with ${turnaround} and production-ready output.`,
     },
     eyebrow: "Vector Art Conversion",
     title: "Vector art that survives printing—not just zooming in",
     subtitle:
-      "Editable vector artwork for DTF and sublimation, heat transfer, signage, and production digitizing workflows.",
+      "Editable vector artwork for screen print, heat transfer, signage, and production digitizing workflows.",
     overview:
-      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—DTF and sublimation artwork, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
+      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—screen print separations, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
     features: [
       {
         title: "Raster to vector",
         body: "Low-resolution logos and scans rebuilt as crisp line art—ready for enlargement, vinyl, or print.",
       },
       {
-        title: "DTF and sublimation artwork",
-        body: "Print-ready color breaks and layers coordinated with how your decorator actually produces.",
+        title: "Screen print separations",
+        body: "Spot channels, traps, and underbases coordinated with how your decorator actually produces.",
       },
       {
         title: "Embroidery-ready vectors",
@@ -136,19 +125,13 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/custom-patches",
     metadata: {
       title: "Custom Patches",
-      description:
-        "Custom patch solutions for embroidered, woven, PVC, and chenille programs. Factory-ready artwork with fast turnaround and dedicated support.",
-    },
-    ogImage: {
-      src: portfolioSrc("Custom patch 01.PNG"),
-      alt: "Custom embroidered patch sample from Hawk Merchandising",
+      description: `Custom patch solutions for embroidered, woven, PVC, and chenille programs. Production ${patchesTurnaround}.`,
     },
     eyebrow: "Custom Patches",
     title: "Patch programs engineered for manufacturing",
     subtitle:
       "Patch artwork with borders, sew allowances, and color systems aligned to how your factory actually builds.",
-    overview:
-      "Whether you need embroidered, woven, PVC, or chenille patches, we prepare artwork with borders, color breaks, and sizing your factory expects. Include target dimensions, border style, and backing type in your brief—we engineer files for accurate vendor quotes and clean samples.",
+    overview: `Whether you need embroidered, woven, PVC, or chenille patches, we prepare artwork with borders, color breaks, and sizing your factory expects. Include target dimensions, border style, and backing type in your brief—we engineer files for accurate vendor quotes and clean samples. Production is ${patchesTurnaround}.`,
     features: [
       {
         title: "Embroidered patches",
@@ -167,10 +150,20 @@ export const servicePages: Record<string, ServicePageContent> = {
         body: "Border styles and backing options documented so your vendor quotes and samples stay accurate.",
       },
     ],
+    benefits: [
+      {
+        title: "Production timing",
+        body: patchesTurnaround,
+      },
+      {
+        title: "Factory-ready artwork",
+        body: "Borders, color breaks, and sizing documented for accurate vendor quotes and samples.",
+      },
+    ],
     processSteps: [
       { step: "01", title: "Brief & sizing", desc: "Patch type, dimensions, border, and backing requirements." },
       { step: "02", title: "Artwork & QA", desc: "Color breaks and borders engineered for your vendor." },
-      { step: "03", title: "Deliver & revise", desc: "Production files until sample approval." },
+      { step: "03", title: "Approve & produce", desc: `Design approval, then production ${patchesTurnaround}.` },
     ],
     relatedLinks: [
       { href: "/woven-patches", label: "Woven patches" },
@@ -184,19 +177,13 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/woven-patches",
     metadata: {
       title: "Woven Patches",
-      description:
-        "Woven patch artwork with fine detail, gradients, and factory-ready color breaks for uniform and retail programs.",
-    },
-    ogImage: {
-      src: portfolioSrc("woven patch program.png"),
-      alt: "Woven patch program sample from Hawk Merchandising",
+      description: `Woven patch artwork with fine detail, gradients, and factory-ready color breaks. Production ${patchesTurnaround}.`,
     },
     eyebrow: "Woven Patches",
     title: "Woven patches for detail embroidery cannot match",
     subtitle:
       "When thread count limits your logo, woven construction delivers crisp type, gradients, and small elements at patch scale.",
-    overview:
-      "Woven patches excel where embroidery thread cannot hold fine type, gradients, or micro detail. We prepare weave-ready artwork with realistic color breaks and sizing for uniform programs, team marks, and retail patches—delivered with revision support until your vendor sample is approved.",
+    overview: `Woven patches excel where embroidery thread cannot hold fine type, gradients, or micro detail. We prepare weave-ready artwork with realistic color breaks and sizing for uniform programs, team marks, and retail patches—delivered with revision support until your vendor sample is approved. Production is ${patchesTurnaround}.`,
     features: [
       {
         title: "Fine text & micro detail",
@@ -211,10 +198,20 @@ export const servicePages: Record<string, ServicePageContent> = {
         body: "Consistent sizing and color systems across name badges, shoulder marks, and chest patches.",
       },
     ],
+    benefits: [
+      {
+        title: "Production timing",
+        body: patchesTurnaround,
+      },
+      {
+        title: "Weave-ready artwork",
+        body: "Color breaks and sizing tuned for woven construction and vendor sampling.",
+      },
+    ],
     processSteps: [
       { step: "01", title: "Brief & sizing", desc: "Target size, weave limits, and color requirements." },
       { step: "02", title: "Artwork prep", desc: "Color breaks tuned for woven production." },
-      { step: "03", title: "Deliver & revise", desc: "Vendor-ready files with revision support." },
+      { step: "03", title: "Approve & produce", desc: `Design approval, then production ${patchesTurnaround}.` },
     ],
     relatedLinks: [
       { href: "/custom-patches", label: "All patch types" },
@@ -227,19 +224,13 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/pvc-patches",
     metadata: {
       title: "PVC Patches",
-      description:
-        "PVC and rubber-style patch artwork with clean color breaks, layer structure, and vendor-ready vector files.",
-    },
-    ogImage: {
-      src: portfolioSrc("custom PVC patch.png"),
-      alt: "Custom PVC patch sample from Hawk Merchandising",
+      description: `PVC and rubber-style patch artwork with clean color breaks and layer structure. Production ${patchesTurnaround}.`,
     },
     eyebrow: "PVC Patches",
     title: "PVC patches with production-aware artwork",
     subtitle:
       "Molded patch programs need precise color breaks and layer separation—we deliver vector masters your PVC factory can run.",
-    overview:
-      "PVC and rubber-style patches require precise layer separation and color breaks for molding. We deliver vector masters with dimension, outline weights, and Pantone-matched colors within your vendor's production limits—plus revision support until sampling succeeds.",
+    overview: `PVC and rubber-style patches require precise layer separation and color breaks for molding. We deliver vector masters with dimension, outline weights, and Pantone-matched colors within your vendor's production limits—plus revision support until sampling succeeds. Production is ${patchesTurnaround}.`,
     features: [
       {
         title: "Color break planning",
@@ -254,15 +245,25 @@ export const servicePages: Record<string, ServicePageContent> = {
         body: "Durable marks for bags, hats, and gear where PVC outlasts traditional thread on harsh use.",
       },
     ],
+    benefits: [
+      {
+        title: "Production timing",
+        body: patchesTurnaround,
+      },
+      {
+        title: "Mold-ready vector masters",
+        body: "Layer separation and Pantone-matched colors within your vendor's production limits.",
+      },
+    ],
     deliverables: ["AI / EPS vector", "PDF proof", "Pantone or thread-matched colors", "Size spec sheet"],
     processSteps: [
       { step: "01", title: "Brief & layers", desc: "Size, mold limits, and color system requirements." },
       { step: "02", title: "Vector prep", desc: "Layer separation and color break engineering." },
-      { step: "03", title: "Deliver & revise", desc: "Vendor-ready masters until sample approval." },
+      { step: "03", title: "Approve & produce", desc: `Design approval, then production ${patchesTurnaround}.` },
     ],
     relatedLinks: [
       { href: "/vector-art-conversion", label: "Vector art conversion" },
-      { href: "/portfolio?category=custom-patches", label: "View patch portfolio" },
+      { href: "/portfolio/videos", label: "Patch production videos" },
     ],
     portfolioCategory: "custom-patches",
   },
@@ -274,16 +275,12 @@ export const servicePages: Record<string, ServicePageContent> = {
       description:
         "Professional logo redraw and cleanup for print, embroidery, patches, and digital—rebuild blurry or outdated artwork as crisp masters.",
     },
-    ogImage: {
-      src: portfolioSrc("Construction Company Logo.png"),
-      alt: "Logo redraw sample from Hawk Merchandising",
-    },
     eyebrow: "Logo Redraw",
     title: "Logo redraws that unify every vendor",
     subtitle:
-      "One accurate master logo for embroidery, DTF and sublimation, patches, and promo—so your brand looks the same everywhere.",
+      "One accurate master logo for embroidery, screen print, patches, and promo—so your brand looks the same everywhere.",
     overview:
-      "Blurry scans, outdated marks, and low-resolution logos become one crisp master for every vendor you work with. Our redraws consider stitch behavior, patch borders, and print-ready color breaks—not just how the mark looks at 400% zoom.",
+      "Blurry scans, outdated marks, and low-resolution logos become one crisp master for every vendor you work with. Our redraws consider stitch behavior, patch borders, and print separations—not just how the mark looks at 400% zoom.",
     features: [
       {
         title: "Low-resolution rescue",
@@ -319,12 +316,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/cap-digitizing",
     metadata: {
       title: "Cap Digitizing Services",
-      description:
-        "Professional cap embroidery digitizing with fast turnaround digitizing in 3–4 hours. Production ready embroidery files and machine sew-out services for structured and trucker caps.",
-    },
-    ogImage: {
-      src: portfolioSrc("Structured Cap Logo.png"),
-      alt: "Structured cap embroidery digitizing sample from Hawk Merchandising",
+      description: `Professional cap embroidery digitizing with ${turnaround}. Production ready embroidery files and machine sew-out services for structured and trucker caps.`,
     },
     eyebrow: "Cap Digitizing",
     title: "Cap digitizing built for curved panels",
@@ -378,12 +370,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/3d-puff-digitizing",
     metadata: {
       title: "3D Puff Embroidery Digitizing",
-      description:
-        "Professional 3D puff embroidery digitizing with fast turnaround digitizing and rush embroidery digitizing. Production ready embroidery files with machine sew-out services available.",
-    },
-    ogImage: {
-      src: portfolioSrc("3D puff cap embroidery.png"),
-      alt: "3D puff cap embroidery digitizing sample from Hawk Merchandising",
+      description: `Professional 3D puff embroidery digitizing with ${turnaround}. Production ready embroidery files with machine sew-out services available.`,
     },
     eyebrow: "3D Puff Digitizing",
     title: "3D puff embroidery with clean raised dimension",
@@ -415,8 +402,8 @@ export const servicePages: Record<string, ServicePageContent> = {
         body: "Satin borders and underlay engineered to prevent foam show-through and border collapse.",
       },
       {
-        title: "Rush turnaround available",
-        body: "Same-day and 12-hour rush for cap puff jobs when your deadline cannot wait.",
+        title: "Reliable production timing",
+        body: `${turnaround} for cap puff jobs so your production window stays intact.`,
       },
     ],
     deliverables: ["DST", "PES", "EXP", "JEF", "VP3", "Run sheet with foam notes"],
@@ -428,6 +415,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     relatedLinks: [
       { href: "/cap-digitizing", label: "Cap digitizing" },
       { href: "/embroidery-digitizing", label: "Embroidery digitizing" },
+      { href: "/portfolio/videos", label: "Watch puff production" },
     ],
     portfolioCategory: "embroidery-digitizing",
   },
@@ -436,12 +424,7 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/jacket-back-digitizing",
     metadata: {
       title: "Jacket Back Embroidery Digitizing",
-      description:
-        "Large-format jacket back embroidery digitizing services with fast turnaround digitizing. Production ready embroidery files and optional machine sew-out services for complete confidence.",
-    },
-    ogImage: {
-      src: portfolioSrc("Team Jacket Full Back.png"),
-      alt: "Team jacket back embroidery digitizing sample from Hawk Merchandising",
+      description: `Large-format jacket back embroidery digitizing services with ${turnaround}. Production ready embroidery files and optional machine sew-out services for complete confidence.`,
     },
     eyebrow: "Jacket Back Digitizing",
     title: "Jacket back embroidery for large-format production",
@@ -495,19 +478,13 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/chenille-patches",
     metadata: {
       title: "Chenille Patches",
-      description:
-        "Custom chenille patch artwork for varsity letters, team marks, and school programs. Factory-ready files with borders and color breaks.",
-    },
-    ogImage: {
-      src: portfolioSrc("Varsity Chenille Letter.png"),
-      alt: "Varsity chenille letter patch sample from Hawk Merchandising",
+      description: `Custom chenille patch artwork for varsity letters, team marks, and school programs. Production ${patchesTurnaround}.`,
     },
     eyebrow: "Chenille Patches",
     title: "Chenille patches for varsity and team programs",
     subtitle:
       "Fuzzy chenille texture with chain-stitch borders—artwork engineered for varsity letters, team marks, and school spirit programs.",
-    overview:
-      "Chenille patches deliver the classic varsity look with fuzzy texture and bold letterforms. We prepare chenille-ready artwork with correct letter sizing, chain-stitch border specs, and color breaks your factory expects—delivered with revision support until your vendor sample is approved.",
+    overview: `Chenille patches deliver the classic varsity look with fuzzy texture and bold letterforms. We prepare chenille-ready artwork with correct letter sizing, chain-stitch border specs, and color breaks your factory expects—delivered with revision support until your vendor sample is approved. Production is ${patchesTurnaround}.`,
     features: [
       {
         title: "Varsity letter programs",
@@ -526,10 +503,20 @@ export const servicePages: Record<string, ServicePageContent> = {
         body: "Two-tone and multi-color letter programs with realistic color break planning.",
       },
     ],
+    benefits: [
+      {
+        title: "Production timing",
+        body: patchesTurnaround,
+      },
+      {
+        title: "Chenille-ready artwork",
+        body: "Letter sizing, borders, and color breaks documented for factory sampling.",
+      },
+    ],
     processSteps: [
       { step: "01", title: "Brief & sizing", desc: "Letter size, chenille type, border, and backing." },
       { step: "02", title: "Artwork prep", desc: "Color breaks and proportions tuned for chenille production." },
-      { step: "03", title: "Deliver & revise", desc: "Factory-ready files until sample approval." },
+      { step: "03", title: "Approve & produce", desc: `Design approval, then production ${patchesTurnaround}.` },
     ],
     relatedLinks: [
       { href: "/custom-patches", label: "All patch types" },
@@ -543,19 +530,13 @@ export const servicePages: Record<string, ServicePageContent> = {
     path: "/leather-patches",
     metadata: {
       title: "Leather Patches",
-      description:
-        "Custom leather patch artwork for deboss, emboss, and heat-seal programs. Premium branding for bags, hats, and outerwear.",
-    },
-    ogImage: {
-      src: portfolioSrc("Premium Leather Deboss Patch.png"),
-      alt: "Premium leather deboss patch sample from Hawk Merchandising",
+      description: `Custom leather patch artwork for deboss, emboss, and heat-seal programs. Production ${patchesTurnaround}.`,
     },
     eyebrow: "Leather Patches",
     title: "Leather patches for premium brand programs",
     subtitle:
       "Deboss, emboss, and heat-seal leather patch artwork engineered for bags, hats, denim, and outerwear branding.",
-    overview:
-      "Leather patches add premium tactile branding to bags, hats, denim, and outerwear. We prepare deboss and emboss-ready artwork with correct line weights, clear space, and sizing your leather vendor expects—delivered with revision support until your sample is approved.",
+    overview: `Leather patches add premium tactile branding to bags, hats, denim, and outerwear. We prepare deboss and emboss-ready artwork with correct line weights, clear space, and sizing your leather vendor expects—delivered with revision support until your sample is approved. Production is ${patchesTurnaround}.`,
     features: [
       {
         title: "Deboss & emboss artwork",
@@ -574,11 +555,21 @@ export const servicePages: Record<string, ServicePageContent> = {
         body: "Artwork adapted to your vendor's leather type, thickness, and production method.",
       },
     ],
+    benefits: [
+      {
+        title: "Production timing",
+        body: patchesTurnaround,
+      },
+      {
+        title: "Leather-ready artwork",
+        body: "Line weights and sizing tuned for deboss, emboss, and heat-seal vendors.",
+      },
+    ],
     deliverables: ["AI / EPS vector", "PDF proof", "Size spec sheet", "Deboss depth notes"],
     processSteps: [
       { step: "01", title: "Brief & sizing", desc: "Patch size, leather type, deboss/emboss method." },
       { step: "02", title: "Artwork prep", desc: "Line weights and sizing tuned for leather production." },
-      { step: "03", title: "Deliver & revise", desc: "Vendor-ready files until sample approval." },
+      { step: "03", title: "Approve & produce", desc: `Design approval, then production ${patchesTurnaround}.` },
     ],
     relatedLinks: [
       { href: "/custom-patches", label: "All patch types" },

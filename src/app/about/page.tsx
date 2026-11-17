@@ -17,6 +17,7 @@ import {
   whyClientsStay,
 } from "@/lib/content/about";
 import { getAllFAQItems } from "@/lib/content/faq";
+import { turnaround } from "@/lib/content/turnaround";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -24,8 +25,7 @@ import { site, siteAudience } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "About",
-  description:
-    "Hawk Merchandising bridges embroidery craft with modern production workflows—fast turnaround, consistent quality, global delivery.",
+  description: `Hawk Merchandising bridges embroidery craft with modern production workflows—${turnaround}, consistent quality, global delivery.`,
   path: "/about",
 });
 
@@ -145,7 +145,7 @@ export default function AboutPage() {
               Start your next production file with Hawk
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-zinc-600">
-              Upload artwork or contact our team—24-hour standard turnaround with rush options available.
+              Upload artwork or contact our team—{turnaround}.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <ConversionLink

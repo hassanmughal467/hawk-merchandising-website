@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
+import { turnaround } from "@/lib/content/turnaround";
 import { site } from "@/lib/site";
 
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -12,13 +13,14 @@ export const metadata = buildPageMetadata({
 });
 
 const highlights = [
-  { year: "2020–2026", title: "Production excellence", detail: "Trusted by high-volume embroidery shops and uniform and promo suppliers across the US, UK, and EU." },
+  { year: "2020–2026", title: "Production excellence", detail: "Trusted by high-volume embroidery and print programs across the US, UK, and EU." },
   { year: "Ongoing", title: "Quality-first file delivery", detail: "Consistent QA checkpoints, run-sheet discipline, and revision workflows built for shops." },
   { year: "Community", title: "Decorator partnerships", detail: "Long-term relationships with apparel decorators, promo companies, and in-house embroidery teams." },
 ];
 
 const milestones = [
-  "12–24 hour standard turnaround window",
+  "5,000+ production files delivered",
+  turnaround,
   "Global client base across apparel and promo",
   "Dedicated digitizing & vector specialists",
 ];

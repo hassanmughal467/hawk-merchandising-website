@@ -2,7 +2,7 @@
 
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
-import { unlimitedRevisions } from "@/lib/content/offer";
+import { turnaround } from "@/lib/content/turnaround";
 import { fadeUp, stagger } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
@@ -12,12 +12,12 @@ const bullets = [
     body: "Try our quality on your logo—no guesswork, no awkward first invoice.",
   },
   {
-    title: unlimitedRevisions,
+    title: "Unlimited revisions",
     body: "We refine until it runs clean—within the scope of the approved artwork.",
   },
   {
-    title: "Fast delivery",
-    body: "Most jobs move in 12–24 hours with clear updates from our team.",
+    title: "Turnaround",
+    body: `${turnaround} with clear updates from our team.`,
   },
 ];
 
@@ -53,7 +53,7 @@ export function OfferSection() {
             </motion.p>
             <motion.div variants={fadeUp} className="mt-8">
               <ConversionLink
-                href="/free-trial"
+                href="/upload?intent=sample"
                 event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
                 eventParams={{ location: "offer_section" }}
                 className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"

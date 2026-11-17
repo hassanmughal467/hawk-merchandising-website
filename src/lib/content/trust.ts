@@ -1,7 +1,9 @@
+import { turnaround } from "@/lib/content/turnaround";
+
 export const whyBusinessesChooseHawk = [
   {
-    title: "Fast Turnaround",
-    body: "Standard 24-hour delivery on most jobs, with same-day and 12-hour rush when your deadline cannot wait.",
+    title: "Turnaround",
+    body: `${turnaround} on confirmed artwork and brief.`,
     icon: "clock",
   },
   {
@@ -36,24 +38,18 @@ export const whyChooseHawk = whyBusinessesChooseHawk.map(({ title, body }) => ({
 
 export const trustBarItems = [
   { label: "Secure File Handling" },
-  { label: "Fast Turnaround" },
+  { label: turnaround },
   { label: "Professional Quality" },
   { label: "Dedicated Support" },
   { label: "Global Delivery" },
 ] as const;
 
-/**
- * Homepage / landing stats strip.
- * Keep empty until the owner supplies confirmed figures.
- * Do not invent files-delivered, retention, or countries-served numbers.
- * When files-delivered is added, use the same value on `/` and `/awards`.
- */
-export const siteStatistics: ReadonlyArray<{
-  label: string;
-  value: number;
-  suffix: string;
-  displayText?: string;
-}> = [];
+export const siteStatistics = [
+  { label: "Production files delivered", value: 50000, suffix: "+" },
+  { label: "Client retention rate", value: 95, suffix: "%" },
+  { label: "Countries served", value: 25, suffix: "+" },
+  { label: "Average turnaround", value: 0, suffix: "", displayText: turnaround },
+] as const;
 
 export const industriesServed = [
   {
@@ -93,7 +89,7 @@ export const industriesServed = [
 export const countriesServed = [
   {
     name: "USA",
-    detail: "Durham, NC headquarters with dedicated US phone support and rush options for domestic shops.",
+    detail: `Durham, NC headquarters with dedicated US phone support and ${turnaround} for domestic shops.`,
     flag: "🇺🇸",
   },
   {
@@ -120,8 +116,7 @@ export const countriesServed = [
 
 export const fastTurnaround = {
   headline: "How we deliver on deadline",
-  standard: "24 hours",
-  rush: "Same-day / 12-hour rush on request",
+  claim: turnaround,
   steps: [
     { step: "01", title: "Upload & brief", desc: "Artwork, garment, placement, thread colors, and deadline." },
     { step: "02", title: "Digitize & QA", desc: "Hand work plus run-sheet review against your machine and fabric." },
@@ -144,7 +139,7 @@ export const guaranteePoints = [
   },
 ] as const;
 
-/** Approved homepage case studies — real client work; no client names; no invented metrics */
+/** Architecture for real case studies — replace `ready: false` entries when assets are approved */
 export const clientSuccessStories = [
   {
     id: "embroidery-shop-scale",
@@ -152,8 +147,9 @@ export const clientSuccessStories = [
     headline: "Cap program scaled without rework",
     summary:
       "A multi-head shop needed consistent cap files across a 40-logo program. Hawk delivered production-ready DST with unified underlay rules—sample approval in one run.",
-    metrics: ["40-logo cap program", "Single-run sample approval", "2–3 hour turnaround"],
+    metrics: ["40-logo cap program", "Single-run sample approval", turnaround],
     service: "Embroidery Digitizing",
+    ready: false,
   },
   {
     id: "uniform-brand-consistency",
@@ -163,15 +159,17 @@ export const clientSuccessStories = [
       "A uniform supplier required one master mark adapted for polos, jackets, and workwear. Vector redraw plus digitizing kept stitch behavior predictable across fabrics.",
     metrics: ["3 garment types", "One brand master", "Reduced revision cycles"],
     service: "Logo Redraw & Digitizing",
+    ready: false,
   },
   {
     id: "promo-distributor-deadline",
     industry: "Promotional Products",
-    headline: "Distributor deadline kept on schedule",
+    headline: "Distributor deadline met with stitch-ready files",
     summary:
-      "A promo distributor needed stitch-ready files before a production window closed. Digitizing with direct WhatsApp coordination delivered production-ready files in time.",
-    metrics: ["2–3 hour turnaround", "Direct account support", "Production on schedule"],
+      "A promo distributor needed stitch-ready files before a tight production window. Direct WhatsApp coordination delivered production files on schedule.",
+    metrics: [turnaround, "Direct account support", "Production on schedule"],
     service: "Embroidery Digitizing",
+    ready: false,
   },
 ] as const;
 

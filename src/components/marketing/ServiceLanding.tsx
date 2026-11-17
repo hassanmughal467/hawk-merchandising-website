@@ -13,7 +13,15 @@ import { TrustStrip } from "@/components/sections/TrustStrip";
 import { TurnaroundSection } from "@/components/sections/TurnaroundSection";
 import type { FAQItem } from "@/lib/content/faq";
 import type { ServicePageContent } from "@/lib/content/service-pages";
-import { getRelatedServices, isDigitizingService, serviceBenefits } from "@/lib/content/service-shared";
+import {
+  defaultPatchesTurnaround,
+  defaultTurnaround,
+  getRelatedServices,
+  isDigitizingService,
+  isPatchService,
+  serviceBenefits,
+} from "@/lib/content/service-shared";
+import { patchTrustStripItems, trustStripItems } from "@/lib/content/trust-strip";
 
 type ServiceLandingProps = {
   content: ServicePageContent;
@@ -23,6 +31,9 @@ type ServiceLandingProps = {
 export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
   const benefits = content.benefits ?? serviceBenefits;
   const related = getRelatedServices(content.path);
+  const isPatch = isPatchService(content.slug);
+  const turnaroundProps = isPatch ? defaultPatchesTurnaround : defaultTurnaround;
+  const stripItems = isPatch ? patchTrustStripItems : trustStripItems;
 
   return (
     <div className="bg-background">
@@ -30,7 +41,7 @@ export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
         <OfferTrustBlock location="service_hero" className="!mt-0" />
       </PageHero>
 
-      <TrustStrip />
+      <TrustStrip items={stripItems} />
 
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
@@ -126,7 +137,7 @@ export function ServiceLanding({ content, faqItems }: ServiceLandingProps) {
 
       {isDigitizingService(content.slug) ? <MachineSewOutServiceBlock /> : null}
 
-      <TurnaroundSection />
+      <TurnaroundSection claim={turnaroundProps.claim} note={turnaroundProps.note} />
       <FAQSection items={faqItems} title={`${content.eyebrow} FAQ`} />
       <GuaranteeSection />
 

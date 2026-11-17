@@ -1,8 +1,9 @@
+import { turnaround } from "@/lib/content/turnaround";
+
 export const site = {
   name: "Hawk Merchandising",
   tagline: "Digitizing & vector art for global brands",
-  description:
-    "Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. Fast turnaround, consistent quality, worldwide delivery.",
+  description: `Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. ${turnaround}, consistent quality, worldwide delivery.`,
   url: "https://www.hawkmerchandising.com",
   /** Default Open Graph / Twitter Card image (must exist in public/) */
   ogImage: {

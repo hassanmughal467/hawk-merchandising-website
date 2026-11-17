@@ -40,7 +40,7 @@ const tips = [
     body: "If brand guidelines specify coated vs uncoated, include both—or specify which system your printer uses.",
   },
   {
-    title: "Rush jobs: share your in-hoop deadline",
+    title: "Share your in-hoop deadline early",
     body: "We’ll tell you honestly if quality drops when time is too tight—better than a file that fails on-press.",
   },
 ];

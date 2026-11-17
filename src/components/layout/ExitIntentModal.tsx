@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { QuoteForm } from "@/components/forms/QuoteForm";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
+import { turnaround } from "@/lib/content/turnaround";
 
 const STORAGE_KEY = "hawk-exit-intent-dismissed";
 
@@ -70,7 +71,7 @@ export function ExitIntentModal() {
           Get a free quote in minutes
         </h2>
         <p className="mt-3 text-sm text-zinc-400">
-          Upload your artwork or send a quick brief—24-hour standard turnaround, same-day rush available.
+          Upload your artwork or send a quick brief—{turnaround}.
         </p>
 
         <button

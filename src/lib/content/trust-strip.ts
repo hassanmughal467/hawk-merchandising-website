@@ -1,10 +1,17 @@
-import { unlimitedStitches } from "@/lib/content/offer";
+import { patchesTurnaround, turnaround } from "@/lib/content/turnaround";
 
 export const trustStripItems = [
-  { label: unlimitedStitches },
-  { label: "Fastest Turnaround 3–4 Hours" },
-  { label: "Rush Orders in 2 Hours" },
+  { label: "Unlimited Stitches" },
+  { label: turnaround },
   { label: "Machine Sew-Out Available" },
+  { label: "Production Ready Files" },
+  { label: "Quality Guaranteed" },
+] as const;
+
+/** Trust strip for custom patch service pages — uses patch production timing. */
+export const patchTrustStripItems = [
+  { label: "Unlimited Stitches" },
+  { label: patchesTurnaround },
   { label: "Production Ready Files" },
   { label: "Quality Guaranteed" },
 ] as const;

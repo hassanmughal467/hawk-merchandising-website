@@ -165,7 +165,7 @@ export const navResources = [
 
 /** Footer-only shortcuts */
 export const navLegal = [
-  { href: "/terms", label: "Terms & Conditions" },
+  { href: "/terms", label: "Terms of Service" },
   { href: "/privacy", label: "Privacy Policy" },
 ] as const;
 

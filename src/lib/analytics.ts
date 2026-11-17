@@ -5,13 +5,24 @@
  * - NEXT_PUBLIC_META_PIXEL_ID — Meta (Facebook) Pixel ID
  * - NEXT_PUBLIC_GA_MEASUREMENT_ID — Google Analytics 4 Measurement ID (G-XXXXXXXXXX)
  * - NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION — Google Search Console HTML meta verification code
+ *
+ * Fallbacks match the live production tags confirmed in the website-fixes brief.
+ * Do not invent LinkedIn / Pinterest IDs here (task 13).
  */
 
+/** Live Meta Pixel ID (Events Manager). */
+const DEFAULT_META_PIXEL_ID = "3152708474920495";
+
+/** Live GA4 Measurement ID. */
+const DEFAULT_GA_MEASUREMENT_ID = "G-YL3F9DP032";
+
 /** Meta Pixel ID. Requires NEXT_PUBLIC_ prefix for client-side loading. */
-export const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || undefined;
+export const META_PIXEL_ID =
+  process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || DEFAULT_META_PIXEL_ID;
 
 /** GA4 Measurement ID. Requires NEXT_PUBLIC_ prefix for client-side loading. */
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || undefined;
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || DEFAULT_GA_MEASUREMENT_ID;
 
 /** Google Search Console HTML tag verification content value. */
 export const GOOGLE_SITE_VERIFICATION =

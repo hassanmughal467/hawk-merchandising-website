@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Logo } from "@/components/brand/Logo";
 import { serviceOptions } from "@/lib/site";
 import { cn } from "@/lib/cn";
-import { trackUploadArtworkSubmit } from "@/lib/analytics-events";
+import { trackFreeTrialSubmit, trackUploadSubmit } from "@/lib/analytics-events";
 
 type FieldErrors = Partial<Record<"name" | "email" | "whatsapp" | "service" | "file", string>>;
 
@@ -120,7 +120,13 @@ export function UploadForm() {
         return;
       }
 
-      trackUploadArtworkSubmit();
+      // Fire only after a successful API response — not on button press.
+      // No /free-trial page yet: sample intent uses the shared free_trial_submit helper.
+      if (intent === "sample") {
+        trackFreeTrialSubmit({ source: "upload_sample" });
+      } else {
+        trackUploadSubmit({ source: "upload" });
+      }
       setSuccess({ referenceId: data.referenceId ?? "HMK-OK" });
       setName("");
       setEmail("");

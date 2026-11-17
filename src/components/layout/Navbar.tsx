@@ -126,7 +126,7 @@ export function Navbar() {
           </ConversionLink>
           <ConversionLink
             href={site.clientSignup.url}
-            event={CONVERSION_EVENTS.SIGNUP}
+            event={CONVERSION_EVENTS.SIGNUP_CLICK}
             eventParams={{ location: "navbar" }}
             target="_blank"
             rel="noopener noreferrer"
@@ -207,7 +207,7 @@ export function Navbar() {
           })}
           <ConversionLink
             href={site.clientSignup.url}
-            event={CONVERSION_EVENTS.SIGNUP}
+            event={CONVERSION_EVENTS.SIGNUP_CLICK}
             eventParams={{ location: "navbar_mobile" }}
             target="_blank"
             rel="noopener noreferrer"

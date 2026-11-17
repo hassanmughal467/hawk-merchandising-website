@@ -38,7 +38,7 @@ export function StickyQuoteBar() {
         </ConversionLink>
         <ConversionLink
           href={site.clientSignup.url}
-          event={CONVERSION_EVENTS.SIGNUP}
+          event={CONVERSION_EVENTS.SIGNUP_CLICK}
           eventParams={{ location: "sticky_bar_desktop" }}
           target="_blank"
           rel="noopener noreferrer"
@@ -79,7 +79,7 @@ export function StickyQuoteBar() {
           </ConversionLink>
           <ConversionLink
             href={site.clientSignup.url}
-            event={CONVERSION_EVENTS.SIGNUP}
+            event={CONVERSION_EVENTS.SIGNUP_CLICK}
             eventParams={{ location: "sticky_bar_mobile" }}
             target="_blank"
             rel="noopener noreferrer"

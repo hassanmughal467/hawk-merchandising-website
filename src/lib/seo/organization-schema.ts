@@ -2,6 +2,25 @@ import { site } from "@/lib/site";
 
 type JsonLd = Record<string, unknown>;
 
+function postalAddress(
+  parts: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion?: string;
+    postalCode: string;
+    addressCountry: string;
+  },
+): JsonLd {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: parts.streetAddress,
+    addressLocality: parts.addressLocality,
+    ...(parts.addressRegion ? { addressRegion: parts.addressRegion } : {}),
+    postalCode: parts.postalCode,
+    addressCountry: parts.addressCountry,
+  };
+}
+
 export function buildOrganizationSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -12,22 +31,8 @@ export function buildOrganizationSchema(): JsonLd {
     description: site.description,
     email: site.email,
     telephone: [site.phoneUs, site.phoneUk],
-    address: [
-      {
-        "@type": "PostalAddress",
-        streetAddress: site.addressUs,
-        addressCountry: "US",
-      },
-      {
-        "@type": "PostalAddress",
-        streetAddress: site.addressUk,
-        addressCountry: "GB",
-      },
-    ],
-    sameAs: [
-      `https://wa.me/${site.whatsappE164}`,
-      ...site.social.map((profile) => profile.href),
-    ],
+    address: [postalAddress(site.addressUsParts), postalAddress(site.addressUkParts)],
+    sameAs: [`https://wa.me/${site.whatsappE164}`],
   };
 }
 
@@ -63,14 +68,7 @@ export function buildLocalBusinessSchema(): JsonLd {
       opens: "08:00",
       closes: "18:00",
     },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.addressUs,
-      addressLocality: "Durham",
-      addressRegion: "NC",
-      postalCode: "27713",
-      addressCountry: "US",
-    },
+    address: postalAddress(site.addressUsParts),
     areaServed: ["US", "GB", "CA", "AU", "Worldwide"],
   };
 }

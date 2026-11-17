@@ -35,8 +35,23 @@ export const site = {
   phoneUs: "+1 929-299-1866",
   phoneUk: "+44 20 3026 5676",
   whatsappE164: "19292991866",
+  /** Display strings (footer/contact). London street number waits on owner (task 11). */
   addressUs: "Torry Pine Lane, Durham, NC 27713, USA",
   addressUk: "22 Wenlock Rd, London N1 7GU, UK",
+  /** Structured PostalAddress parts for JSON-LD (must match display strings above). */
+  addressUsParts: {
+    streetAddress: "Torry Pine Lane",
+    addressLocality: "Durham",
+    addressRegion: "NC",
+    postalCode: "27713",
+    addressCountry: "US",
+  },
+  addressUkParts: {
+    streetAddress: "22 Wenlock Rd",
+    addressLocality: "London",
+    postalCode: "N1 7GU",
+    addressCountry: "GB",
+  },
   businessHours: "Monday–Friday, 8:00 AM – 6:00 PM ET",
   responseTime: "Same business day for most requests",
   clientPortal: {

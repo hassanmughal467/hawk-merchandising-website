@@ -2,6 +2,7 @@
 
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
+import { turnaround } from "@/lib/content/turnaround";
 import { site } from "@/lib/site";
 import { fadeUp } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
@@ -26,12 +27,12 @@ export function CTASection() {
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-white/85 sm:text-base">
               Tell us your garment, placement, and deadline — we&apos;ll return a quote and a plan
-              that fits your production schedule. Same-day rush available.
+              that fits your production schedule. {turnaround}.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <ConversionLink
-              href="/upload?intent=sample"
+              href="/free-trial"
               event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
               eventParams={{ location: "cta_section" }}
               className="focus-ring inline-flex items-center justify-center rounded-full bg-white px-8 py-3.5 text-base font-semibold text-accent-secondary transition hover:bg-white/90"

@@ -1,15 +1,25 @@
-/** Central turnaround messaging — use site-wide for consistency */
+/**
+ * Shared turnaround claims — use site-wide for consistency.
+ * Digitizing / artwork file delivery vs custom patch production are separate.
+ */
+export const turnaround = "2–3 hour turnaround" as const;
+
+export const patchesTurnaround = "10–12 business days after design approval" as const;
+
+/** Structured helpers for digitizing / artwork file delivery. */
 export const turnaroundTimes = {
-  fastest: "3–4 Hours",
-  fastestLabel: "Fastest Turnaround",
-  fastestBadge: "⚡ Fastest Turnaround: 3–4 Hours",
-  standard: "Within 12 Hours",
-  standardLabel: "Standard Delivery",
-  standardBadge: "✓ Standard Delivery: Within 12 Hours",
-  rush: "Available in 2 Hours",
-  rushLabel: "Rush Orders",
-  rushBadge: "🚀 Rush Service: 2 Hours",
+  claim: turnaround,
+  label: "Turnaround",
+  badge: turnaround,
   note: "Complex jobs or heavy revision rounds may require a quoted timeline upfront.",
+} as const;
+
+/** Structured helpers for custom patch production. */
+export const patchesTurnaroundTimes = {
+  claim: patchesTurnaround,
+  label: "Patch production",
+  badge: patchesTurnaround,
+  note: "Production timing starts after design approval. Artwork prep follows our digitizing turnaround when applicable.",
 } as const;
 
 export const machineSewOutMessage =

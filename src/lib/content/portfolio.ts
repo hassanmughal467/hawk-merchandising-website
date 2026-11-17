@@ -102,8 +102,8 @@ const embroideryFiles = [
   "Embroidery project 12.jpg",
   "Embroidery project 14.jpg",
   "Embroidery project 14(1).jpg",
-  "3D puff cap embroidery.png",
-  "BEFORE AND AFTER DIGITIZING.png",
+  "3D puff cap embroidery.jpg",
+  "BEFORE AND AFTER DIGITIZING.jpg",
   "Corporate Polo Left Chest.jpeg",
   "embroidered polo shirt .png",
   "Healthcare Uniform Program.jpg",
@@ -111,12 +111,12 @@ const embroideryFiles = [
   "Restaurant Logo .png",
   "Raised Foam Cap Mark.png",
   "school logo.png",
-  "Sports Team Logo .png",
-  "Structured Cap Logo.png",
-  "Team Jacket Full Back.png",
-  "Uniform Left Chest Program.png",
+  "Sports Team Logo .jpg",
+  "Structured Cap Logo.jpg",
+  "Team Jacket Full Back.jpg",
+  "Uniform Left Chest Program.jpg",
   "Uniform Woven Shoulder Mark.jpeg",
-  "Trade Show Promo Tote.png",
+  "Trade Show Promo Tote.jpg",
 ] as const;
 
 const vectorFiles = [
@@ -131,7 +131,7 @@ const vectorFiles = [
   "Vector conversion 09.jpg",
   "Vector conversion 10.jpg",
   "Vector conversion 11.PNG",
-  "Screen Print Vector Master.jpeg",
+  "Print-Ready Vector Master.jpeg",
   "Fashion Brand Artwork.png",
   "Promotional Brand Artwork.png",
   "Construction Company Logo.png",
@@ -149,11 +149,11 @@ const patchFiles = [
   "Custom patch 09.png",
   "Custom patch 10.png",
   "Custom patch 11.png",
-  "custom PVC patch.png",
-  "Outdoor Brand PVC Badge.png",
-  "Premium Leather Deboss Patch.png",
+  "custom PVC patch.jpg",
+  "Outdoor Brand PVC Badge.jpg",
+  "Premium Leather Deboss Patch.jpg",
   "Varsity Chenille Letter.png",
-  "woven patch program.png",
+  "woven patch program.jpg",
 ] as const;
 
 export const portfolioItems: PortfolioItem[] = [

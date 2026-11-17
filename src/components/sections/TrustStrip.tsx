@@ -4,11 +4,14 @@ import { motion, useReducedMotion } from "framer-motion";
 import { trustStripItems } from "@/lib/content/trust-strip";
 import { fadeUp } from "@/lib/motion";
 
+type TrustStripItem = { label: string };
+
 type TrustStripProps = {
   variant?: "light" | "dark";
+  items?: readonly TrustStripItem[];
 };
 
-export function TrustStrip({ variant = "dark" }: TrustStripProps) {
+export function TrustStrip({ variant = "dark", items = trustStripItems }: TrustStripProps) {
   const reduce = useReducedMotion();
   const isLight = variant === "light";
 
@@ -29,7 +32,7 @@ export function TrustStrip({ variant = "dark" }: TrustStripProps) {
           variants={fadeUp}
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
         >
-          {trustStripItems.map((item) => (
+          {items.map((item) => (
             <li
               key={item.label}
               className={`flex items-center gap-2 text-xs font-medium sm:text-sm ${

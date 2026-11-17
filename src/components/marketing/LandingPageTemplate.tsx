@@ -8,6 +8,7 @@ import { RelatedServicesSection } from "@/components/sections/RelatedServicesSec
 import { StatsSection } from "@/components/sections/StatsSection";
 import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
 import { getFAQPreview } from "@/lib/content/faq";
+import { turnaround } from "@/lib/content/turnaround";
 
 type LandingPageTemplateProps = {
   eyebrow: string;
@@ -43,7 +44,7 @@ export function LandingPageTemplate({
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center">
             <h2 className="font-[family-name:var(--font-display)] text-2xl font-semibold">Ready to start?</h2>
-            <p className="mt-3 text-sm text-zinc-400">Upload artwork or contact our team for a same-day response.</p>
+            <p className="mt-3 text-sm text-zinc-400">Upload artwork or contact our team—{turnaround}.</p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
               <ConversionLink
                 href="/upload"

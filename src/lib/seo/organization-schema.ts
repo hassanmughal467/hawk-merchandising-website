@@ -2,6 +2,25 @@ import { site } from "@/lib/site";
 
 type JsonLd = Record<string, unknown>;
 
+function postalAddress(
+  parts: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion?: string;
+    postalCode: string;
+    addressCountry: string;
+  },
+): JsonLd {
+  return {
+    "@type": "PostalAddress",
+    streetAddress: parts.streetAddress,
+    addressLocality: parts.addressLocality,
+    ...(parts.addressRegion ? { addressRegion: parts.addressRegion } : {}),
+    postalCode: parts.postalCode,
+    addressCountry: parts.addressCountry,
+  };
+}
+
 export function buildOrganizationSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
@@ -11,19 +30,9 @@ export function buildOrganizationSchema(): JsonLd {
     logo: `${site.url}${site.logo.src}`,
     description: site.description,
     email: site.email,
+    foundingDate: site.foundingDate,
     telephone: [site.phoneUs, site.phoneUk],
-    address: [
-      {
-        "@type": "PostalAddress",
-        streetAddress: site.addressUs,
-        addressCountry: "US",
-      },
-      {
-        "@type": "PostalAddress",
-        streetAddress: site.addressUk,
-        addressCountry: "GB",
-      },
-    ],
+    address: [postalAddress(site.addressUsParts), postalAddress(site.addressUkParts)],
     sameAs: [`https://wa.me/${site.whatsappE164}`],
   };
 }
@@ -56,18 +65,19 @@ export function buildLocalBusinessSchema(): JsonLd {
     priceRange: "$$",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "18:00",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "00:00",
+      closes: "23:59",
     },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: site.addressUs,
-      addressLocality: "Durham",
-      addressRegion: "NC",
-      postalCode: "27713",
-      addressCountry: "US",
-    },
+    address: postalAddress(site.addressUsParts),
     areaServed: ["US", "GB", "CA", "AU", "Worldwide"],
   };
 }

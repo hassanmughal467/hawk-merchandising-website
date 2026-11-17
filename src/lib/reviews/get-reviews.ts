@@ -28,6 +28,27 @@ const STAR_MAP: Record<string, 1 | 2 | 3 | 4 | 5> = {
   FIVE: 5,
 };
 
+const MONTH_YEAR = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+/** Format a Date as "March 2024" (never relative "X months ago"). */
+export function formatReviewMonthYear(date: Date): string {
+  return MONTH_YEAR.format(date);
+}
+
+/** Keep each review id once (carousel must not repeat cards). */
+export function uniqueReviews(reviews: Review[]): Review[] {
+  const seen = new Set<string>();
+  return reviews.filter((review) => {
+    if (seen.has(review.id)) return false;
+    seen.add(review.id);
+    return true;
+  });
+}
+
 /**
  * Single entry point for review data.
  *
@@ -48,7 +69,10 @@ export async function getReviews(): Promise<ReviewsData> {
     }
   }
 
-  return mockReviewsData;
+  return {
+    summary: mockReviewsData.summary,
+    reviews: uniqueReviews(mockReviewsData.reviews),
+  };
 }
 
 async function fetchGooglePlaceReviews(
@@ -77,25 +101,33 @@ async function fetchGooglePlaceReviews(
 
   const { rating, user_ratings_total, reviews = [], url: mapsUrl } = data.result;
 
-  const mappedReviews: Review[] = reviews.map((review, index) => ({
-    id: `google-${review.time}-${index}`,
-    reviewerName: review.author_name,
-    rating: clampRating(review.rating),
-    reviewText: review.text,
-    date: new Date(review.time * 1000).toISOString().slice(0, 10),
-    dateDisplay: review.relative_time_description,
-    source: "google" as const,
-  }));
+  const mappedReviews: Review[] = reviews.map((review, index) => {
+    const published = new Date(review.time * 1000);
+    return {
+      id: `google-${review.time}-${index}`,
+      reviewerName: review.author_name,
+      rating: clampRating(review.rating),
+      reviewText: review.text,
+      date: published.toISOString().slice(0, 10),
+      dateDisplay: formatReviewMonthYear(published),
+      source: "google" as const,
+    };
+  });
 
   return {
     summary: {
       averageRating: rating ?? mockReviewsData.summary.averageRating,
       totalReviewCount:
-        user_ratings_total ?? mockReviewsData.summary.totalReviewCount,
+        typeof user_ratings_total === "number"
+          ? user_ratings_total
+          : mockReviewsData.summary.totalReviewCount,
       profileUrl: mapsUrl ?? mockReviewsData.summary.profileUrl,
       placeId,
     },
-    reviews: mappedReviews.length > 0 ? mappedReviews : mockReviewsData.reviews,
+    reviews:
+      mappedReviews.length > 0
+        ? uniqueReviews(mappedReviews)
+        : uniqueReviews(mockReviewsData.reviews),
   };
 }
 

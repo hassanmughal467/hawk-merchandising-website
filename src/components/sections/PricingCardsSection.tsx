@@ -7,6 +7,7 @@ import {
   pricingPlans,
   pricingSectionSubtitle,
   pricingSectionTitle,
+  websitePricing,
 } from "@/lib/content/pricing";
 import { pricingConfidenceBlock } from "@/lib/content/sew-out";
 import { fadeUp, stagger } from "@/lib/motion";
@@ -70,14 +71,9 @@ export function PricingCardsSection({
               <h3 className="font-[family-name:var(--font-display)] text-base font-semibold uppercase tracking-wide text-white">
                 {plan.name}
               </h3>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-zinc-500">
-                {plan.priceLabel}
+              <p className="mt-4 font-[family-name:var(--font-display)] text-2xl font-semibold leading-snug text-accent sm:text-3xl">
+                {plan.rate}
               </p>
-              {plan.price ? (
-                <p className="mt-1 font-[family-name:var(--font-display)] text-3xl font-semibold text-accent">
-                  {plan.price}
-                </p>
-              ) : null}
               <ul className="mt-6 flex-1 space-y-2.5 text-sm text-zinc-300">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex gap-2">
@@ -143,9 +139,8 @@ export function PricingCardsSection({
           </motion.div>
         ) : null}
 
-        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-zinc-500">
-          Prices shown are starting points. Final quotes depend on stitch complexity, thread changes,
-          garment notes, and delivery urgency. Upload your artwork for an accurate estimate.
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-zinc-400">
+          {websitePricing.qualityLine}
         </p>
       </div>
     </section>

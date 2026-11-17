@@ -8,6 +8,7 @@ import {
   site,
 } from "@/lib/site";
 import { Logo } from "@/components/brand/Logo";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { videosPage } from "@/lib/content/videos";
 
@@ -31,6 +32,7 @@ export function Footer() {
             <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-400">
               {site.description}
             </p>
+            <SocialLinks className="mt-6" />
           </div>
 
           <div className="lg:col-span-2">

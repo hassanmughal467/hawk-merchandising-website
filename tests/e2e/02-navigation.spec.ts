@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { navPrimary, navResources, seoServicePages } from "../../src/lib/site";
+import { navPrimary, navResources, seoServicePages, site } from "../../src/lib/site";
 
 test.describe("Navbar", () => {
   test("renders every primary nav link and navigates correctly", async ({ page }) => {
@@ -36,6 +36,14 @@ test.describe("Footer", () => {
     await expect(footer.getByRole("link", { name: "Terms & Conditions" })).toBeVisible();
     await expect(footer.getByRole("link", { name: "Privacy Policy" })).toBeVisible();
     await expect(footer.getByRole("link", { name: "About", exact: true })).toBeVisible();
+
+    for (const profile of site.social) {
+      const link = footer.getByRole("link", { name: new RegExp(`^${profile.name}\\b`) });
+      await expect(link).toBeVisible();
+      await expect(link).toHaveAttribute("href", profile.href);
+      await expect(link).toHaveAttribute("target", "_blank");
+      await expect(link).toHaveAttribute("rel", "noopener");
+    }
   });
 });
 

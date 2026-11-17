@@ -3,7 +3,7 @@
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { QuoteForm } from "@/components/forms/QuoteForm";
-import { unlimitedRevisions } from "@/lib/content/offer";
+import { turnaround } from "@/lib/content/turnaround";
 import { fadeUp, stagger } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
@@ -37,13 +37,10 @@ export function HomepageQuoteSection({ id = "quote" }: HomepageQuoteSectionProps
             </motion.p>
             <motion.ul variants={fadeUp} className="mt-6 space-y-3 text-sm text-zinc-400">
               <li className="flex items-center gap-2">
-                <span className="text-accent">✓</span> 24-hour standard turnaround
+                <span className="text-accent">✓</span> {turnaround}
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-accent">✓</span> Same-day rush available
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-accent">✓</span> {unlimitedRevisions}
+                <span className="text-accent">✓</span> Unlimited reasonable revisions
               </li>
             </motion.ul>
             <motion.div variants={fadeUp} className="mt-8">

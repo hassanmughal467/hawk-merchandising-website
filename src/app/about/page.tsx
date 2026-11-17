@@ -17,15 +17,15 @@ import {
   whyClientsStay,
 } from "@/lib/content/about";
 import { getAllFAQItems } from "@/lib/content/faq";
+import { turnaround } from "@/lib/content/turnaround";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { site } from "@/lib/site";
+import { site, siteAudience } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "About",
-  description:
-    "Hawk Merchandising bridges embroidery craft with modern production workflows—fast turnaround, consistent quality, global delivery.",
+  description: `Hawk Merchandising bridges embroidery craft with modern production workflows—${turnaround}, consistent quality, global delivery.`,
   path: "/about",
 });
 
@@ -41,9 +41,9 @@ export default function AboutPage() {
       <JsonLdScript data={[buildBreadcrumbSchema(breadcrumbs), buildFAQSchema(faqItems)]} />
 
       <PageHero
-        eyebrow="About"
+        eyebrow={site.foundingLine}
         title="Built for shops that cannot afford rework"
-        subtitle={`${site.name} partners with embroidery businesses, apparel brands, and print shops that need reliable digitizing and vector art—without drama at the machine.`}
+        subtitle={`${site.name} partners with ${siteAudience} that need reliable digitizing and vector art—without drama at the machine.`}
       />
 
       <section className="border-b border-white/10">
@@ -145,7 +145,7 @@ export default function AboutPage() {
               Start your next production file with Hawk
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-zinc-600">
-              Upload artwork or contact our team—24-hour standard turnaround with rush options available.
+              Upload artwork or contact our team—{turnaround}.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <ConversionLink

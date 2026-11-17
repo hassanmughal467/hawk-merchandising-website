@@ -4,11 +4,7 @@ import { useCallback, useState } from "react";
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { serviceOptions } from "@/lib/site";
 import { cn } from "@/lib/cn";
-import {
-  CONVERSION_EVENTS,
-  trackContactFormSubmit,
-  trackQuoteRequest,
-} from "@/lib/analytics-events";
+import { CONVERSION_EVENTS, trackQuoteSubmit } from "@/lib/analytics-events";
 
 type FieldErrors = Partial<Record<"name" | "email" | "whatsapp" | "service" | "message" | "file", string>>;
 
@@ -77,11 +73,8 @@ export function QuoteForm({
       const res = await fetch("/api/contact", { method: "POST", body });
       const data = (await res.json()) as { referenceId?: string; error?: string };
       if (!res.ok) throw new Error(data.error ?? "Submission failed");
-      if (source === "contact") {
-        trackContactFormSubmit(source);
-      } else {
-        trackQuoteRequest(source);
-      }
+      // Fire only after a successful API response — not on button press.
+      trackQuoteSubmit({ source });
       setSuccess({ referenceId: data.referenceId ?? "HMK-QUOTE" });
     } catch (err) {
       const message =

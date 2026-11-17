@@ -1,4 +1,4 @@
-import { unlimitedRevisions } from "@/lib/content/offer";
+import { turnaround } from "@/lib/content/turnaround";
 import { countriesServed, industriesServed } from "@/lib/content/trust";
 
 export const companyStory = {
@@ -37,9 +37,9 @@ export const values = [
 export const whyClientsStay = [
   "Predictable stitch behavior on caps, flats, jackets, and specialty fabrics",
   "Direct access to digitizers who understand your machines and thread charts",
-  unlimitedRevisions,
+  "Unlimited reasonable revisions until production samples are approved",
   "One partner for digitizing, vector conversion, logo redraw, and patch artwork",
-  "24-hour standard turnaround with rush options when deadlines tighten",
+  turnaround,
   "Client portal for order tracking, file downloads, and invoice history",
 ] as const;
 
@@ -79,8 +79,8 @@ export const supportWorkflow = [
   },
   {
     step: "03",
-    title: "Rush coordination",
-    desc: "Same-day and 12-hour slots confirmed upfront with clear delivery windows.",
+    title: "Deadline coordination",
+    desc: `${turnaround} confirmed upfront with clear delivery windows.`,
   },
   {
     step: "04",

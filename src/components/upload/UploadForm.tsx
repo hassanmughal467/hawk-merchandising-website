@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useCallback, useState } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { serviceOptions } from "@/lib/site";
 import { cn } from "@/lib/cn";
-import { trackUploadArtworkSubmit } from "@/lib/analytics-events";
+import { trackFreeTrialSubmit, trackUploadSubmit } from "@/lib/analytics-events";
 
 type FieldErrors = Partial<Record<"name" | "email" | "whatsapp" | "service" | "file", string>>;
 
@@ -20,26 +19,24 @@ function hasAllowedExtension(filename: string): boolean {
   return ALLOWED_FILE_EXTENSIONS.some((ext) => lower.endsWith(ext));
 }
 
-export function UploadForm() {
-  const searchParams = useSearchParams();
-  const intent = searchParams.get("intent");
+function instructionsForIntent(intent?: string | null): string {
+  if (intent === "sample") {
+    return "Please treat this as my free sample request. Artwork is attached.";
+  }
+  return "";
+}
 
-  const defaultInstructions = useMemo(() => {
-    if (intent === "sample") {
-      return "Please treat this as my free sample request. Artwork is attached.";
-    }
-    return "";
-  }, [intent]);
+type UploadFormProps = {
+  /** Prefilled from the page `searchParams` so the form SSR without useSearchParams. */
+  intent?: string | null;
+};
 
+export function UploadForm({ intent = null }: UploadFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [service, setService] = useState<string>(serviceOptions[0]);
-  const [instructions, setInstructions] = useState("");
-
-  useEffect(() => {
-    setInstructions(defaultInstructions);
-  }, [defaultInstructions]);
+  const [instructions, setInstructions] = useState(() => instructionsForIntent(intent));
   const [file, setFile] = useState<File | null>(null);
   const [company, setCompany] = useState(""); // honeypot — real users never see this field
   const [dragOver, setDragOver] = useState(false);
@@ -120,7 +117,13 @@ export function UploadForm() {
         return;
       }
 
-      trackUploadArtworkSubmit();
+      // Fire only after a successful API response — not on button press.
+      // No /free-trial page yet: sample intent uses the shared free_trial_submit helper.
+      if (intent === "sample") {
+        trackFreeTrialSubmit({ source: "upload_sample" });
+      } else {
+        trackUploadSubmit({ source: "upload" });
+      }
       setSuccess({ referenceId: data.referenceId ?? "HMK-OK" });
       setName("");
       setEmail("");

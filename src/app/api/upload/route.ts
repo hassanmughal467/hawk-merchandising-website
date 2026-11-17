@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
+import { freeTrialServiceOptions } from "@/lib/content/free-trial";
 import { sendLeadNotification } from "@/lib/email";
 import { checkRateLimit, getClientIp, HONEYPOT_MAX_REQUESTS } from "@/lib/rate-limit";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB — attach-only mode for now
+
+const UTM_KEYS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+] as const;
 
 function sanitizeFilename(name: string): string {
   const base = name.split(/[\\/]/).pop() ?? "file";
@@ -10,16 +19,31 @@ function sanitizeFilename(name: string): string {
   return cleaned.slice(-150) || "file";
 }
 
+function readField(formData: FormData, key: string): string {
+  return String(formData.get(key) ?? "").trim();
+}
+
+function collectUtmFields(formData: FormData): Record<string, string> {
+  const utm: Record<string, string> = {};
+  for (const key of UTM_KEYS) {
+    const value = readField(formData, key);
+    if (value) utm[key] = value;
+  }
+  return utm;
+}
+
 export async function POST(request: Request) {
   const ip = getClientIp(request);
 
   try {
     const formData = await request.formData();
+    const intent = readField(formData, "intent");
+    const isFreeTrial = intent === "free-trial";
 
-    // Honeypot: real users never see or fill this field. Checked — and
-    // rate-limited on its own bucket — before the real rate limit, so a bot
-    // spamming this field can't burn through a shared IP's real quota.
-    const honeypot = String(formData.get("company") ?? "").trim();
+    // Honeypot: upload form uses `company`; free-trial uses real `company` + honeypot `website`.
+    const honeypot = isFreeTrial
+      ? readField(formData, "website")
+      : readField(formData, "company");
     if (honeypot) {
       const honeypotLimit = checkRateLimit(`upload:honeypot:${ip}`, HONEYPOT_MAX_REQUESTS);
       if (!honeypotLimit.allowed) {
@@ -42,12 +66,103 @@ export async function POST(request: Request) {
       );
     }
 
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const whatsapp = String(formData.get("whatsapp") ?? "").trim();
-    const service = String(formData.get("service") ?? "").trim();
-    const instructions = String(formData.get("instructions") ?? "").trim();
+    const name = readField(formData, "name");
+    const email = readField(formData, "email");
+    const service = readField(formData, "service");
     const file = formData.get("file");
+    const utm = collectUtmFields(formData);
+
+    if (isFreeTrial) {
+      const company = readField(formData, "company");
+      const country = readField(formData, "country");
+      const fileFormat = readField(formData, "fileFormat");
+      const notes = readField(formData, "notes") || readField(formData, "instructions");
+
+      if (!name || !email || !company || !country || !service || !fileFormat) {
+        return NextResponse.json(
+          { ok: false, error: "Missing required fields." },
+          { status: 400 },
+        );
+      }
+
+      if (!(freeTrialServiceOptions as readonly string[]).includes(service)) {
+        return NextResponse.json({ ok: false, error: "Select a valid service." }, { status: 400 });
+      }
+
+      if (!file || !(file instanceof File) || file.size === 0) {
+        return NextResponse.json({ ok: false, error: "A design file is required." }, { status: 400 });
+      }
+
+      if (file.size > MAX_FILE_SIZE) {
+        return NextResponse.json(
+          {
+            ok: false,
+            error:
+              "Files over 10MB require our large-file upload — support for this is coming shortly.",
+          },
+          { status: 400 },
+        );
+      }
+
+      const referenceId = `HMK-${Date.now().toString(36).toUpperCase()}`;
+      const safeFileName = sanitizeFilename(file.name);
+      const fileBuffer = Buffer.from(await file.arrayBuffer());
+
+      const fields: Record<string, string> = {
+        Reference: referenceId,
+        Intent: "Free trial",
+        Name: name,
+        Email: email,
+        Company: company,
+        Country: country,
+        Service: service,
+        "Required file format": fileFormat,
+        Notes: notes || "(none provided)",
+        File: safeFileName,
+      };
+      for (const [key, value] of Object.entries(utm)) {
+        fields[key] = value;
+      }
+
+      try {
+        await sendLeadNotification({
+          subject: `New free trial request — ${referenceId}`,
+          fields,
+          attachment: {
+            filename: safeFileName,
+            content: fileBuffer,
+            contentType: file.type || "application/octet-stream",
+          },
+        });
+      } catch (error) {
+        console.error("Failed to send free-trial notification email:", error);
+        return NextResponse.json(
+          { ok: false, error: "Failed to submit your request. Please try again." },
+          { status: 500 },
+        );
+      }
+
+      return NextResponse.json({
+        ok: true,
+        referenceId,
+        received: {
+          intent: "free-trial",
+          name,
+          email,
+          company,
+          country,
+          service,
+          fileFormat,
+          notes,
+          fileName: safeFileName,
+          fileSize: file.size,
+          utm,
+        },
+      });
+    }
+
+    const whatsapp = readField(formData, "whatsapp");
+    const instructions = readField(formData, "instructions");
 
     if (!name || !email || !whatsapp || !service) {
       return NextResponse.json(

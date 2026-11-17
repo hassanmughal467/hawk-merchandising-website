@@ -29,7 +29,7 @@ export function StickyQuoteBar() {
         inert={!visible}
       >
         <ConversionLink
-          href="/upload?intent=sample"
+          href="/free-trial"
           event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
           eventParams={{ location: "sticky_bar_desktop" }}
           className="focus-ring pointer-events-auto rounded-l-2xl bg-accent-gradient px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-accent-gradient-hover [writing-mode:vertical-rl]"
@@ -70,7 +70,7 @@ export function StickyQuoteBar() {
       >
         <div className="mx-auto flex max-w-lg items-center gap-2 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           <ConversionLink
-            href="/upload?intent=sample"
+            href="/free-trial"
             event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
             eventParams={{ location: "sticky_bar_mobile" }}
             className="focus-ring flex-1 rounded-full bg-accent-gradient py-3 text-center text-sm font-semibold text-white"

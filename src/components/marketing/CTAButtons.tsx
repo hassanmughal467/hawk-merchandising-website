@@ -12,7 +12,7 @@ export function CTAButtons({ className = "", showLogin = true }: CTAButtonsProps
   return (
     <div className={cn("mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap", className)}>
       <ConversionLink
-        href="/upload?intent=sample"
+        href="/free-trial"
         event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
         eventParams={{ location: "cta_buttons" }}
         className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"

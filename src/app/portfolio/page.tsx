@@ -24,7 +24,7 @@ export default function PortfolioPage() {
       >
         <div className="flex flex-wrap gap-3">
           <ConversionLink
-            href="/upload?intent=sample"
+            href="/free-trial"
             event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
             eventParams={{ location: "portfolio_page" }}
             className="focus-ring inline-flex items-center justify-center rounded-full bg-accent-gradient px-7 py-3.5 text-base font-semibold text-white transition hover:bg-accent-gradient-hover"

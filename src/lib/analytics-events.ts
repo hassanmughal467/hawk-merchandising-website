@@ -5,6 +5,8 @@ export const CONVERSION_EVENTS = {
   QUOTE_BUTTON_CLICK: "quote_button_click",
   UPLOAD_ARTWORK_CLICK: "upload_artwork_click",
   CONTACT_FORM_SUBMIT: "contact_form_submit",
+  /** Task 5 / 14 — fire on successful free-trial form submit only */
+  FREE_TRIAL_SUBMIT: "free_trial_submit",
   WHATSAPP_CLICK: "whatsapp_click",
   PHONE_CLICK: "phone_click",
   EMAIL_CLICK: "email_click",
@@ -48,4 +50,13 @@ export function trackContactFormSubmit(source: string) {
 /** Track a successful upload artwork form submission. */
 export function trackUploadArtworkSubmit() {
   trackMetaLead({ content_name: "upload_artwork" });
+}
+
+/**
+ * Track a successful free-trial form submission (task 5 / 14).
+ * Pass utm_source / utm_medium when present. Hook for LinkedIn/Pinterest once task 13 IDs exist.
+ */
+export function trackFreeTrialSubmit(params?: ConversionEventParams) {
+  trackConversion(CONVERSION_EVENTS.FREE_TRIAL_SUBMIT, params);
+  trackMetaLead({ content_name: "free_trial", ...params });
 }

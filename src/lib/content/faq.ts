@@ -80,7 +80,7 @@ export const faqTopics: FAQTopic[] = [
       {
         question: "How is embroidery digitizing priced?",
         answer:
-          "Pricing depends on stitch complexity, size, fabric type, and turnaround. Upload your artwork for an accurate quote—first-time clients can request a free sample.",
+          "Pricing depends on stitch complexity, size, fabric type, and turnaround. Upload your artwork for an accurate quote—first-time clients can request a free trial.",
       },
       {
         question: "Do you offer volume pricing?",

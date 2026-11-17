@@ -87,7 +87,7 @@ export function ExitIntentModal() {
 
         <div className="mt-4">
           <ConversionLink
-            href="/upload?intent=sample"
+            href="/free-trial"
             event={CONVERSION_EVENTS.QUOTE_BUTTON_CLICK}
             eventParams={{ location: "exit_intent" }}
             onClick={dismiss}

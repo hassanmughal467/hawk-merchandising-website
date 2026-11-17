@@ -3,10 +3,13 @@
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import {
+  deliverableLine,
   freeTrialHref,
   googleRatingLabel,
+  googleRatingLabelFull,
   offerLine,
   startFreeTrialLabel,
+  supportBadgeShort,
   uploadArtworkHref,
   uploadArtworkLabel,
 } from "@/lib/content/offer";
@@ -20,7 +23,7 @@ type OfferTrustBlockProps = {
 };
 
 /**
- * Reusable above-the-fold offer + CTA + Google trust row (brief task 20).
+ * Reusable above-the-fold offer + CTA + trust row (brief task 20).
  * Identical copy on home, pricing, and service page heroes.
  */
 export function OfferTrustBlock({ location, className }: OfferTrustBlockProps) {
@@ -54,16 +57,22 @@ export function OfferTrustBlock({ location, className }: OfferTrustBlockProps) {
           className="focus-ring inline-flex items-center justify-center gap-1.5 self-center text-sm font-semibold text-zinc-300 underline-offset-4 transition hover:text-white hover:underline sm:ml-1"
         >
           <svg
-            className="h-4 w-4 text-accent"
+            className="h-4 w-4 shrink-0 text-accent"
             viewBox="0 0 24 24"
             fill="currentColor"
             aria-hidden
           >
             <path d="M12 2.5l2.76 5.59 6.17.9-4.46 4.35 1.05 6.13L12 16.9l-5.52 2.9 1.05-6.13-4.46-4.35 6.17-.9L12 2.5z" />
           </svg>
-          {googleRatingLabel}
+          <span className="sm:hidden">{googleRatingLabel}</span>
+          <span className="hidden sm:inline">{googleRatingLabelFull}</span>
         </a>
+        <span className="inline-flex items-center justify-center self-center rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs font-semibold text-zinc-300 sm:ml-1">
+          {supportBadgeShort}
+        </span>
       </div>
+
+      <p className="text-sm leading-relaxed text-zinc-400">{deliverableLine}</p>
     </div>
   );
 }

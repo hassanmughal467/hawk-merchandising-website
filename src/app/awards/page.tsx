@@ -18,7 +18,6 @@ const highlights = [
 ];
 
 const milestones = [
-  "5,000+ production files delivered",
   "12–24 hour standard turnaround window",
   "Global client base across apparel and promo",
   "Dedicated digitizing & vector specialists",

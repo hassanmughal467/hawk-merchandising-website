@@ -59,6 +59,10 @@ export function StatsSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+  if (siteStatistics.length === 0) {
+    return null;
+  }
+
   return (
     <section ref={ref} className="border-b border-white/10 bg-zinc-950">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
@@ -79,7 +83,7 @@ export function StatsSection() {
                 <AnimatedCounter
                   value={stat.value}
                   suffix={stat.suffix}
-                  displayText={"displayText" in stat ? stat.displayText : undefined}
+                  displayText={stat.displayText}
                   active={inView}
                 />
               </p>

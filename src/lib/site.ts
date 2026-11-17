@@ -47,6 +47,25 @@ export const site = {
     url: "https://admin.hawkmerchandising.com/auth/register",
     label: "Signup",
   },
+  /** Public social profiles (footer + Organization JSON-LD sameAs). No YouTube yet. */
+  social: [
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/hawkmerchandising",
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/hawkmerchandising",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/hawk_merchandisingllc/",
+    },
+    {
+      name: "Pinterest",
+      href: "https://www.pinterest.com/hawkoffice/",
+    },
+  ],
 } as const;
 
 export const services = [

@@ -7,6 +7,7 @@ type PageMetadataInput = {
   description: string;
   path: string;
   ogImage?: string;
+  ogImageAlt?: string;
   noIndex?: boolean;
   /** Use for pages that should not use the root title template (e.g. homepage). */
   absoluteTitle?: boolean;
@@ -26,12 +27,13 @@ export function buildPageMetadata({
   description,
   path,
   ogImage,
+  ogImageAlt,
   noIndex = false,
   absoluteTitle = false,
 }: PageMetadataInput): Metadata {
   const url = pageUrl(path);
   const image = ogImage ?? site.ogImage.src;
-  const imageAlt = site.ogImage.alt;
+  const imageAlt = ogImageAlt ?? site.ogImage.alt;
   const imageWidth = site.ogImage.width;
   const imageHeight = site.ogImage.height;
   const ogTitle = absoluteTitle ? title : fullTitle(title);
@@ -78,5 +80,7 @@ export function buildServicePageMetadata(content: ServicePageContent): Metadata 
     title: content.metadata.title,
     description: content.metadata.description,
     path: content.path,
+    ogImage: content.ogImage.src,
+    ogImageAlt: content.ogImage.alt,
   });
 }

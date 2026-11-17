@@ -1,4 +1,5 @@
 import type { FAQItem } from "@/lib/content/faq";
+import { portfolioSrc } from "@/lib/content/portfolio-assets";
 
 export type ServiceFeature = {
   title: string;
@@ -9,6 +10,8 @@ export type ServicePageContent = {
   slug: string;
   path: string;
   metadata: { title: string; description: string };
+  /** Distinct Open Graph image from existing portfolio assets */
+  ogImage: { src: string; alt: string };
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -30,6 +33,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "Embroidery Digitizing Services",
       description:
         "Professional embroidery digitizing services with fast turnaround digitizing in 3–4 hours. Production ready embroidery files, machine sew-out services, and rush embroidery digitizing available.",
+    },
+    ogImage: {
+      src: portfolioSrc("BEFORE AND AFTER DIGITIZING.png"),
+      alt: "Before and after embroidery digitizing sample from Hawk Merchandising",
     },
     eyebrow: "Embroidery Digitizing",
     title: "Hand-digitized embroidery files for serious production",
@@ -78,6 +85,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "Vector Art Conversion",
       description:
         "Professional vector art conversion from raster artwork. Clean AI, EPS, PDF, and SVG delivery with fast turnaround and production-ready output.",
+    },
+    ogImage: {
+      src: portfolioSrc("Vector conversion 01.jpg"),
+      alt: "Vector art conversion sample from Hawk Merchandising",
     },
     eyebrow: "Vector Art Conversion",
     title: "Vector art that survives printing—not just zooming in",
@@ -129,6 +140,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       description:
         "Custom patch solutions for embroidered, woven, PVC, and chenille programs. Factory-ready artwork with fast turnaround and dedicated support.",
     },
+    ogImage: {
+      src: portfolioSrc("Custom patch 01.PNG"),
+      alt: "Custom embroidered patch sample from Hawk Merchandising",
+    },
     eyebrow: "Custom Patches",
     title: "Patch programs engineered for manufacturing",
     subtitle:
@@ -173,6 +188,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       description:
         "Woven patch artwork with fine detail, gradients, and factory-ready color breaks for uniform and retail programs.",
     },
+    ogImage: {
+      src: portfolioSrc("woven patch program.png"),
+      alt: "Woven patch program sample from Hawk Merchandising",
+    },
     eyebrow: "Woven Patches",
     title: "Woven patches for detail embroidery cannot match",
     subtitle:
@@ -211,6 +230,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "PVC Patches",
       description:
         "PVC and rubber-style patch artwork with clean color breaks, layer structure, and vendor-ready vector files.",
+    },
+    ogImage: {
+      src: portfolioSrc("custom PVC patch.png"),
+      alt: "Custom PVC patch sample from Hawk Merchandising",
     },
     eyebrow: "PVC Patches",
     title: "PVC patches with production-aware artwork",
@@ -251,6 +274,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "Logo Redraw Services",
       description:
         "Professional logo redraw and cleanup for print, embroidery, patches, and digital—rebuild blurry or outdated artwork as crisp masters.",
+    },
+    ogImage: {
+      src: portfolioSrc("Construction Company Logo.png"),
+      alt: "Logo redraw sample from Hawk Merchandising",
     },
     eyebrow: "Logo Redraw",
     title: "Logo redraws that unify every vendor",
@@ -295,6 +322,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "Cap Digitizing Services",
       description:
         "Professional cap embroidery digitizing with fast turnaround digitizing in 3–4 hours. Production ready embroidery files and machine sew-out services for structured and trucker caps.",
+    },
+    ogImage: {
+      src: portfolioSrc("Structured Cap Logo.png"),
+      alt: "Structured cap embroidery digitizing sample from Hawk Merchandising",
     },
     eyebrow: "Cap Digitizing",
     title: "Cap digitizing built for curved panels",
@@ -351,6 +382,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       description:
         "Professional 3D puff embroidery digitizing with fast turnaround digitizing and rush embroidery digitizing. Production ready embroidery files with machine sew-out services available.",
     },
+    ogImage: {
+      src: portfolioSrc("3D puff cap embroidery.png"),
+      alt: "3D puff cap embroidery digitizing sample from Hawk Merchandising",
+    },
     eyebrow: "3D Puff Digitizing",
     title: "3D puff embroidery with clean raised dimension",
     subtitle:
@@ -405,6 +440,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "Jacket Back Embroidery Digitizing",
       description:
         "Large-format jacket back embroidery digitizing services with fast turnaround digitizing. Production ready embroidery files and optional machine sew-out services for complete confidence.",
+    },
+    ogImage: {
+      src: portfolioSrc("Team Jacket Full Back.png"),
+      alt: "Team jacket back embroidery digitizing sample from Hawk Merchandising",
     },
     eyebrow: "Jacket Back Digitizing",
     title: "Jacket back embroidery for large-format production",
@@ -461,6 +500,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       description:
         "Custom chenille patch artwork for varsity letters, team marks, and school programs. Factory-ready files with borders and color breaks.",
     },
+    ogImage: {
+      src: portfolioSrc("Varsity Chenille Letter.png"),
+      alt: "Varsity chenille letter patch sample from Hawk Merchandising",
+    },
     eyebrow: "Chenille Patches",
     title: "Chenille patches for varsity and team programs",
     subtitle:
@@ -504,6 +547,10 @@ export const servicePages: Record<string, ServicePageContent> = {
       title: "Leather Patches",
       description:
         "Custom leather patch artwork for deboss, emboss, and heat-seal programs. Premium branding for bags, hats, and outerwear.",
+    },
+    ogImage: {
+      src: portfolioSrc("Premium Leather Deboss Patch.png"),
+      alt: "Premium leather deboss patch sample from Hawk Merchandising",
     },
     eyebrow: "Leather Patches",
     title: "Leather patches for premium brand programs",

@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Suspense } from "react";
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { PageHero } from "@/components/marketing/PageHero";
+import {
+  parsePortfolioCategory,
+  PortfolioPageContent,
+} from "@/components/portfolio/PortfolioPageContent";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
-import { PortfolioPageContent } from "@/components/portfolio/PortfolioPageContent";
-
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildPageMetadata({
@@ -14,7 +15,15 @@ export const metadata = buildPageMetadata({
   path: "/portfolio",
 });
 
-export default function PortfolioPage() {
+type PortfolioPageProps = {
+  searchParams: Promise<{ category?: string | string[] }>;
+};
+
+export default async function PortfolioPage({ searchParams }: PortfolioPageProps) {
+  const params = await searchParams;
+  const categoryParam = Array.isArray(params.category) ? params.category[0] : params.category;
+  const category = parsePortfolioCategory(categoryParam);
+
   return (
     <div className="bg-background">
       <PageHero
@@ -42,13 +51,7 @@ export default function PortfolioPage() {
 
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-          <Suspense
-            fallback={
-              <p className="text-sm text-zinc-500">Loading portfolio…</p>
-            }
-          >
-            <PortfolioPageContent />
-          </Suspense>
+          <PortfolioPageContent category={category} />
         </div>
       </section>
     </div>

@@ -1,6 +1,3 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
 import { PortfolioCategoryNav } from "@/components/ui/PortfolioCategoryNav";
 import { PortfolioGrid } from "@/components/ui/PortfolioGrid";
 import {
@@ -9,20 +6,22 @@ import {
   type PortfolioCategoryId,
 } from "@/lib/content/portfolio";
 
-function parseCategory(value: string | null): PortfolioCategoryId {
+export function parsePortfolioCategory(value: string | null | undefined): PortfolioCategoryId {
   if (!value) return "all";
   const valid = portfolioCategoryGroups.some((g) => g.id === value);
   return valid ? (value as PortfolioCategoryId) : "all";
 }
 
-export function PortfolioPageContent() {
-  const searchParams = useSearchParams();
-  const category = parseCategory(searchParams.get("category"));
+type PortfolioPageContentProps = {
+  category?: PortfolioCategoryId;
+};
+
+export function PortfolioPageContent({ category = "all" }: PortfolioPageContentProps) {
   const group = portfolioCategoryGroups.find((g) => g.id === category);
 
   return (
     <>
-      <PortfolioCategoryNav />
+      <PortfolioCategoryNav active={category} />
       {group ? (
         <p className="mt-6 text-sm text-zinc-500">
           Subcategories: {group.subcategories.join(" · ")}
@@ -32,7 +31,8 @@ export function PortfolioPageContent() {
         <PortfolioGrid category={category} />
       </div>
       <p className="mt-10 text-center text-xs text-zinc-600">
-        {portfolioItems.length} examples across embroidery digitizing, vector conversion, and custom patches.
+        {portfolioItems.length} examples across embroidery digitizing, vector conversion, and custom
+        patches.
       </p>
     </>
   );

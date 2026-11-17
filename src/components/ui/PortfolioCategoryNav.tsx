@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
 import { portfolioCategoryGroups, type PortfolioCategoryId } from "@/lib/content/portfolio";
 import { cn } from "@/lib/cn";
 
@@ -12,24 +9,18 @@ const tabs: { id: PortfolioCategoryId; label: string }[] = [
 
 type PortfolioCategoryNavProps = {
   basePath?: string;
+  active?: PortfolioCategoryId;
 };
 
-export function PortfolioCategoryNav({ basePath = "/portfolio" }: PortfolioCategoryNavProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const active = (searchParams.get("category") as PortfolioCategoryId) || "all";
-
+export function PortfolioCategoryNav({
+  basePath = "/portfolio",
+  active = "all",
+}: PortfolioCategoryNavProps) {
   return (
-    <nav
-      className="flex flex-wrap gap-2"
-      aria-label="Portfolio categories"
-    >
+    <nav className="flex flex-wrap gap-2" aria-label="Portfolio categories">
       {tabs.map((tab) => {
-        const href =
-          tab.id === "all"
-            ? basePath
-            : `${basePath}?category=${tab.id}`;
-        const isActive = pathname === basePath && active === tab.id;
+        const href = tab.id === "all" ? basePath : `${basePath}?category=${tab.id}`;
+        const isActive = active === tab.id;
 
         return (
           <Link

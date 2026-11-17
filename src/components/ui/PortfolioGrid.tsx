@@ -1,13 +1,9 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { PortfolioImage } from "@/components/ui/PortfolioImage";
 import {
   portfolioItems,
   type PortfolioCategoryId,
   type PortfolioItem,
 } from "@/lib/content/portfolio";
-import { fadeUp, stagger } from "@/lib/motion";
 import { cn } from "@/lib/cn";
 
 type PortfolioGridProps = {
@@ -18,10 +14,7 @@ type PortfolioGridProps = {
 
 function PortfolioTile({ item }: { item: PortfolioItem }) {
   return (
-    <motion.article
-      variants={fadeUp}
-      className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
-    >
+    <article className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
       <PortfolioImage
         src={item.imageSrc}
         alt={item.title}
@@ -34,13 +27,11 @@ function PortfolioTile({ item }: { item: PortfolioItem }) {
           {item.subcategory} · {item.description}
         </p>
       </div>
-    </motion.article>
+    </article>
   );
 }
 
 export function PortfolioGrid({ limit, category = "all", className }: PortfolioGridProps) {
-  const reduce = useReducedMotion();
-
   const filtered =
     category === "all"
       ? portfolioItems
@@ -57,16 +48,10 @@ export function PortfolioGrid({ limit, category = "all", className }: PortfolioG
   }
 
   return (
-    <motion.div
-      initial={reduce ? false : "hidden"}
-      whileInView={reduce ? undefined : "visible"}
-      viewport={{ once: true, margin: "-80px" }}
-      variants={stagger}
-      className={cn("grid gap-4 sm:grid-cols-2 lg:grid-cols-3", className)}
-    >
+    <div className={cn("grid gap-4 sm:grid-cols-2 lg:grid-cols-3", className)}>
       {items.map((item) => (
         <PortfolioTile key={item.id} item={item} />
       ))}
-    </motion.div>
+    </div>
   );
 }

@@ -2,18 +2,20 @@ import { portfolioSrc } from "@/lib/content/portfolio-assets";
 import type { BeforeAfterCard } from "@/lib/content/homepage";
 import { beforeAfterShowcase } from "@/lib/content/homepage";
 
-/** Confirmed offer — keep identical site-wide when reused. */
-export const freeTrialOffer = {
-  stitches: "Unlimited stitches",
-  revisions: "Unlimited revisions",
-  trial: "Free trial for quality checking",
-} as const;
+/**
+ * Confirmed offer / headline (brief task 5 — exact owner copy).
+ * Reuse this string wherever the full offer line is needed.
+ */
+export const freeTrialOfferLine =
+  "Unlimited stitches · 2–3 hour turnaround · Unlimited revisions · Free trial design to check our quality.";
 
-export const freeTrialHeadline =
-  "Unlimited stitches. Unlimited revisions. Free trial for quality checking.";
+/** Supporting line under the offer (exact owner copy). */
+export const freeTrialSupportingLine =
+  "Every file comes with a running sheet and a stitch preview.";
 
-export const freeTrialSubheadline =
-  "Try Hawk Merchandising on your own artwork—see stitch quality before you commit to a production run.";
+export const freeTrialHeadline = freeTrialOfferLine;
+
+export const freeTrialSubheadline = freeTrialSupportingLine;
 
 /** Services offered on the free-trial form (brief task 5). */
 export const freeTrialServiceOptions = [
@@ -37,13 +39,11 @@ export const freeTrialFileFormatOptions = [
   "Other / not sure",
 ] as const;
 
-/**
- * Trial terms are owner-blocked (size limits, one-per-business, sew-out).
- * Do not invent policy here — keep this honest placeholder until confirmed.
- */
-export const freeTrialTermsNote =
-  "Full free-trial terms will be confirmed by Hawk Merchandising before this offer is finalized. We will confirm eligibility and deliverables when we reply to your request.";
+/** Trial terms (exact owner copy; no invented size / one-per-business rules). */
+export const freeTrialTermsNote = "Free trial design to check our quality.";
 
+/** Optional second terms line (exact owner copy). */
+export const freeTrialTermsSewOut = "A sew-out is available on request.";
 export const freeTrialWhatHappensNext = [
   {
     title: "You send artwork",

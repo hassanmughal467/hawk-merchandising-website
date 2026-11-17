@@ -8,9 +8,9 @@ import {
   freeTrialFeaturedReviewIds,
   freeTrialHeadline,
   freeTrialOgImage,
-  freeTrialOffer,
   freeTrialSubheadline,
   freeTrialTermsNote,
+  freeTrialTermsSewOut,
   freeTrialWhatHappensNext,
 } from "@/lib/content/free-trial";
 import { mockReviewsData } from "@/lib/content/reviews";
@@ -20,7 +20,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const metadata = buildPageMetadata({
   title: "Free Trial — Unlimited Stitches & Revisions",
   description:
-    "Start a free trial with Hawk Merchandising. Unlimited stitches, unlimited revisions, and a free trial for quality checking on your embroidery digitizing or artwork.",
+    "Unlimited stitches · 2–3 hour turnaround · Unlimited revisions · Free trial design to check our quality. Every file comes with a running sheet and a stitch preview.",
   path: "/free-trial",
   ogImage: freeTrialOgImage,
 });
@@ -44,28 +44,8 @@ export default function FreeTrialPage() {
         title={freeTrialHeadline}
         subtitle={freeTrialSubheadline}
         logoSize={false}
-      >
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-zinc-300">
-          <li className="flex items-center gap-2">
-            <span className="text-accent" aria-hidden>
-              ✓
-            </span>
-            {freeTrialOffer.stitches}
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-accent" aria-hidden>
-              ✓
-            </span>
-            {freeTrialOffer.revisions}
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-accent" aria-hidden>
-              ✓
-            </span>
-            {freeTrialOffer.trial}
-          </li>
-        </ul>
-      </PageHero>
+      />
+
 
       <section className="border-b border-white/10" aria-labelledby="free-trial-examples">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
@@ -139,8 +119,8 @@ export default function FreeTrialPage() {
               Request your free trial
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-zinc-400 sm:text-base">
-              Send your artwork with a few details. We reply with eligibility and next steps for your
-              free trial.
+              Send your artwork with a few details and we will reply with next steps for your free
+              trial.
             </p>
 
             <div className="mt-10">
@@ -167,6 +147,7 @@ export default function FreeTrialPage() {
                 Trial terms
               </p>
               <p className="mt-3 text-sm leading-relaxed text-zinc-400">{freeTrialTermsNote}</p>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">{freeTrialTermsSewOut}</p>
             </aside>
           </div>
 

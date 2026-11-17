@@ -48,9 +48,9 @@ export const faqTopics: FAQTopic[] = [
           "Yes. Logo redraw and raster-to-vector conversion rebuild blurry or pixelated marks into production-ready artwork with correct color breaks.",
       },
       {
-        question: "Do you prepare artwork for screen print separations?",
+        question: "Do you prepare print-ready artwork for DTF and sublimation?",
         answer:
-          "We provide vector separations and print-ready layers when your brief specifies screen print, heat transfer, or hybrid decoration workflows.",
+          "We provide vector separations and print-ready layers when your brief specifies DTF and sublimation, heat transfer, or hybrid decoration workflows.",
       },
     ],
   },

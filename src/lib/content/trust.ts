@@ -44,12 +44,16 @@ export const trustBarItems = [
   { label: "Global Delivery" },
 ] as const;
 
-export const siteStatistics = [
-  { label: "Production files delivered", value: 50000, suffix: "+" },
-  { label: "Client retention rate", value: 95, suffix: "%" },
-  { label: "Countries served", value: 25, suffix: "+" },
-  { label: "Average turnaround", value: 0, suffix: "", displayText: turnaround },
-] as const;
+/**
+ * Homepage / landing stats strip.
+ * Keep empty until the owner supplies confirmed figures.
+ */
+export const siteStatistics: ReadonlyArray<{
+  label: string;
+  value: number;
+  suffix: string;
+  displayText?: string;
+}> = [];
 
 export const industriesServed = [
   {

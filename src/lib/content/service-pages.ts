@@ -1,4 +1,5 @@
 import type { FAQItem } from "@/lib/content/faq";
+import { portfolioSrc } from "@/lib/content/portfolio-assets";
 import { patchesTurnaround, turnaround } from "@/lib/content/turnaround";
 
 export type ServiceFeature = {
@@ -19,6 +20,7 @@ export type ServicePageContent = {
   deliverables?: string[];
   processSteps?: { step: string; title: string; desc: string }[];
   relatedLinks?: { href: string; label: string }[];
+  ogImage: { src: string; alt: string };
   portfolioCategory?: "embroidery-digitizing" | "vector-conversion" | "custom-patches";
   faqItems?: FAQItem[];
 };
@@ -35,6 +37,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Hand-digitized embroidery files for serious production",
     subtitle:
       "Hawk Merchandising converts your artwork into stitch-ready files tuned for your garment, fabric, and machine—not generic auto-fill presets.",
+    ogImage: {
+      src: portfolioSrc("BEFORE AND AFTER DIGITIZING.png"),
+      alt: "Before and after embroidery digitizing sample from Hawk Merchandising",
+    },
     overview:
       "From left-chest logos to full jacket backs and cap programs, our digitizers engineer underlay, density, and sequencing for the fabric and frame you actually run. Upload your artwork with garment and placement notes—we deliver production files with revision support until your sample is approved.",
     features: [
@@ -81,16 +87,20 @@ export const servicePages: Record<string, ServicePageContent> = {
     eyebrow: "Vector Art Conversion",
     title: "Vector art that survives printing—not just zooming in",
     subtitle:
-      "Editable vector artwork for screen print, heat transfer, signage, and production digitizing workflows.",
+      "Editable vector artwork for DTF and sublimation, heat transfer, signage, and production digitizing workflows.",
+    ogImage: {
+      src: portfolioSrc("Vector conversion 01.jpg"),
+      alt: "Vector art conversion sample from Hawk Merchandising",
+    },
     overview:
-      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—screen print separations, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
+      "We convert raster logos, scans, and low-resolution artwork into clean, editable vector files with correct color breaks for print, vinyl, and embroidery prep. Share your intended output—DTF and sublimation artwork, heat transfer, or digitizing handoff—and we deliver formats your vendors can run immediately.",
     features: [
       {
         title: "Raster to vector",
         body: "Low-resolution logos and scans rebuilt as crisp line art—ready for enlargement, vinyl, or print.",
       },
       {
-        title: "Screen print separations",
+        title: "DTF and sublimation artwork",
         body: "Spot channels, traps, and underbases coordinated with how your decorator actually produces.",
       },
       {
@@ -131,6 +141,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Patch programs engineered for manufacturing",
     subtitle:
       "Patch artwork with borders, sew allowances, and color systems aligned to how your factory actually builds.",
+    ogImage: {
+      src: portfolioSrc("Custom patch 01.PNG"),
+      alt: "Custom embroidered patch sample from Hawk Merchandising",
+    },
     overview: `Whether you need embroidered, woven, PVC, or chenille patches, we prepare artwork with borders, color breaks, and sizing your factory expects. Include target dimensions, border style, and backing type in your brief—we engineer files for accurate vendor quotes and clean samples. Production is ${patchesTurnaround}.`,
     features: [
       {
@@ -183,6 +197,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Woven patches for detail embroidery cannot match",
     subtitle:
       "When thread count limits your logo, woven construction delivers crisp type, gradients, and small elements at patch scale.",
+    ogImage: {
+      src: portfolioSrc("woven patch program.png"),
+      alt: "Woven patch program sample from Hawk Merchandising",
+    },
     overview: `Woven patches excel where embroidery thread cannot hold fine type, gradients, or micro detail. We prepare weave-ready artwork with realistic color breaks and sizing for uniform programs, team marks, and retail patches—delivered with revision support until your vendor sample is approved. Production is ${patchesTurnaround}.`,
     features: [
       {
@@ -230,6 +248,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "PVC patches with production-aware artwork",
     subtitle:
       "Molded patch programs need precise color breaks and layer separation—we deliver vector masters your PVC factory can run.",
+    ogImage: {
+      src: portfolioSrc("custom PVC patch.png"),
+      alt: "Custom PVC patch sample from Hawk Merchandising",
+    },
     overview: `PVC and rubber-style patches require precise layer separation and color breaks for molding. We deliver vector masters with dimension, outline weights, and Pantone-matched colors within your vendor's production limits—plus revision support until sampling succeeds. Production is ${patchesTurnaround}.`,
     features: [
       {
@@ -278,7 +300,11 @@ export const servicePages: Record<string, ServicePageContent> = {
     eyebrow: "Logo Redraw",
     title: "Logo redraws that unify every vendor",
     subtitle:
-      "One accurate master logo for embroidery, screen print, patches, and promo—so your brand looks the same everywhere.",
+      "One accurate master logo for embroidery, DTF and sublimation, patches, and promo—so your brand looks the same everywhere.",
+    ogImage: {
+      src: portfolioSrc("Construction Company Logo.png"),
+      alt: "Logo redraw sample from Hawk Merchandising",
+    },
     overview:
       "Blurry scans, outdated marks, and low-resolution logos become one crisp master for every vendor you work with. Our redraws consider stitch behavior, patch borders, and print separations—not just how the mark looks at 400% zoom.",
     features: [
@@ -322,6 +348,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Cap digitizing built for curved panels",
     subtitle:
       "Structured, unstructured, and trucker caps digitized with registration and density tuned for real cap frames—not flat-garment presets.",
+    ogImage: {
+      src: portfolioSrc("Structured Cap Logo.png"),
+      alt: "Structured cap embroidery digitizing sample from Hawk Merchandising",
+    },
     overview:
       "Cap embroidery demands curved-panel sequencing, center-out underlay, and density control that flat-garment digitizing cannot replicate. We engineer every cap file for your frame type, panel count, and backing—delivering production-ready DST, PES, and major machine formats with revision support until your sample runs clean.",
     features: [
@@ -376,6 +406,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "3D puff embroidery with clean raised dimension",
     subtitle:
       "Foam-backed embroidery engineered for caps, polos, and jackets—raised elements with satin borders that hold shape on the machine.",
+    ogImage: {
+      src: portfolioSrc("3D puff cap embroidery.png"),
+      alt: "3D puff cap embroidery digitizing sample from Hawk Merchandising",
+    },
     overview:
       "3D puff embroidery requires precise foam offsets, satin border sequencing, and density control that standard flat digitizing cannot achieve. We engineer puff files with correct underlay, foam stop points, and trim sequences for your garment and foam thickness—delivering production-ready files with revision support until your sample stitches correctly.",
     features: [
@@ -430,6 +464,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Jacket back embroidery for large-format production",
     subtitle:
       "Full back marks, team names, and large-fill logos digitized with stable underlay and sequencing for outerwear fabrics.",
+    ogImage: {
+      src: portfolioSrc("Team Jacket Full Back.png"),
+      alt: "Team jacket back embroidery digitizing sample from Hawk Merchandising",
+    },
     overview:
       "Jacket back embroidery demands large-fill sequencing, stable underlay, and density control on nylon, polyester, and soft-shell fabrics. We engineer every back mark for your frame size, backing, and machine type—delivering production files with stitch counts optimized for multi-head runs and revision support until your sample is approved.",
     features: [
@@ -484,6 +522,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Chenille patches for varsity and team programs",
     subtitle:
       "Fuzzy chenille texture with chain-stitch borders—artwork engineered for varsity letters, team marks, and school spirit programs.",
+    ogImage: {
+      src: portfolioSrc("Varsity Chenille Letter.png"),
+      alt: "Varsity chenille letter patch sample from Hawk Merchandising",
+    },
     overview: `Chenille patches deliver the classic varsity look with fuzzy texture and bold letterforms. We prepare chenille-ready artwork with correct letter sizing, chain-stitch border specs, and color breaks your factory expects—delivered with revision support until your vendor sample is approved. Production is ${patchesTurnaround}.`,
     features: [
       {
@@ -536,6 +578,10 @@ export const servicePages: Record<string, ServicePageContent> = {
     title: "Leather patches for premium brand programs",
     subtitle:
       "Deboss, emboss, and heat-seal leather patch artwork engineered for bags, hats, denim, and outerwear branding.",
+    ogImage: {
+      src: portfolioSrc("Premium Leather Deboss Patch.png"),
+      alt: "Premium leather deboss patch sample from Hawk Merchandising",
+    },
     overview: `Leather patches add premium tactile branding to bags, hats, denim, and outerwear. We prepare deboss and emboss-ready artwork with correct line weights, clear space, and sizing your leather vendor expects—delivered with revision support until your sample is approved. Production is ${patchesTurnaround}.`,
     features: [
       {

@@ -8,7 +8,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildPageMetadata({
   title: "Pricing — Embroidery Digitizing Services",
-  description: `Simple, transparent pricing for embroidery digitizing services with ${turnaround}, and professional vector art conversion. Starting at $5 with machine sew-out services available.`,
+  description: `Simple, transparent pricing for embroidery digitizing services with ${turnaround}, and professional vector art conversion. Embroidery from $4 flat rate with sew-out available on request.`,
   path: "/pricing",
 });
 

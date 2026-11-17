@@ -1,9 +1,12 @@
 import { turnaround } from "@/lib/content/turnaround";
 
+export const siteAudience =
+  "embroidery businesses, apparel brands, and apparel decorators" as const;
+
 export const site = {
   name: "Hawk Merchandising",
   tagline: "Digitizing & vector art for global brands",
-  description: `Premium embroidery digitizing and vector art for embroidery businesses, apparel brands, and print shops. ${turnaround}, consistent quality, worldwide delivery.`,
+  description: `Premium embroidery digitizing and vector art for ${siteAudience}. ${turnaround}, consistent quality, worldwide delivery.`,
   url: "https://www.hawkmerchandising.com",
   /** Default Open Graph / Twitter Card image (must exist in public/) */
   ogImage: {
@@ -34,6 +37,20 @@ export const site = {
   whatsappE164: "19292991866",
   addressUs: "Torry Pine Lane, Durham, NC 27713, USA",
   addressUk: "22 Wenlock Rd, London N1 7GU, UK",
+  /** Structured PostalAddress parts for JSON-LD (must match display strings above). */
+  addressUsParts: {
+    streetAddress: "Torry Pine Lane",
+    addressLocality: "Durham",
+    addressRegion: "NC",
+    postalCode: "27713",
+    addressCountry: "US",
+  },
+  addressUkParts: {
+    streetAddress: "22 Wenlock Rd",
+    addressLocality: "London",
+    postalCode: "N1 7GU",
+    addressCountry: "GB",
+  },
   /** Full support-hours claim (contact, FAQ, hours blocks). */
   supportHours: "Support available 24/7, 7 days a week",
   /** Short badge form when space is tight (hero trust badges). */
@@ -49,6 +66,25 @@ export const site = {
     url: "https://admin.hawkmerchandising.com/auth/register",
     label: "Signup",
   },
+  /** Public social profiles (footer + Organization JSON-LD sameAs). No YouTube yet. */
+  social: [
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/hawkmerchandising",
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/hawkmerchandising",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/hawk_merchandisingllc/",
+    },
+    {
+      name: "Pinterest",
+      href: "https://www.pinterest.com/hawkoffice/",
+    },
+  ],
 } as const;
 
 export const services = [

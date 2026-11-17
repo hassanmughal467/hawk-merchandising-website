@@ -1,3 +1,5 @@
+import { patchesTurnaround, turnaround } from "@/lib/content/turnaround";
+
 export type PricingPlan = {
   id: string;
   name: string;
@@ -12,7 +14,7 @@ export type PricingPlan = {
 export const pricingSectionTitle = "Simple & Transparent Pricing" as const;
 
 export const pricingSectionSubtitle =
-  "Professional digitizing and vector art services with fast turnaround and reliable quality." as const;
+  `Professional digitizing and vector art services with ${turnaround} and reliable quality.` as const;
 
 export const pricingPlans: readonly PricingPlan[] = [
   {
@@ -83,6 +85,7 @@ export const pricingPlans: readonly PricingPlan[] = [
     featured: true,
     features: [
       "Patches",
+      patchesTurnaround,
       "Bulk Orders",
       "Promotional Products",
       "Branding Projects",

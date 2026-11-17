@@ -1,4 +1,5 @@
 import { portfolioSrc } from "@/lib/content/portfolio-assets";
+import { turnaround } from "@/lib/content/turnaround";
 
 export type VisualType =
   | "logo-original"
@@ -96,7 +97,7 @@ export type ResultBadge =
   | "Production Ready"
   | "Optimized Underlay"
   | "High Detail Accuracy"
-  | "Fast Turnaround"
+  | typeof turnaround
   | "Machine Tested";
 
 export type BeforeAfterCard = {
@@ -126,7 +127,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     service: "Cap Digitizing",
     before: { label: "Original Logo", imageSrc: portfolioSrc("Sports Team Logo .png") },
     after: { label: "Digitized Result", imageSrc: portfolioSrc("Sports Team Logo after.png") },
-    badges: ["High Detail Accuracy", "Machine Tested", "Fast Turnaround"],
+    badges: ["High Detail Accuracy", "Machine Tested", turnaround],
   },
   {
     id: "construction-workwear",
@@ -153,7 +154,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     service: "Custom Patch Design",
     before: { label: "PNG Artwork", imageSrc: portfolioSrc("Military Style Design before.png") },
     after: { label: "Digitized Result", imageSrc: portfolioSrc("Military Style Design after.png") },
-    badges: ["Production Ready", "High Detail Accuracy", "Fast Turnaround"],
+    badges: ["Production Ready", "High Detail Accuracy", turnaround],
   },
   {
     id: "school-woven",
@@ -171,7 +172,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     service: "Logo Digitizing",
     before: { label: "Screenshot Logo", imageSrc: portfolioSrc("Restaurant Logo before.jpg") },
     after: { label: "Digitized Result", imageSrc: portfolioSrc("Restaurant Logo after.png") },
-    badges: ["Optimized Underlay", "Machine Tested", "Fast Turnaround"],
+    badges: ["Optimized Underlay", "Machine Tested", turnaround],
   },
   {
     id: "promo-cap",
@@ -180,7 +181,7 @@ export const beforeAfterShowcase: BeforeAfterCard[] = [
     service: "Cap Digitizing",
     before: { label: "Low-Resolution Logo", imageSrc: portfolioSrc("Promotional Brand Artwork before.JPG") },
     after: { label: "Digitized Result", imageSrc: portfolioSrc("Promotional Brand Artwork after.png") },
-    badges: ["Clean Stitch Path", "Production Ready", "Fast Turnaround"],
+    badges: ["Clean Stitch Path", "Production Ready", turnaround],
   },
 ];
 
@@ -188,7 +189,7 @@ export const beforeAfterTrustStats = [
   { label: "Files Delivered", display: "50,000+" },
   { label: "Client Retention", display: "95%" },
   { label: "Countries Served", display: "25+" },
-  { label: "Turnaround", display: "3–4 Hours" },
+  { label: "Turnaround", display: turnaround },
 ] as const;
 
 /** Homepage portfolio preview — CMS-ready structure */
@@ -318,9 +319,8 @@ export const whyChooseHawkCards = [
   {
     id: "fast-turnaround",
     icon: "lightning" as const,
-    title: "Fast Turnaround",
-    description:
-      "Fastest turnaround in 3–4 hours, standard delivery within 12 hours, and rush orders available in 2 hours.",
+    title: "Turnaround",
+    description: `${turnaround} on confirmed artwork and brief—every file with a running sheet and stitch preview.`,
   },
   {
     id: "patch-manufacturing",

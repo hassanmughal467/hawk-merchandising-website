@@ -7,14 +7,12 @@ import { fadeUp, stagger } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
 type TurnaroundSectionProps = {
-  standard?: string;
-  rush?: string;
+  claim?: string;
   note?: string;
 };
 
 export function TurnaroundSection({
-  standard = defaultTurnaround.standard,
-  rush = defaultTurnaround.rush,
+  claim = defaultTurnaround.claim,
   note = defaultTurnaround.note,
 }: TurnaroundSectionProps) {
   const reduce = useReducedMotion();
@@ -34,7 +32,7 @@ export function TurnaroundSection({
               variants={fadeUp}
               className="font-[family-name:var(--font-display)] text-2xl font-semibold tracking-tight sm:text-3xl"
             >
-              Turnaround times
+              Turnaround
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-4 text-sm leading-relaxed text-zinc-400">
               {note}
@@ -51,22 +49,15 @@ export function TurnaroundSection({
             </motion.div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          <div className="lg:col-span-7">
             <motion.div
               variants={fadeUp}
               className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
             >
               <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Standard</p>
               <p className="mt-2 font-[family-name:var(--font-display)] text-3xl font-semibold text-accent">
-                {standard}
+                {claim}
               </p>
-            </motion.div>
-            <motion.div
-              variants={fadeUp}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-            >
-              <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Rush</p>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-zinc-300">{rush}</p>
             </motion.div>
           </div>
         </motion.div>

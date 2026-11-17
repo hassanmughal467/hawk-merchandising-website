@@ -2,6 +2,7 @@
 
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
+import { turnaround } from "@/lib/content/turnaround";
 import { fadeUp, stagger } from "@/lib/motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 
@@ -15,8 +16,8 @@ const bullets = [
     body: "We refine until it runs clean—within the scope of the approved artwork.",
   },
   {
-    title: "Fast delivery",
-    body: "Most jobs move in 12–24 hours with clear updates from our team.",
+    title: "Turnaround",
+    body: `${turnaround} with clear updates from our team.`,
   },
 ];
 

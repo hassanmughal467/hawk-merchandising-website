@@ -26,16 +26,12 @@ export function FastTurnaroundSection() {
             >
               How we work
             </motion.h2>
-            <motion.div variants={fadeUp} className="mt-8 space-y-4">
+            <motion.div variants={fadeUp} className="mt-8">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Standard</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Turnaround</p>
                 <p className="mt-2 font-[family-name:var(--font-display)] text-2xl font-semibold text-accent">
-                  {fastTurnaround.standard}
+                  {fastTurnaround.claim}
                 </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-                <p className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Rush</p>
-                <p className="mt-2 text-sm font-medium text-zinc-300">{fastTurnaround.rush}</p>
               </div>
             </motion.div>
             <motion.div variants={fadeUp} className="mt-8">

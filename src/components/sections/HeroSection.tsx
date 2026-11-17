@@ -4,11 +4,12 @@ import { ConversionLink } from "@/components/analytics/ConversionLink";
 import { motion, useReducedMotion } from "framer-motion";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
 import { HeroImageSlider } from "@/components/ui/HeroImageSlider";
+import { turnaround } from "@/lib/content/turnaround";
 import { fadeUp, stagger } from "@/lib/motion";
 
 const trustBadges = [
   "24/7 Support",
-  "Fast Turnaround",
+  turnaround,
   "Global Clients",
   "Quality Guaranteed",
 ] as const;

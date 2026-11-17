@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { getAllFAQItems } from "@/lib/content/faq";
+import { turnaround } from "@/lib/content/turnaround";
 import { buildFAQSchema } from "@/lib/seo/faq-schema";
 import { buildBreadcrumbSchema } from "@/lib/seo/breadcrumb-schema";
 import { buildLocalBusinessSchema } from "@/lib/seo/organization-schema";
@@ -14,7 +15,7 @@ import { site } from "@/lib/site";
 export const metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Contact Hawk Merchandising for quotes, rush jobs, and production questions—email, phone, or WhatsApp.",
+    "Contact Hawk Merchandising for quotes and production questions—email, phone, or WhatsApp.",
   path: "/contact",
 });
 
@@ -122,10 +123,10 @@ export default function ContactPage() {
             </div>
 
             <div className="mt-6 rounded-2xl border border-accent/30 bg-accent/10 p-6">
-              <p className="text-xs font-semibold uppercase tracking-wider text-accent">Rush service</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent">Turnaround</p>
               <p className="mt-3 text-sm leading-relaxed text-zinc-300">
-                Same-day and 12-hour rush options available on request. Mention your deadline when you upload or
-                message us on WhatsApp—we confirm feasibility before starting.
+                {turnaround}. Mention your deadline when you upload or message us on WhatsApp—we confirm the
+                delivery window before starting.
               </p>
             </div>
 

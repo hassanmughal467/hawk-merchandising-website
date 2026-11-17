@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PageHero } from "@/components/marketing/PageHero";
+import { turnaround } from "@/lib/content/turnaround";
 import { site } from "@/lib/site";
 
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -19,7 +20,7 @@ const highlights = [
 
 const milestones = [
   "5,000+ production files delivered",
-  "12–24 hour standard turnaround window",
+  turnaround,
   "Global client base across apparel and promo",
   "Dedicated digitizing & vector specialists",
 ];

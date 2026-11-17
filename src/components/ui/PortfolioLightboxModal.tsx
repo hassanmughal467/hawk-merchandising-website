@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ConversionLink } from "@/components/analytics/ConversionLink";
 import type { PortfolioPreviewItem } from "@/lib/content/homepage";
 import { CONVERSION_EVENTS } from "@/lib/analytics-events";
+import { turnaround } from "@/lib/content/turnaround";
 import { site } from "@/lib/site";
 
 type PortfolioLightboxModalProps = {
@@ -169,7 +170,7 @@ export function PortfolioLightboxModal({ item, onClose }: PortfolioLightboxModal
               </div>
 
               <p className="mt-4 text-xs text-zinc-600">
-                Free quote · 3–4 hour standard turnaround · Rush available
+                Free quote · {turnaround}
               </p>
             </div>
           </motion.div>

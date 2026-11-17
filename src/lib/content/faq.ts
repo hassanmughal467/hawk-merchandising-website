@@ -1,3 +1,5 @@
+import { patchesTurnaround, turnaround } from "@/lib/content/turnaround";
+
 export type FAQItem = {
   question: string;
   answer: string;
@@ -71,6 +73,10 @@ export const faqTopics: FAQTopic[] = [
         answer:
           "Yes. We deliver production-aware patch artwork with revision support until your sample is approved by your patch vendor.",
       },
+      {
+        question: "How long does custom patch production take?",
+        answer: `Custom patch production is ${patchesTurnaround}.`,
+      },
     ],
   },
   {
@@ -99,19 +105,28 @@ export const faqTopics: FAQTopic[] = [
     title: "Turnaround Times",
     items: [
       {
-        question: "What is your standard turnaround?",
-        answer:
-          "Our fastest turnaround is 3–4 hours on qualifying jobs. Standard delivery is within 12 hours of confirmed artwork and brief. Complex jobs may require a quoted timeline upfront.",
-      },
-      {
-        question: "Do you offer rush service?",
-        answer:
-          "Yes. Rush embroidery digitizing is available in 2 hours on request. Mention your deadline when uploading so we can confirm feasibility immediately.",
+        question: "What is your standard digitizing turnaround?",
+        answer: `Our standard digitizing and artwork file delivery is ${turnaround} on confirmed artwork and brief. Complex jobs may require a quoted timeline upfront.`,
       },
       {
         question: "What affects delivery time?",
         answer:
           "Artwork quality, revision rounds, job complexity, and queue volume affect timing. Clear briefs with garment and placement details speed delivery.",
+      },
+    ],
+  },
+  {
+    id: "patches-turnaround",
+    title: "Patch Production Timing",
+    items: [
+      {
+        question: "How long does custom patch production take?",
+        answer: `Custom patch production is ${patchesTurnaround}.`,
+      },
+      {
+        question: "When does the patch production window start?",
+        answer:
+          "The production window starts after design approval. Share your patch type, size, and border specs in the brief so sampling and production stay on schedule.",
       },
     ],
   },
@@ -133,27 +148,6 @@ export const faqTopics: FAQTopic[] = [
         question: "Can you work from a photo of an existing embroidery?",
         answer:
           "Yes, though a vector source or high-resolution flat artwork produces the best result. We will advise if redraw is recommended before digitizing.",
-      },
-    ],
-  },
-  {
-    id: "rush-orders",
-    title: "Rush Orders",
-    items: [
-      {
-        question: "How do I request a rush job?",
-        answer:
-          "Select rush in your upload brief or message us on WhatsApp with your deadline, garment type, and artwork attached. We confirm availability before starting.",
-      },
-      {
-        question: "Is rush available on weekends?",
-        answer:
-          "Rush availability depends on queue and complexity. Contact us with your exact deadline—we respond quickly with yes/no and a delivery window.",
-      },
-      {
-        question: "Does rush cost extra?",
-        answer:
-          "Rush jobs may carry a priority fee based on complexity and slot availability. We quote the rush rate before work begins—no surprises.",
       },
     ],
   },

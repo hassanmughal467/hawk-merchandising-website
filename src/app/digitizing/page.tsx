@@ -3,13 +3,13 @@ import { CTAButtons } from "@/components/marketing/CTAButtons";
 import { PageHero } from "@/components/marketing/PageHero";
 import { MachineSewOutServiceBlock } from "@/components/sections/MachineSewOutServiceBlock";
 import { TrustStrip } from "@/components/sections/TrustStrip";
+import { turnaround } from "@/lib/content/turnaround";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { site } from "@/lib/site";
 
 export const metadata = buildPageMetadata({
   title: "Embroidery Digitizing",
-  description:
-    "Embroidery digitizing services with fast turnaround digitizing in 3–4 hours. Production ready embroidery files and machine sew-out services for logos, caps, and jacket backs.",
+  description: `Embroidery digitizing services with ${turnaround}. Production ready embroidery files and machine sew-out services for logos, caps, and jacket backs.`,
   path: "/digitizing",
   noIndex: true,
 });

@@ -3,9 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/motion";
 
+/** Qualifying claims only — no invented delivery counts until the owner confirms figures. */
 const stats = [
-  { label: "Designs delivered", value: "5000+" },
-  { label: "Turnaround", value: "24 hours" },
   { label: "Reach", value: "Global clients" },
 ];
 

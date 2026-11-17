@@ -42,12 +42,18 @@ export const trustBarItems = [
   { label: "Global Delivery" },
 ] as const;
 
-export const siteStatistics = [
-  { label: "Production files delivered", value: 50000, suffix: "+" },
-  { label: "Client retention rate", value: 95, suffix: "%" },
-  { label: "Countries served", value: 25, suffix: "+" },
-  { label: "Average turnaround", value: 0, suffix: "", displayText: "12–24 hrs" },
-] as const;
+/**
+ * Homepage / landing stats strip.
+ * Keep empty until the owner supplies confirmed figures.
+ * Do not invent files-delivered, retention, or countries-served numbers.
+ * When files-delivered is added, use the same value on `/` and `/awards`.
+ */
+export const siteStatistics: ReadonlyArray<{
+  label: string;
+  value: number;
+  suffix: string;
+  displayText?: string;
+}> = [];
 
 export const industriesServed = [
   {
